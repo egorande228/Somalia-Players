@@ -1,0 +1,36 @@
+{
+  "sports": [
+    {
+      "name": "Soccer",
+      "slug": "soccer",
+      "image": "https://mediumrare.imgix.net/soccer-en.png?w=180&h=236&fit=min&auto=format"
+    },
+    {
+      "name": "Tennis",
+      "slug": "tennis",
+      "image": "https://mediumrare.imgix.net/tennis-en.png?w=180&h=236&fit=min&auto=format"
+    },
+    {
+      "name": "Cricket",
+      "slug": "cricket",
+      "image": "https://mediumrare.imgix.net/cricket-en.png?w=180&h=236&fit=min&auto=format"
+    }
+  ],
+  "casino": [
+    {
+      "name": "Sword Drop",
+      "slug": "giga-sword-drop",
+      "image": "https://mediumrare.imgix.net/03a0b7b53f3088e25542cbb76b5c6ca61469b47ae9cce14f881b90dd71960eff?w=180&h=236&fit=min&auto=format"
+    },
+    {
+      "name": "Orbs of Magic",
+      "slug": "titan-gaming-orbs-of-magic",
+      "image": "https://mediumrare.imgix.net/1623f60d029d272352f691f1970b36dce9f6febd729f57be2ab0e61732328f03?w=180&h=236&fit=min&auto=format"
+    },
+    {
+      "name": "Gift Bonanza",
+      "slug": "gggaming-gift-bonanza",
+      "image": "https://mediumrare.imgix.net/0a4b122facc7a796453a4fa04f76f509290af52ea063e84de315b8bed42b3d1f?w=180&h=236&fit=min&auto=format"
+    }
+  ]
+}
