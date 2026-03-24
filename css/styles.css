@@ -35,6 +35,14 @@ body {
     linear-gradient(180deg, #0a1a2b 0%, #081523 52%, #07111c 100%);
 }
 
+body.map-modal-open .page-shell {
+  visibility: hidden;
+}
+
+body.map-modal-open .map-modal {
+  visibility: visible;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -536,8 +544,6 @@ a {
   background:
     radial-gradient(circle at 30% 30%, rgba(0, 166, 255, 0.16), transparent 20%),
     linear-gradient(180deg, rgba(7, 21, 35, 0.92), rgba(8, 20, 33, 0.98));
-  touch-action: none;
-  cursor: grab;
 }
 
 .map-viewport.is-mini {
@@ -548,56 +554,94 @@ a {
   min-height: 72vh;
 }
 
-.map-viewport.is-dragging {
-  cursor: grabbing;
+.leaflet-map {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
 }
 
-.map-panzoom {
+.leaflet-map.is-modal-map {
+  min-height: 72vh;
+}
+
+.leaflet-container {
+  background: linear-gradient(180deg, rgba(8, 24, 39, 0.94), rgba(8, 20, 33, 0.98));
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.leaflet-control-attribution,
+.leaflet-control-zoom a {
+  background: rgba(8, 24, 39, 0.9) !important;
+  color: #e5f5ff !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.leaflet-control-attribution {
+  padding: 0 3px 1px !important;
+  font-size: 0.48rem !important;
+  line-height: 1.2 !important;
+  opacity: 0.1;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.leaflet-control-attribution a {
+  color: rgba(213, 235, 255, 0.34) !important;
+  text-decoration: none !important;
+}
+
+.leaflet-control-attribution:hover {
+  opacity: 0.45;
+}
+
+.leaflet-control-attribution:hover a {
+  color: rgba(213, 235, 255, 0.62) !important;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: rgba(11, 28, 43, 0.98);
+  color: var(--text);
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px;
+  color: var(--muted);
+}
+
+.map-country-badge {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translate(0, 0) scale(1);
-  transform-origin: center;
-  will-change: transform;
-}
-
-.somalia-map {
-  width: min(100%, 420px);
-  height: auto;
-  overflow: visible;
-}
-
-.somalia-shape {
-  fill: url(#somaliaFill);
-  stroke: rgba(255, 255, 255, 0.42);
-  stroke-width: 0.045;
-  filter: drop-shadow(0 0 26px rgba(0, 166, 255, 0.24));
-}
-
-.map-pin {
-  fill: #ffffff;
-  stroke: #13d97a;
-  stroke-width: 4;
-}
-
-.map-label {
-  fill: #e5f5ff;
-  font-size: 14px;
-  font-weight: 700;
+  top: 14px;
+  left: 14px;
+  z-index: 500;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(7, 21, 35, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d9f1ff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .map-modal {
   position: fixed;
   inset: 0;
   z-index: 50;
+  background: rgba(3, 10, 18, 0.98);
+}
+
+.map-modal[hidden] {
+  display: none;
 }
 
 .map-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(3, 10, 18, 0.78);
+  background: rgba(3, 10, 18, 0.94);
   backdrop-filter: blur(10px);
 }
 
@@ -605,8 +649,9 @@ a {
   position: relative;
   z-index: 1;
   width: min(1100px, calc(100vw - 28px));
-  margin: 24px auto;
+  margin: 18px auto;
   padding: 24px;
+  isolation: isolate;
 }
 
 .workflow-step {

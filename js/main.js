@@ -3,6 +3,9 @@ const siteNav = document.getElementById("siteNav");
 const page = document.body.dataset.page;
 const storageKey = "melbet_somalia_lang";
 const mapModal = document.getElementById("mapModal");
+const mapSection = document.getElementById("agentCashMap");
+const modalMapNode = document.getElementById("somaliaMapModal");
+const miniMapNode = document.getElementById("somaliaMapMini");
 
 if (menuBtn && siteNav) {
   menuBtn.addEventListener("click", () => {
@@ -160,66 +163,137 @@ function setupMapModal() {
   const openers = [document.getElementById("openMapModal"), document.getElementById("openMapModalInline")].filter(Boolean);
   const closers = [document.getElementById("closeMapModal"), document.getElementById("closeMapModalBtn")].filter(Boolean);
 
+  const mountModalMap = () => {
+    if (!modalMapNode) return;
+    if (window.__somaliaModalMap) {
+      window.__somaliaModalMap.remove();
+      window.__somaliaModalMap = null;
+    }
+    modalMapNode.innerHTML = "";
+    window.__somaliaModalMap = createSomaliaMap("somaliaMapModal", 6);
+  };
+
+  const unmountModalMap = () => {
+    if (window.__somaliaModalMap) {
+      window.__somaliaModalMap.remove();
+      window.__somaliaModalMap = null;
+    }
+    if (modalMapNode) {
+      modalMapNode.innerHTML = "";
+    }
+  };
+
+  const hideMiniMap = () => {
+    if (!miniMapNode) return;
+    miniMapNode.style.visibility = "hidden";
+    miniMapNode.style.opacity = "0";
+    miniMapNode.style.pointerEvents = "none";
+    const viewport = miniMapNode.closest(".map-viewport");
+    if (viewport) {
+      viewport.style.visibility = "hidden";
+      viewport.style.opacity = "0";
+    }
+    const card = miniMapNode.closest(".map-card");
+    if (card) {
+      card.style.visibility = "hidden";
+    }
+  };
+
+  const showMiniMap = () => {
+    if (!miniMapNode) return;
+    miniMapNode.style.visibility = "";
+    miniMapNode.style.opacity = "";
+    miniMapNode.style.pointerEvents = "";
+    const viewport = miniMapNode.closest(".map-viewport");
+    if (viewport) {
+      viewport.style.visibility = "";
+      viewport.style.opacity = "";
+    }
+    const card = miniMapNode.closest(".map-card");
+    if (card) {
+      card.style.visibility = "";
+    }
+  };
+
   openers.forEach((button) => {
     button.addEventListener("click", () => {
       mapModal.hidden = false;
+      mapModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("map-modal-open");
       document.body.style.overflow = "hidden";
+      hideMiniMap();
+      setTimeout(() => {
+        mountModalMap();
+        if (window.__somaliaModalMap) {
+          window.__somaliaModalMap.invalidateSize();
+        }
+      }, 80);
     });
   });
 
   closers.forEach((button) => {
     button.addEventListener("click", () => {
+      unmountModalMap();
       mapModal.hidden = true;
+      mapModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("map-modal-open");
       document.body.style.overflow = "";
+      showMiniMap();
     });
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !mapModal.hidden) {
+      unmountModalMap();
       mapModal.hidden = true;
+      mapModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("map-modal-open");
       document.body.style.overflow = "";
+      showMiniMap();
     }
   });
 }
 
-function setupMapPan() {
-  document.querySelectorAll("[data-map-viewport]").forEach((viewport) => {
-    const panzoom = viewport.querySelector("[data-map-panzoom]");
-    if (!panzoom) return;
+function createSomaliaMap(nodeId, zoom) {
+  const container = document.getElementById(nodeId);
+  if (!container || typeof window.L === "undefined") return null;
 
-    const state = { x: 0, y: 0, dragging: false, startX: 0, startY: 0, moved: false };
+  const somaliaBounds = [
+    [-1.85, 40.5],
+    [12.2, 51.7]
+  ];
 
-    const applyTransform = () => {
-      const scale = viewport.classList.contains("is-modal") ? 1.28 : 0.92;
-      panzoom.style.transform = `translate(${state.x}px, ${state.y}px) scale(${scale})`;
-    };
-
-    const onPointerDown = (event) => {
-      state.dragging = true;
-      state.moved = false;
-      state.startX = event.clientX - state.x;
-      state.startY = event.clientY - state.y;
-      viewport.classList.add("is-dragging");
-    };
-
-    const onPointerMove = (event) => {
-      if (!state.dragging) return;
-      state.x = event.clientX - state.startX;
-      state.y = event.clientY - state.startY;
-      state.moved = true;
-      applyTransform();
-    };
-
-    const onPointerUp = () => {
-      state.dragging = false;
-      viewport.classList.remove("is-dragging");
-    };
-
-    viewport.addEventListener("pointerdown", onPointerDown);
-    window.addEventListener("pointermove", onPointerMove);
-    window.addEventListener("pointerup", onPointerUp);
-    applyTransform();
+  const map = window.L.map(container, {
+    zoomControl: true,
+    scrollWheelZoom: true,
+    attributionControl: true
   });
+
+  window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  map.fitBounds(somaliaBounds, { padding: [18, 18] });
+  if (zoom) {
+    map.setZoom(zoom);
+  }
+
+  const badge = window.L.control({ position: "topleft" });
+  badge.onAdd = function onAdd() {
+    const div = window.L.DomUtil.create("div", "map-country-badge");
+    div.textContent = "Somalia";
+    return div;
+  };
+  badge.addTo(map);
+
+  return map;
+}
+
+function setupLeafletMaps() {
+  if (page !== "home") return;
+
+  window.__somaliaMiniMap = createSomaliaMap("somaliaMapMini", 5);
 }
 
 document.querySelectorAll(".lang-btn").forEach((button) => {
@@ -231,4 +305,4 @@ document.querySelectorAll(".lang-btn").forEach((button) => {
 markActiveNav();
 applyLanguage(getLang());
 setupMapModal();
-setupMapPan();
+setupLeafletMaps();

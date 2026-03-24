@@ -32,8 +32,6 @@ window.SITE_DATA = {
         navHome: "Home",
         navMap: "Agent Cash Map",
         navPartnership: "Partnership",
-        login: "Login",
-        register: "Register",
         close: "Close"
       },
       home: {
@@ -85,8 +83,6 @@ window.SITE_DATA = {
         navHome: "Bogga hore",
         navMap: "Agent Cash Map",
         navPartnership: "Partnership",
-        login: "Gal",
-        register: "Isdiiwaangeli",
         close: "Xir"
       },
       home: {
