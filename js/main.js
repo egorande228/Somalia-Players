@@ -99,40 +99,78 @@ function renderFaqs(lang, targetId, items) {
     .join("");
 }
 
-function renderPrograms(lang) {
-  const root = document.getElementById("programGrid");
-  if (!root) return;
+function renderPartnershipShowcase(lang) {
+  const data = window.SITE_DATA.partnership;
+  const heroRoot = document.getElementById("partnershipHeroCards");
+  const sharedRoot = document.getElementById("sharedPillarsGrid");
+  const agentRoot = document.getElementById("agentDifferenceGrid");
+  const partnerRoot = document.getElementById("partnerDifferenceGrid");
+  const agentDetailRoot = document.getElementById("agentDetailGrid");
+  const partnerDetailRoot = document.getElementById("partnerDetailGrid");
 
-  root.innerHTML = window.SITE_DATA.partnership.programs
-    .map((item) => {
-      const points = item.points[lang].map((point) => `<li>${point}</li>`).join("");
-      return `
-        <article class="program-card">
-          <span class="program-label">${item.label[lang]}</span>
-          <h3>${item.title[lang]}</h3>
-          <p>${item.copy[lang]}</p>
-          <ul>${points}</ul>
-        </article>
-      `;
-    })
-    .join("");
-}
+  if (heroRoot) {
+    heroRoot.innerHTML = data.heroCards
+      .map((item) => {
+        const stats = item.stats
+          .map(
+            (stat) => `
+              <article class="partner-mini-card">
+                <h3>${stat.title[lang]}</h3>
+                <p>${stat.copy[lang]}</p>
+              </article>
+            `
+          )
+          .join("");
 
-function renderWorkflow(lang) {
-  const root = document.getElementById("workflowGrid");
-  if (!root) return;
+        return `
+          <article class="partner-card partner-card-${item.tone}">
+            <div class="partner-card-shell">
+              <div class="partner-card-badge">${item.label[lang]}</div>
+              <div class="partner-card-glow"></div>
+              <div class="partner-card-main">
+                <h2>${item.title[lang]}</h2>
+                <p>${item.copy[lang]}</p>
+                <a class="partner-cta" href="#">${item.cta[lang]}</a>
+              </div>
+              <div class="partner-mini-grid">${stats}</div>
+            </div>
+          </article>
+        `;
+      })
+      .join("");
+  }
 
-  root.innerHTML = window.SITE_DATA.partnership.workflow
-    .map((item, index) => {
-      return `
-        <article class="workflow-card">
-          <span class="workflow-step">${String(index + 1).padStart(2, "0")}</span>
-          <h3>${item.title[lang]}</h3>
-          <p>${item.copy[lang]}</p>
-        </article>
-      `;
-    })
-    .join("");
+  if (sharedRoot) {
+    sharedRoot.innerHTML = data.sharedCards
+      .map(
+        (item) => `
+          <article class="partner-pillar-card">
+            <h3>${item.title[lang]}</h3>
+            <p>${item.copy[lang]}</p>
+          </article>
+        `
+      )
+      .join("");
+  }
+
+  const renderDifferenceCards = (root, items) => {
+    if (!root) return;
+    root.innerHTML = items
+      .map(
+        (item) => `
+          <article class="difference-card">
+            <h3>${item.title[lang]}</h3>
+            <p>${item.copy[lang]}</p>
+          </article>
+        `
+      )
+      .join("");
+  };
+
+  renderDifferenceCards(agentRoot, data.differences.agent);
+  renderDifferenceCards(partnerRoot, data.differences.partner);
+  renderDifferenceCards(agentDetailRoot, data.details.agent);
+  renderDifferenceCards(partnerDetailRoot, data.details.partner);
 }
 
 function renderPageData(lang) {
@@ -143,8 +181,7 @@ function renderPageData(lang) {
   }
 
   if (page === "partnership") {
-    renderPrograms(lang);
-    renderWorkflow(lang);
+    renderPartnershipShowcase(lang);
     renderFaqs(lang, "partnershipFaqList", window.SITE_DATA.partnership.faqs);
   }
 }
