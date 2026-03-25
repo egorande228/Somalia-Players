@@ -32,95 +32,48 @@
             <button class="lang-btn" type="button" data-lang="en">EN</button>
             <button class="lang-btn" type="button" data-lang="so">SO</button>
           </div>
+          <a class="header-btn ghost" href="#" data-i18n="common.login">Login</a>
+          <a class="header-btn" href="#" data-i18n="common.register">Register</a>
         </div>
       </header>
 
-      <main class="partnership-page">
-        <section class="partner-split-section">
-          <div class="partner-divider" aria-hidden="true">
-            <span class="divider-line"></span>
-            <span class="divider-node"></span>
-            <span class="divider-line"></span>
+      <main>
+        <section class="partnership-hero">
+          <div class="hero-copy">
+            <p class="eyebrow" data-i18n="partnership.kicker">Partnership page</p>
+            <h1 data-i18n="partnership.title">Two growth directions: Agent program and Affiliate program.</h1>
+            <p class="hero-text" data-i18n="partnership.copy">
+              This page is structured to explain both partnership models clearly and can be extended with forms, links, or manager contacts later.
+            </p>
           </div>
-          <div class="partner-split-grid" id="partnershipHeroCards"></div>
-        </section>
-
-        <section class="partner-frame-section">
-          <div class="partner-frame-shell">
-            <div class="partner-badge" data-i18n="partnership.sharedBadge">Shared foundation</div>
-            <div class="partner-frame-glow"></div>
-            <div class="partner-frame-head">
-              <h2 data-i18n="partnership.sharedTitle">What both paths share</h2>
-              <p data-i18n="partnership.sharedCopy">
-                Whether someone joins as an agent or builds as an affiliate, both paths are built on the same core operating model: trusted structure, practical support, and room to grow steadily over time.
-              </p>
-            </div>
-            <div class="partner-pillars-grid" id="sharedPillarsGrid"></div>
+          <div class="partnership-highlight">
+            <span class="highlight-label" data-i18n="partnership.highlightLabel">Built for teamwork</span>
+            <p data-i18n="partnership.highlightCopy">
+              Program blocks and trend lists are separated from layout so your teammate can update data without touching the page structure.
+            </p>
           </div>
         </section>
 
-        <section class="partner-frame-section partner-detail-section">
-          <div class="partner-frame-shell">
-            <div class="partner-badge" data-i18n="partnership.detailBadge">Program breakdown</div>
-            <div class="partner-frame-glow"></div>
-            <div class="partner-frame-head">
-              <h2 data-i18n="partnership.detailTitle">How each path works in practice</h2>
-              <p data-i18n="partnership.detailCopy">
-                One model is built around local transaction handling and direct support for players. The other is built around referral traffic, long-term player value, and recurring commission logic.
-              </p>
-            </div>
-            <div class="difference-grid">
-              <div class="difference-column">
-                <div class="difference-column-head" data-i18n="partnership.agentDetailColumn">Agent program</div>
-                <div class="difference-card-stack" id="agentDetailGrid"></div>
-              </div>
-              <div class="difference-column">
-                <div class="difference-column-head" data-i18n="partnership.partnerDetailColumn">Affiliate program</div>
-                <div class="difference-card-stack" id="partnerDetailGrid"></div>
-              </div>
+        <section class="program-grid" id="programGrid"></section>
+
+        <section class="workflow-section">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker" data-i18n="partnership.workflowKicker">Launch flow</p>
+              <h2 data-i18n="partnership.workflowTitle">How to work with this template</h2>
             </div>
           </div>
+          <div class="workflow-grid" id="workflowGrid"></div>
         </section>
 
-        <section class="partner-frame-section partner-difference-section">
-          <div class="partner-frame-shell">
-            <div class="partner-badge" data-i18n="partnership.differenceBadge">Key differences</div>
-            <div class="partner-frame-glow"></div>
-            <div class="partner-frame-head">
-              <h2 data-i18n="partnership.differenceTitle">Where the two paths differ</h2>
-              <p data-i18n="partnership.differenceCopy">
-                The foundation is shared, but the role pace and growth direction are not the same. One path is closer to direct daily execution, while the other is built more around media growth, referral reach, and wider expansion.
-              </p>
-            </div>
-            <div class="difference-grid">
-              <div class="difference-column">
-                <div class="difference-column-head" data-i18n="partnership.agentColumn">Agent path</div>
-                <div class="difference-card-stack" id="agentDifferenceGrid"></div>
-              </div>
-              <div class="difference-column">
-                <div class="difference-column-head" data-i18n="partnership.partnerColumn">Affiliate path</div>
-                <div class="difference-card-stack" id="partnerDifferenceGrid"></div>
-              </div>
+        <section class="faq-section">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker" data-i18n="partnership.questionsKicker">Common questions</p>
+              <h2 data-i18n="partnership.questionsTitle">Partnership questions</h2>
             </div>
           </div>
-        </section>
-
-        <section class="partner-frame-section partner-faq-section">
-          <div class="partner-frame-shell">
-            <div class="partner-badge" data-i18n="partnership.faqBadge">Common questions</div>
-            <div class="partner-frame-head partner-frame-head-compact">
-              <h2 data-i18n="partnership.faqTitle">Questions about the programs</h2>
-              <p data-i18n="partnership.faqCopy">
-                A quick overview of how the agent and affiliate models are usually explained to new partners before launch.
-              </p>
-            </div>
-            <div class="partner-pillars-grid partner-faq-grid" id="partnershipFaqList"></div>
-          </div>
-        </section>
-
-        <section class="partner-bottom-bar">
-          <a class="partner-bottom-link" href="./index.html" data-i18n="partnership.bottomHome">About us</a>
-          <a class="partner-bottom-link" href="./partnership.html" data-i18n="partnership.bottomPartner">Become our partner</a>
+          <div class="faq-list" id="partnershipFaqList"></div>
         </section>
       </main>
     </div>

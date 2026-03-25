@@ -3,9 +3,6 @@ const siteNav = document.getElementById("siteNav");
 const page = document.body.dataset.page;
 const storageKey = "melbet_somalia_lang";
 const mapModal = document.getElementById("mapModal");
-const mapSection = document.getElementById("agentCashMap");
-const modalMapNode = document.getElementById("somaliaMapModal");
-const miniMapNode = document.getElementById("somaliaMapMini");
 
 if (menuBtn && siteNav) {
   menuBtn.addEventListener("click", () => {
@@ -66,7 +63,7 @@ function renderTrendCards(lang, targetId, items, type) {
     .map((item) => {
       return `
         <a class="trend-card ${type}" href="${item.href}">
-          <div class="trend-card-media">
+          <div class="trend-card-media"${item.image ? ` style="background-image:url('${item.image}');background-size:contain;background-position:center;background-repeat:no-repeat"` : ""}>
             <span class="trend-card-label">${type === "sport" ? "SPORT" : "GAME"}</span>
           </div>
           <div class="trend-card-body">
@@ -99,78 +96,40 @@ function renderFaqs(lang, targetId, items) {
     .join("");
 }
 
-function renderPartnershipShowcase(lang) {
-  const data = window.SITE_DATA.partnership;
-  const heroRoot = document.getElementById("partnershipHeroCards");
-  const sharedRoot = document.getElementById("sharedPillarsGrid");
-  const agentRoot = document.getElementById("agentDifferenceGrid");
-  const partnerRoot = document.getElementById("partnerDifferenceGrid");
-  const agentDetailRoot = document.getElementById("agentDetailGrid");
-  const partnerDetailRoot = document.getElementById("partnerDetailGrid");
+function renderPrograms(lang) {
+  const root = document.getElementById("programGrid");
+  if (!root) return;
 
-  if (heroRoot) {
-    heroRoot.innerHTML = data.heroCards
-      .map((item) => {
-        const stats = item.stats
-          .map(
-            (stat) => `
-              <article class="partner-mini-card">
-                <h3>${stat.title[lang]}</h3>
-                <p>${stat.copy[lang]}</p>
-              </article>
-            `
-          )
-          .join("");
+  root.innerHTML = window.SITE_DATA.partnership.programs
+    .map((item) => {
+      const points = item.points[lang].map((point) => `<li>${point}</li>`).join("");
+      return `
+        <article class="program-card">
+          <span class="program-label">${item.label[lang]}</span>
+          <h3>${item.title[lang]}</h3>
+          <p>${item.copy[lang]}</p>
+          <ul>${points}</ul>
+        </article>
+      `;
+    })
+    .join("");
+}
 
-        return `
-          <article class="partner-card partner-card-${item.tone}">
-            <div class="partner-card-shell">
-              <div class="partner-card-badge">${item.label[lang]}</div>
-              <div class="partner-card-glow"></div>
-              <div class="partner-card-main">
-                <h2>${item.title[lang]}</h2>
-                <p>${item.copy[lang]}</p>
-                <a class="partner-cta" href="#">${item.cta[lang]}</a>
-              </div>
-              <div class="partner-mini-grid">${stats}</div>
-            </div>
-          </article>
-        `;
-      })
-      .join("");
-  }
+function renderWorkflow(lang) {
+  const root = document.getElementById("workflowGrid");
+  if (!root) return;
 
-  if (sharedRoot) {
-    sharedRoot.innerHTML = data.sharedCards
-      .map(
-        (item) => `
-          <article class="partner-pillar-card">
-            <h3>${item.title[lang]}</h3>
-            <p>${item.copy[lang]}</p>
-          </article>
-        `
-      )
-      .join("");
-  }
-
-  const renderDifferenceCards = (root, items) => {
-    if (!root) return;
-    root.innerHTML = items
-      .map(
-        (item) => `
-          <article class="difference-card">
-            <h3>${item.title[lang]}</h3>
-            <p>${item.copy[lang]}</p>
-          </article>
-        `
-      )
-      .join("");
-  };
-
-  renderDifferenceCards(agentRoot, data.differences.agent);
-  renderDifferenceCards(partnerRoot, data.differences.partner);
-  renderDifferenceCards(agentDetailRoot, data.details.agent);
-  renderDifferenceCards(partnerDetailRoot, data.details.partner);
+  root.innerHTML = window.SITE_DATA.partnership.workflow
+    .map((item, index) => {
+      return `
+        <article class="workflow-card">
+          <span class="workflow-step">${String(index + 1).padStart(2, "0")}</span>
+          <h3>${item.title[lang]}</h3>
+          <p>${item.copy[lang]}</p>
+        </article>
+      `;
+    })
+    .join("");
 }
 
 function renderPageData(lang) {
@@ -181,7 +140,8 @@ function renderPageData(lang) {
   }
 
   if (page === "partnership") {
-    renderPartnershipShowcase(lang);
+    renderPrograms(lang);
+    renderWorkflow(lang);
     renderFaqs(lang, "partnershipFaqList", window.SITE_DATA.partnership.faqs);
   }
 }
@@ -200,137 +160,66 @@ function setupMapModal() {
   const openers = [document.getElementById("openMapModal"), document.getElementById("openMapModalInline")].filter(Boolean);
   const closers = [document.getElementById("closeMapModal"), document.getElementById("closeMapModalBtn")].filter(Boolean);
 
-  const mountModalMap = () => {
-    if (!modalMapNode) return;
-    if (window.__somaliaModalMap) {
-      window.__somaliaModalMap.remove();
-      window.__somaliaModalMap = null;
-    }
-    modalMapNode.innerHTML = "";
-    window.__somaliaModalMap = createSomaliaMap("somaliaMapModal", 6);
-  };
-
-  const unmountModalMap = () => {
-    if (window.__somaliaModalMap) {
-      window.__somaliaModalMap.remove();
-      window.__somaliaModalMap = null;
-    }
-    if (modalMapNode) {
-      modalMapNode.innerHTML = "";
-    }
-  };
-
-  const hideMiniMap = () => {
-    if (!miniMapNode) return;
-    miniMapNode.style.visibility = "hidden";
-    miniMapNode.style.opacity = "0";
-    miniMapNode.style.pointerEvents = "none";
-    const viewport = miniMapNode.closest(".map-viewport");
-    if (viewport) {
-      viewport.style.visibility = "hidden";
-      viewport.style.opacity = "0";
-    }
-    const card = miniMapNode.closest(".map-card");
-    if (card) {
-      card.style.visibility = "hidden";
-    }
-  };
-
-  const showMiniMap = () => {
-    if (!miniMapNode) return;
-    miniMapNode.style.visibility = "";
-    miniMapNode.style.opacity = "";
-    miniMapNode.style.pointerEvents = "";
-    const viewport = miniMapNode.closest(".map-viewport");
-    if (viewport) {
-      viewport.style.visibility = "";
-      viewport.style.opacity = "";
-    }
-    const card = miniMapNode.closest(".map-card");
-    if (card) {
-      card.style.visibility = "";
-    }
-  };
-
   openers.forEach((button) => {
     button.addEventListener("click", () => {
       mapModal.hidden = false;
-      mapModal.setAttribute("aria-hidden", "false");
-      document.body.classList.add("map-modal-open");
       document.body.style.overflow = "hidden";
-      hideMiniMap();
-      setTimeout(() => {
-        mountModalMap();
-        if (window.__somaliaModalMap) {
-          window.__somaliaModalMap.invalidateSize();
-        }
-      }, 80);
     });
   });
 
   closers.forEach((button) => {
     button.addEventListener("click", () => {
-      unmountModalMap();
       mapModal.hidden = true;
-      mapModal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("map-modal-open");
       document.body.style.overflow = "";
-      showMiniMap();
     });
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !mapModal.hidden) {
-      unmountModalMap();
       mapModal.hidden = true;
-      mapModal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("map-modal-open");
       document.body.style.overflow = "";
-      showMiniMap();
     }
   });
 }
 
-function createSomaliaMap(nodeId, zoom) {
-  const container = document.getElementById(nodeId);
-  if (!container || typeof window.L === "undefined") return null;
+function setupMapPan() {
+  document.querySelectorAll("[data-map-viewport]").forEach((viewport) => {
+    const panzoom = viewport.querySelector("[data-map-panzoom]");
+    if (!panzoom) return;
 
-  const somaliaBounds = [
-    [-1.85, 40.5],
-    [12.2, 51.7]
-  ];
+    const state = { x: 0, y: 0, dragging: false, startX: 0, startY: 0, moved: false };
 
-  const map = window.L.map(container, {
-    zoomControl: true,
-    scrollWheelZoom: true,
-    attributionControl: true
+    const applyTransform = () => {
+      const scale = viewport.classList.contains("is-modal") ? 1.28 : 0.92;
+      panzoom.style.transform = `translate(${state.x}px, ${state.y}px) scale(${scale})`;
+    };
+
+    const onPointerDown = (event) => {
+      state.dragging = true;
+      state.moved = false;
+      state.startX = event.clientX - state.x;
+      state.startY = event.clientY - state.y;
+      viewport.classList.add("is-dragging");
+    };
+
+    const onPointerMove = (event) => {
+      if (!state.dragging) return;
+      state.x = event.clientX - state.startX;
+      state.y = event.clientY - state.startY;
+      state.moved = true;
+      applyTransform();
+    };
+
+    const onPointerUp = () => {
+      state.dragging = false;
+      viewport.classList.remove("is-dragging");
+    };
+
+    viewport.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("pointerup", onPointerUp);
+    applyTransform();
   });
-
-  window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 18,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
-
-  map.fitBounds(somaliaBounds, { padding: [18, 18] });
-  if (zoom) {
-    map.setZoom(zoom);
-  }
-
-  const badge = window.L.control({ position: "topleft" });
-  badge.onAdd = function onAdd() {
-    const div = window.L.DomUtil.create("div", "map-country-badge");
-    div.textContent = "Somalia";
-    return div;
-  };
-  badge.addTo(map);
-
-  return map;
-}
-
-function setupLeafletMaps() {
-  if (page !== "home") return;
-
-  window.__somaliaMiniMap = createSomaliaMap("somaliaMapMini", 5);
 }
 
 document.querySelectorAll(".lang-btn").forEach((button) => {
@@ -342,4 +231,4 @@ document.querySelectorAll(".lang-btn").forEach((button) => {
 markActiveNav();
 applyLanguage(getLang());
 setupMapModal();
-setupLeafletMaps();
+setupMapPan();
