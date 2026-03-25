@@ -137,28 +137,28 @@ window.SITE_DATA = {
   home: {
     games: [
       {
-        key: "giga-sword-drop",
-        title: { en: "Sword Drop", so: "Sword Drop" },
+        key: "chicken-road",
+        title: { en: "Chicken Road", so: "Chicken Road" },
         meta: { en: "Trending on Stake", so: "Trending on Stake" },
         players: "Trend",
-        href: "https://stake.com/casino/games/giga-sword-drop",
-        image: "./images/game-giga-sword-drop.jpg"
+        href: "https://stake.com/casino/games/chicken-road",
+        image: "./images/game-chicken-road.jpg"
       },
       {
-        key: "titan-gaming-orbs-of-magic",
-        title: { en: "Orbs of Magic", so: "Orbs of Magic" },
+        key: "king-of-vikings",
+        title: { en: "King Of Vikings", so: "King Of Vikings" },
         meta: { en: "Trending on Stake", so: "Trending on Stake" },
         players: "Trend",
-        href: "https://stake.com/casino/games/titan-gaming-orbs-of-magic",
-        image: "./images/game-titan-gaming-orbs-of-magic.jpg"
+        href: "https://stake.com/casino/games/king-of-vikings",
+        image: "./images/game-king-of-vikings.jpg"
       },
       {
-        key: "gggaming-gift-bonanza",
-        title: { en: "Gift Bonanza", so: "Gift Bonanza" },
+        key: "captain-sharky",
+        title: { en: "Captain Sharky", so: "Captain Sharky" },
         meta: { en: "Trending on Stake", so: "Trending on Stake" },
         players: "Trend",
-        href: "https://stake.com/casino/games/gggaming-gift-bonanza",
-        image: "./images/game-gggaming-gift-bonanza.jpg"
+        href: "https://stake.com/casino/games/captain-sharky",
+        image: "./images/game-captain-sharky.jpg"
       },
       {
         key: "sugar-rush",
@@ -170,12 +170,12 @@ window.SITE_DATA = {
     ],
     sports: [
       {
-        key: "soccer",
-        title: { en: "Soccer", so: "Kubadda cagta" },
+        key: "football",
+        title: { en: "Football", so: "Football" },
         meta: { en: "Trending on Stake", so: "Trending on Stake" },
         players: "Trend",
-        href: "https://stake.com/sports/soccer",
-        image: "./images/sport-soccer.png"
+        href: "https://stake.com/sports/football",
+        image: ""
       },
       {
         key: "tennis",
@@ -183,15 +183,15 @@ window.SITE_DATA = {
         meta: { en: "Trending on Stake", so: "Trending on Stake" },
         players: "Trend",
         href: "https://stake.com/sports/tennis",
-        image: "./images/sport-tennis.png"
+        image: ""
       },
       {
-        key: "cricket",
-        title: { en: "Cricket", so: "Kriket" },
+        key: "basketball",
+        title: { en: "Basketball", so: "Kubadda koleyga" },
         meta: { en: "Trending on Stake", so: "Trending on Stake" },
         players: "Trend",
-        href: "https://stake.com/sports/cricket",
-        image: "./images/sport-cricket.png"
+        href: "https://stake.com/sports/basketball",
+        image: ""
       },
       {
         key: "volleyball",
