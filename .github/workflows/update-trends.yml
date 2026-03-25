@@ -2,7 +2,7 @@ name: Update trending data from Stake
 
 on:
   schedule:
-    - cron: "5/5 * * * *"   # каждые 6 часов
+    - cron: "0 */6 * * *"   # каждые 6 часов
   workflow_dispatch:          # ручной запуск
 
 jobs:
@@ -23,11 +23,13 @@ jobs:
           sudo apt-get install -y xvfb chromium-browser
 
       - name: Install Python deps
-        run: pip install DrissionPage xvfbwrapper
+        run: pip install -r requirements.txt xvfbwrapper
 
-      - name: Parse stake.com
+      - name: Parse melbet
+        env:
+          PROXY: ${{ secrets.PROXY }}
         run: |
-          xvfb-run --auto-servernum python parse_melbet.py --xvfb -o result.json
+          xvfb-run --auto-servernum python parse_melbet.py --xvfb --proxy "$PROXY" -o result.json
 
       - name: Update site-data.js
         run: python update_site_data.py
