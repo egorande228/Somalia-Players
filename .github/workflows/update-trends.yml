@@ -27,7 +27,7 @@ jobs:
 
       - name: Parse stake.com
         run: |
-          xvfb-run --auto-servernum python parse_stake.py --xvfb -o result.json
+          xvfb-run --auto-servernum python parse_melbet.py --xvfb -o result.json
 
       - name: Update site-data.js
         run: python update_site_data.py
