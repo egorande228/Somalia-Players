@@ -9,7 +9,7 @@
       content="Melbet Somalia landing template with Casino, Sport, trending games, trending sports, and a bilingual English and Somali interface."
     />
     <meta name="theme-color" content="#081a2c" />
-    <link rel="stylesheet" href="./css/styles.css?v=20260325-restore-design" />
+    <link rel="stylesheet" href="./css/styles.css?v=20260326-logo-split" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -22,7 +22,7 @@
       <header class="topbar">
         <a class="logo" href="./index.html" aria-label="Melbet Somalia home">
           <span class="logo-mark"></span>
-          <span class="logo-word">MELBET</span>
+          <span class="logo-word"><span class="logo-word-primary">MEL</span><span class="logo-word-accent">BET</span></span>
         </a>
 
         <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">Menu</button>
@@ -79,15 +79,37 @@
           </div>
         </section>
 
+        <section class="home-atmosphere partnership-atmosphere" aria-hidden="true">
+          <div class="somali-skyline">
+            <span class="skyline-orb skyline-orb-large"></span>
+            <span class="skyline-orb skyline-orb-small"></span>
+            <span class="skyline-star skyline-star-left"></span>
+            <span class="skyline-star skyline-star-right"></span>
+            <span class="skyline-wave skyline-wave-top"></span>
+            <span class="skyline-wave skyline-wave-bottom"></span>
+          </div>
+          <div class="somali-crest">
+            <span class="somali-crest-line"></span>
+            <span class="somali-crest-star"></span>
+            <span class="somali-crest-line"></span>
+          </div>
+        </section>
+
         <section class="content-section">
           <div class="section-head">
             <div>
               <p class="section-kicker" data-i18n="home.trendingGamesKicker">Prepared section</p>
               <h2 data-i18n="home.trendingGamesTitle">Trending games</h2>
             </div>
-            <span class="section-note" data-i18n="home.sectionNote">Cards are ready for future images and links.</span>
+            <div class="section-controls">
+              <span class="section-note" data-i18n="home.sectionNote">Scroll to explore the full list.</span>
+              <div class="scroll-controls">
+                <button class="scroll-btn" type="button" data-scroll-target="gamesGrid" data-scroll-dir="prev" data-i18n="common.prev">Prev</button>
+                <button class="scroll-btn" type="button" data-scroll-target="gamesGrid" data-scroll-dir="next" data-i18n="common.next">Next</button>
+              </div>
+            </div>
           </div>
-          <div class="card-grid" id="gamesGrid"></div>
+          <div class="card-grid trend-row" id="gamesGrid"></div>
         </section>
 
         <section class="content-section">
@@ -96,9 +118,15 @@
               <p class="section-kicker" data-i18n="home.trendingSportsKicker">Prepared section</p>
               <h2 data-i18n="home.trendingSportsTitle">Trending sports</h2>
             </div>
-            <span class="section-note" data-i18n="home.sectionNote">Cards are ready for future images and links.</span>
+            <div class="section-controls">
+              <span class="section-note" data-i18n="home.sectionNote">Scroll to explore the full list.</span>
+              <div class="scroll-controls">
+                <button class="scroll-btn" type="button" data-scroll-target="sportsGrid" data-scroll-dir="prev" data-i18n="common.prev">Prev</button>
+                <button class="scroll-btn" type="button" data-scroll-target="sportsGrid" data-scroll-dir="next" data-i18n="common.next">Next</button>
+              </div>
+            </div>
           </div>
-          <div class="card-grid sport-grid" id="sportsGrid"></div>
+          <div class="card-grid trend-row sport-grid" id="sportsGrid"></div>
         </section>
 
         <section class="map-section" id="agentCashMap">
@@ -162,7 +190,7 @@
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-    <script src="./js/site-data.js?v=20260325-restore-design"></script>
-    <script src="./js/main.js?v=20260325-restore-design"></script>
+    <script src="./js/site-data.js?v=20260326-logo-split"></script>
+    <script src="./js/main.js?v=20260326-logo-split"></script>
   </body>
 </html>

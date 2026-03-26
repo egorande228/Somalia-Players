@@ -1,4 +1,5 @@
 window.SITE_DATA = {
+  assetVersion: "20260326-home-somalia",
   languages: ["en", "so"],
   meta: {
     home: {
@@ -32,6 +33,8 @@ window.SITE_DATA = {
         navHome: "Home",
         navMap: "Agent Cash Map",
         navPartnership: "Partnership",
+        prev: "Prev",
+        next: "Next",
         login: "Login",
         register: "Register",
         close: "Close"
@@ -54,7 +57,7 @@ window.SITE_DATA = {
         trendingGamesTitle: "Trending games",
         trendingSportsKicker: "Prepared section",
         trendingSportsTitle: "Trending sports",
-        sectionNote: "Cards are ready for future images and links.",
+        sectionNote: "Scroll to explore the full list.",
         mapKicker: "Map block",
         mapTitle: "Agent Cash Map",
         mapExpand: "Expand map",
@@ -96,6 +99,8 @@ window.SITE_DATA = {
         navHome: "Bogga hore",
         navMap: "Agent Cash Map",
         navPartnership: "Partnership",
+        prev: "Hore",
+        next: "Xiga",
         login: "Gal",
         register: "Isdiiwaangeli",
         close: "Xir"
@@ -118,7 +123,7 @@ window.SITE_DATA = {
         trendingGamesTitle: "Ciyaaraha socda",
         trendingSportsKicker: "Qayb diyaarsan",
         trendingSportsTitle: "Sports-ka socda",
-        sectionNote: "Kaadhadhku waxay diyaar u yihiin sawirro iyo links dambe.",
+        sectionNote: "Rog liiska si aad u aragto dhammaan kaararka.",
         mapKicker: "Qayb khariidad",
         mapTitle: "Agent Cash Map",
         mapExpand: "Weynay khariidadda",
@@ -161,66 +166,148 @@ window.SITE_DATA = {
       {
         key: "chicken-road",
         title: { en: "Chicken Road", so: "Chicken Road" },
-        meta: { en: "Trending on Stake", so: "Trending on Stake" },
+        meta: { en: "Live top game on Melbet", so: "Ciyaarta sare ee tooska ah ee Melbet" },
         players: "Trend",
-        href: "https://stake.com/casino/games/chicken-road",
+        href: "https://melbet-583603.pro/en/casino",
         image: "./images/game-chicken-road.jpg"
       },
       {
         key: "king-of-vikings",
         title: { en: "King Of Vikings", so: "King Of Vikings" },
-        meta: { en: "Trending on Stake", so: "Trending on Stake" },
+        meta: { en: "Live top game on Melbet", so: "Ciyaarta sare ee tooska ah ee Melbet" },
         players: "Trend",
-        href: "https://stake.com/casino/games/king-of-vikings",
+        href: "https://melbet-583603.pro/en/casino",
         image: "./images/game-king-of-vikings.jpg"
       },
       {
         key: "captain-sharky",
         title: { en: "Captain Sharky", so: "Captain Sharky" },
-        meta: { en: "Trending on Stake", so: "Trending on Stake" },
+        meta: { en: "Live top game on Melbet", so: "Ciyaarta sare ee tooska ah ee Melbet" },
         players: "Trend",
-        href: "https://stake.com/casino/games/captain-sharky",
+        href: "https://melbet-583603.pro/en/casino",
         image: "./images/game-captain-sharky.jpg"
       },
       {
         key: "sugar-rush",
         title: { en: "Sugar Rush", so: "Sugar Rush" },
-        meta: { en: "Image area is ready for future art", so: "Aagga sawirku wuxuu diyaar u yahay muuqaal dambe" },
-        players: "301+",
-        href: "#"
+        meta: { en: "Static casino pick", so: "Doorasho casino oo joogto ah" },
+        players: "Static",
+        href: "https://melbet-583603.pro/en/casino",
+        image: "./images/game-sugar-rush-melbet.png"
+      },
+      {
+        key: "gates-of-olympus",
+        title: { en: "Gates of Olympus", so: "Gates of Olympus" },
+        meta: { en: "Static casino pick", so: "Doorasho casino oo joogto ah" },
+        players: "Static",
+        href: "https://melbet-583603.pro/en/casino",
+        image: "./images/game-gates-of-olympus-melbet.png"
+      },
+      {
+        key: "sweet-bonanza",
+        title: { en: "Sweet Bonanza", so: "Sweet Bonanza" },
+        meta: { en: "Static casino pick", so: "Doorasho casino oo joogto ah" },
+        players: "Static",
+        href: "https://melbet-583603.pro/en/casino",
+        image: "./images/game-sweet-bonanza-melbet.png"
+      },
+      {
+        key: "big-bass-splash",
+        title: { en: "Big Bass Splash", so: "Big Bass Splash" },
+        meta: { en: "Static casino pick", so: "Doorasho casino oo joogto ah" },
+        players: "Static",
+        href: "https://melbet-583603.pro/en/casino",
+        image: "./images/game-big-bass-splash-melbet.png"
+      },
+      {
+        key: "gggaming-gift-bonanza",
+        title: { en: "GGGaming Gift Bonanza", so: "GGGaming Gift Bonanza" },
+        meta: { en: "Static casino pick", so: "Doorasho casino oo joogto ah" },
+        players: "Static",
+        href: "https://melbet-583603.pro/en/casino",
+        image: "./images/game-gggaming-gift-bonanza.jpg"
+      },
+      {
+        key: "giga-sword-drop",
+        title: { en: "Giga Sword Drop", so: "Giga Sword Drop" },
+        meta: { en: "Static casino pick", so: "Doorasho casino oo joogto ah" },
+        players: "Static",
+        href: "https://melbet-583603.pro/en/casino",
+        image: "./images/game-giga-sword-drop.jpg"
+      },
+      {
+        key: "titan-gaming-orbs-of-magic",
+        title: { en: "Titan Gaming Orbs of Magic", so: "Titan Gaming Orbs of Magic" },
+        meta: { en: "Static casino pick", so: "Doorasho casino oo joogto ah" },
+        players: "Static",
+        href: "https://melbet-583603.pro/en/casino",
+        image: "./images/game-titan-gaming-orbs-of-magic.jpg"
       }
     ],
     sports: [
       {
         key: "football",
-        title: { en: "Football", so: "Football" },
-        meta: { en: "Trending on Stake", so: "Trending on Stake" },
+        title: { en: "Football", so: "Kubadda cagta" },
+        meta: { en: "Live top sport on Melbet", so: "Sport-ka sare ee tooska ah ee Melbet" },
         players: "Trend",
-        href: "https://stake.com/sports/football",
-        image: ""
+        href: "https://melbet-583603.pro/en/live",
+        image: "./images/sport-football-melbet.png"
       },
       {
         key: "tennis",
         title: { en: "Tennis", so: "Tennis" },
-        meta: { en: "Trending on Stake", so: "Trending on Stake" },
+        meta: { en: "Live top sport on Melbet", so: "Sport-ka sare ee tooska ah ee Melbet" },
         players: "Trend",
-        href: "https://stake.com/sports/tennis",
-        image: ""
+        href: "https://melbet-583603.pro/en/live",
+        image: "./images/sport-tennis-melbet.png"
       },
       {
         key: "basketball",
         title: { en: "Basketball", so: "Kubadda koleyga" },
-        meta: { en: "Trending on Stake", so: "Trending on Stake" },
+        meta: { en: "Live top sport on Melbet", so: "Sport-ka sare ee tooska ah ee Melbet" },
         players: "Trend",
-        href: "https://stake.com/sports/basketball",
-        image: ""
+        href: "https://melbet-583603.pro/en/live",
+        image: "./images/sport-basketball-melbet.png"
       },
       {
         key: "volleyball",
         title: { en: "Volleyball", so: "Kubadda laliska" },
-        meta: { en: "Designed for Somalia-facing updates", so: "Loogu talagalay cusboonaysiinta Somalia" },
-        players: "Trend",
-        href: "#"
+        meta: { en: "Static sport category", so: "Qayb sport oo joogto ah" },
+        players: "Static",
+        href: "https://melbet-583603.pro/en/live",
+        image: "./images/sport-volleyball-melbet.png"
+      },
+      {
+        key: "hockey",
+        title: { en: "Hockey", so: "Hockey barafka" },
+        meta: { en: "Static sport category", so: "Qayb sport oo joogto ah" },
+        players: "Static",
+        href: "https://melbet-583603.pro/en/live",
+        image: "./images/sport-hockey-melbet.png"
+      },
+      {
+        key: "cricket",
+        title: { en: "Cricket", so: "Kriket" },
+        meta: { en: "Static sport category", so: "Qayb sport oo joogto ah" },
+        players: "Static",
+        href: "https://melbet-583603.pro/en/live",
+        image: "./images/sport-cricket-melbet.png"
+      },
+      {
+        key: "e-sport",
+        title: { en: "E-Sport", so: "E-Sport" },
+        meta: { en: "Static sport category", so: "Qayb sport oo joogto ah" },
+        players: "Static",
+        href: "https://melbet-583603.pro/en/live",
+        image: "./images/sport-esport-melbet.png"
+      },
+      {
+        key: "table-tennis",
+        title: { en: "Table Tennis", so: "Tenis miiska" },
+        meta: { en: "Static sport category", so: "Qayb sport oo joogto ah" },
+        players: "Static",
+        href: "https://melbet-583603.pro/en/live",
+        image: "./images/sport-table-tennis-melbet.png"
       }
     ],
     faqs: [

@@ -58,14 +58,24 @@ function setActiveLangButtons(lang) {
   });
 }
 
+function buildAssetUrl(url) {
+  if (!url) return "";
+  if (/^(https?:|data:)/.test(url)) return url;
+
+  const version = window.SITE_DATA.assetVersion;
+  if (!version) return url;
+  return url.includes("?") ? `${url}&v=${version}` : `${url}?v=${version}`;
+}
+
 function renderTrendCards(lang, targetId, items, type) {
   const root = document.getElementById(targetId);
   if (!root) return;
 
   root.innerHTML = items
     .map((item) => {
+      const imageUrl = buildAssetUrl(item.image);
       const mediaStyle = item.image
-        ? ` style="background-image:url('${item.image}');background-size:contain;background-position:center;background-repeat:no-repeat"`
+        ? ` style="background-image:url('${imageUrl}');background-size:cover;background-position:center;background-repeat:no-repeat"`
         : "";
 
       return `
@@ -85,6 +95,24 @@ function renderTrendCards(lang, targetId, items, type) {
       `;
     })
     .join("");
+}
+
+function setupTrendScrollControls() {
+  document.querySelectorAll("[data-scroll-target]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetId = button.dataset.scrollTarget;
+      const direction = button.dataset.scrollDir === "prev" ? -1 : 1;
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      const firstCard = target.querySelector(".trend-card");
+      const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 320;
+      target.scrollBy({
+        left: direction * (cardWidth + 16) * 2,
+        behavior: "smooth"
+      });
+    });
+  });
 }
 
 function renderFaqs(lang, targetId, items) {
@@ -301,6 +329,47 @@ function createStaticSomaliaMap(nodeId) {
 
   container.innerHTML = `
     <div class="map-panzoom">
+      <svg class="somalia-map" viewBox="0 0 320 420" aria-label="Somalia map">
+        <defs>
+          <linearGradient id="${nodeId}Fill" x1="0%" x2="100%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#8fe0ff" />
+            <stop offset="55%" stop-color="#2aa7ff" />
+            <stop offset="100%" stop-color="#0f6fd5" />
+          </linearGradient>
+          <filter id="${nodeId}Glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#7fd5ff" flood-opacity="0.45" />
+          </filter>
+        </defs>
+        <g filter="url(#${nodeId}Glow)">
+          <path
+            class="somalia-shape"
+            style="fill:url(#${nodeId}Fill)"
+            d="M155 24 C172 34 184 58 188 87 C193 121 190 150 196 178 C203 212 220 237 233 269 C247 303 253 338 245 365 C239 384 226 395 213 391 C196 386 186 360 181 332 C176 303 167 276 155 247 C146 226 137 199 132 170 C126 136 124 104 126 77 C129 49 139 29 155 24 Z"
+          />
+        </g>
+        <path d="M116 72 C132 78 146 85 162 104" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-dasharray="5 8" />
+        <path d="M152 238 C167 250 181 274 192 314" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-dasharray="5 8" />
+        <circle class="map-pin" cx="141" cy="78" r="7" />
+        <circle class="map-pin" cx="176" cy="112" r="7" />
+        <circle class="map-pin" cx="160" cy="242" r="7" />
+        <circle class="map-pin" cx="198" cy="323" r="7" />
+        <text class="map-label" x="78" y="70">Hargeisa</text>
+        <text class="map-label" x="190" y="104">Bosaso</text>
+        <text class="map-label" x="92" y="238">Mogadishu</text>
+        <text class="map-label" x="208" y="318">Kismayo</text>
+      </svg>
+    </div>
+  `;
+
+  return {
+    remove() {
+      container.innerHTML = "";
+    },
+    invalidateSize() {}
+  };
+
+  container.innerHTML = `
+    <div class="map-panzoom">
       <svg class="somalia-map" viewBox="0 0 300 375" aria-label="Somalia map">
         <defs>
           <linearGradient id="${nodeId}Fill" x1="0%" x2="100%" y1="0%" y2="100%">
@@ -388,5 +457,6 @@ document.querySelectorAll(".lang-btn").forEach((button) => {
 
 markActiveNav();
 applyLanguage(getLang());
+setupTrendScrollControls();
 setupMapModal();
 setupLeafletMaps();

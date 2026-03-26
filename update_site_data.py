@@ -1,7 +1,7 @@
 """
-Обновляет массивы games и sports в Somalia-Players/js/site-data.js
-на основе result.json из parse_stake.py.
-Скачивает картинки в Somalia-Players/images/.
+Обновляет первые 3 элемента массивов games и sports в js/site-data.js
+на основе result.json из parse_melbet.py.
+Статический хвост карточек остаётся нетронутым.
 """
 
 import json
@@ -48,6 +48,8 @@ SPORT_SO: dict[str, str] = {
     "Racing": "Tartanka",
 }
 
+MELBET_BASE_URL = "https://melbet-583603.pro"
+
 
 def sport_to_somali(name: str) -> str:
     return SPORT_SO.get(name, name)
@@ -92,9 +94,9 @@ def make_game_entry(item: dict) -> str:
         "      {\n"
         f'        key: "{slug}",\n'
         f'        title: {{ en: "{name}", so: "{name}" }},\n'
-        f'        meta: {{ en: "Trending on Stake", so: "Trending on Stake" }},\n'
+        f'        meta: {{ en: "Live top game on Melbet", so: "Ciyaarta sare ee tooska ah ee Melbet" }},\n'
         f'        players: "Trend",\n'
-        f'        href: "https://stake.com/casino/games/{slug}",\n'
+        f'        href: "{MELBET_BASE_URL}/en/casino",\n'
         f'        image: "{img_path}"\n'
         "      }"
     )
@@ -109,9 +111,9 @@ def make_sport_entry(item: dict) -> str:
         "      {\n"
         f'        key: "{slug}",\n'
         f'        title: {{ en: "{name}", so: "{so_name}" }},\n'
-        f'        meta: {{ en: "Trending on Stake", so: "Trending on Stake" }},\n'
+        f'        meta: {{ en: "Live top sport on Melbet", so: "Sport-ka sare ee tooska ah ee Melbet" }},\n'
         f'        players: "Trend",\n'
-        f'        href: "https://stake.com/sports/{slug}",\n'
+        f'        href: "{MELBET_BASE_URL}/en/live",\n'
         f'        image: "{img_path}"\n'
         "      }"
     )
@@ -144,6 +146,9 @@ def find_nth_object_end(body: str, n: int) -> int:
 
 def replace_first_n(js: str, array_name: str, new_entries: list[str], n: int) -> str:
     """Заменяет первые N элементов массива, остальные оставляет как есть."""
+    if n <= 0 or not new_entries:
+        return js
+
     pattern = rf"({array_name}:\s*\[)\s*\n(.*?)\n(\s*\])"
     m = re.search(pattern, js, flags=re.DOTALL)
     if not m:
@@ -166,19 +171,21 @@ def replace_first_n(js: str, array_name: str, new_entries: list[str], n: int) ->
 
 def main() -> None:
     if not RESULT_PATH.exists():
-        print(f"Error: {RESULT_PATH} not found. Run parse_stake.py first.", file=sys.stderr)
+        print(f"Error: {RESULT_PATH} not found. Run parse_melbet.py first.", file=sys.stderr)
         sys.exit(1)
 
     data = json.loads(RESULT_PATH.read_text(encoding="utf-8"))
     js = SITE_DATA_PATH.read_text(encoding="utf-8")
 
-    n = len(data["casino"])
-    print("Downloading images...", file=sys.stderr)
-    game_entries = [make_game_entry(item) for item in data["casino"]]
-    sport_entries = [make_sport_entry(item) for item in data["sports"]]
+    game_items = data.get("casino", [])[:3]
+    sport_items = data.get("sports", [])[:3]
 
-    js = replace_first_n(js, "games", game_entries, n)
-    js = replace_first_n(js, "sports", sport_entries, len(data["sports"]))
+    print("Downloading images...", file=sys.stderr)
+    game_entries = [make_game_entry(item) for item in game_items]
+    sport_entries = [make_sport_entry(item) for item in sport_items]
+
+    js = replace_first_n(js, "games", game_entries, len(game_entries))
+    js = replace_first_n(js, "sports", sport_entries, len(sport_entries))
 
     SITE_DATA_PATH.write_text(js, encoding="utf-8")
     print(f"Updated {SITE_DATA_PATH}", file=sys.stderr)

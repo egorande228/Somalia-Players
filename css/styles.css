@@ -47,6 +47,57 @@ body::before {
   opacity: 0.18;
 }
 
+body[data-page="home"] {
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(117, 214, 255, 0.26), transparent 22%),
+    radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.16), transparent 16%),
+    radial-gradient(circle at 50% 84%, rgba(129, 221, 255, 0.14), transparent 28%),
+    linear-gradient(180deg, #042544 0%, #0a4a79 38%, #0e699d 66%, #0a1b2d 100%);
+}
+
+body[data-page="home"]::before {
+  opacity: 0.2;
+  background-image:
+    radial-gradient(circle at 8% 10%, rgba(255, 255, 255, 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 84% 18%, rgba(255, 255, 255, 0.14) 0 2px, transparent 3px),
+    linear-gradient(90deg, rgba(163, 229, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(163, 229, 255, 0.08) 1px, transparent 1px);
+  background-size: 240px 240px, 260px 260px, 150px 150px, 150px 150px;
+  animation: somaliSkyDrift 14s linear infinite;
+}
+
+body[data-page="home"]::after {
+  content: "";
+  position: fixed;
+  inset: auto -8% -12% -8%;
+  z-index: -1;
+  height: 44vh;
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(255, 255, 255, 0.18), transparent 24%),
+    radial-gradient(ellipse at 78% 16%, rgba(154, 228, 255, 0.22), transparent 24%),
+    radial-gradient(ellipse at 50% 100%, rgba(173, 232, 255, 0.16), transparent 52%),
+    linear-gradient(180deg, rgba(7, 63, 96, 0) 0%, rgba(6, 56, 87, 0.54) 38%, rgba(5, 20, 34, 0.94) 100%);
+  filter: blur(12px);
+  transform-origin: center bottom;
+  animation: somaliWaveShift 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+body[data-page="home"] .page-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.14), transparent 18%),
+    radial-gradient(circle at 76% 20%, rgba(132, 219, 255, 0.2), transparent 22%),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.08), transparent 30%, transparent 64%, rgba(255, 255, 255, 0.04));
+  background-size: 140% 140%, 130% 130%, 160% 160%;
+  animation: homeAuraFloat 9s ease-in-out infinite;
+}
+
 a {
   color: inherit;
 }
@@ -111,11 +162,7 @@ a {
 }
 
 .logo-mark {
-  width: 16px;
-  height: 34px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, var(--brand), var(--brand-2));
-  box-shadow: 0 0 24px rgba(0, 166, 255, 0.4);
+  display: none;
 }
 
 .logo-word {
@@ -123,6 +170,23 @@ a {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.06em;
+  color: inherit;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.24);
+}
+
+.logo-word::after {
+  content: none;
+}
+
+.logo-word-primary {
+  color: #ffffff;
+}
+
+.logo-word-accent {
+  color: #ffd95c;
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.18),
+    0 0 16px rgba(255, 217, 92, 0.12);
 }
 
 .nav {
@@ -207,6 +271,96 @@ a {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
   gap: 28px;
   padding: 36px 0 18px;
+}
+
+body[data-page="home"] .hero-copy,
+body[data-page="home"] .feature-panel,
+body[data-page="home"] .trend-card,
+body[data-page="home"] .map-copy-card,
+body[data-page="home"] .map-card,
+body[data-page="home"] .faq-item {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(4, 39, 65, 0.88), rgba(2, 26, 44, 0.95)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 58%);
+  border: 1px solid rgba(214, 242, 255, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 14, 25, 0.24);
+}
+
+body[data-page="home"] .hero-copy::before,
+body[data-page="home"] .feature-panel::before,
+body[data-page="home"] .trend-card::before,
+body[data-page="home"] .map-copy-card::before,
+body[data-page="home"] .map-card::before,
+body[data-page="home"] .faq-item::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+body[data-page="home"] .hero-copy {
+  padding: 34px;
+  border-radius: 30px;
+}
+
+body[data-page="home"] .hero-copy h1,
+body[data-page="home"] .section-head h2,
+body[data-page="home"] .feature-body h2,
+body[data-page="home"] .faq-item h3,
+body[data-page="home"] .map-copy-card h3 {
+  color: #f5fbff;
+}
+
+body[data-page="home"] .hero-text,
+body[data-page="home"] .feature-body p,
+body[data-page="home"] .card-meta,
+body[data-page="home"] .faq-item p,
+body[data-page="home"] .map-copy-card p {
+  color: rgba(233, 247, 255, 0.76);
+}
+
+body[data-page="home"] .section-note,
+body[data-page="home"] .hero-badges span,
+body[data-page="home"] .scroll-btn,
+body[data-page="home"] .feature-pill {
+  border-color: rgba(215, 241, 255, 0.18);
+  background: rgba(4, 30, 51, 0.56);
+}
+
+.home-atmosphere {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  min-height: 150px;
+}
+
+body[data-page="home"] .home-atmosphere {
+  background:
+    linear-gradient(140deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04) 44%, rgba(177, 231, 255, 0.1) 100%),
+    linear-gradient(180deg, rgba(4, 58, 90, 0.74), rgba(12, 115, 165, 0.28));
+  border-color: rgba(220, 244, 255, 0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 24px 60px rgba(1, 18, 33, 0.18);
+}
+
+body[data-page="home"] .home-atmosphere::after {
+  animation-duration: 12s;
+}
+
+body[data-page="home"] .home-atmosphere .skyline-wave-top {
+  top: 64px;
+}
+
+body[data-page="home"] .home-atmosphere .skyline-wave-bottom {
+  bottom: 16px;
+}
+
+body[data-page="home"] .home-atmosphere .somali-crest {
+  min-height: 150px;
 }
 
 .eyebrow,
@@ -305,18 +459,39 @@ a {
   align-items: flex-end;
   background-size: cover;
   background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 20, 33, 0.06), rgba(8, 20, 33, 0.2) 56%, rgba(8, 20, 33, 0.56) 100%),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 34%, transparent 68%, rgba(255, 255, 255, 0.05));
+  pointer-events: none;
+}
+
+.feature-art > * {
+  position: relative;
+  z-index: 1;
 }
 
 .casino-panel .feature-art {
   background:
-    radial-gradient(circle at 30% 35%, rgba(255, 255, 255, 0.24), transparent 14%),
-    linear-gradient(135deg, rgba(0, 129, 255, 0.96), rgba(20, 91, 220, 0.86));
+    linear-gradient(135deg, rgba(0, 129, 255, 0.3), rgba(20, 91, 220, 0.22)),
+    url("../images/hero-casino-melbet.png?v=20260326-home-somalia");
+  background-position: center, center center;
+  background-size: cover, cover;
 }
 
 .sport-panel .feature-art {
   background:
-    radial-gradient(circle at 34% 35%, rgba(255, 255, 255, 0.2), transparent 14%),
-    linear-gradient(135deg, rgba(0, 181, 104, 0.94), rgba(10, 140, 90, 0.84));
+    linear-gradient(135deg, rgba(0, 181, 104, 0.28), rgba(10, 140, 90, 0.22)),
+    url("../images/hero-sport-melbet.png?v=20260326-home-somalia");
+  background-position: center, center center;
+  background-size: cover, cover;
 }
 
 .feature-pill {
@@ -355,6 +530,14 @@ a {
   margin-bottom: 18px;
 }
 
+.section-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .section-head h2 {
   margin: 10px 0 0;
   font-size: clamp(1.8rem, 3vw, 2.8rem);
@@ -371,9 +554,58 @@ a {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.trend-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(132, 208, 255, 0.48) rgba(255, 255, 255, 0.06);
+}
+
+.trend-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.trend-row::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.trend-row::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(86, 192, 255, 0.88), rgba(27, 197, 127, 0.88));
+}
+
+.scroll-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-btn {
+  min-width: 76px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #dff4ff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease, border-color 160ms ease;
+}
+
+.scroll-btn:hover {
+  background: rgba(74, 166, 255, 0.16);
+  border-color: rgba(159, 219, 255, 0.24);
+  transform: translateY(-1px);
+}
+
 .trend-card {
   display: flex;
   flex-direction: column;
+  flex: 0 0 clamp(250px, 24vw, 396px);
   min-height: 320px;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -381,6 +613,7 @@ a {
   background: var(--panel);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: var(--shadow);
+  scroll-snap-align: start;
 }
 
 .trend-card-media {
@@ -393,8 +626,43 @@ a {
     linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0));
 }
 
+.trend-card.game {
+  min-height: 360px;
+}
+
+.trend-card.game .trend-card-media {
+  min-height: 240px;
+  background-size: cover !important;
+  background-position: center 32% !important;
+}
+
 .trend-card.sport .trend-card-media {
   background: linear-gradient(135deg, rgba(19, 217, 122, 0.94), rgba(19, 85, 217, 0.74));
+}
+
+.trend-card.sport {
+  flex-basis: clamp(220px, 18vw, 280px);
+  min-height: 500px;
+}
+
+.trend-card.sport .trend-card-media {
+  min-height: 370px;
+  background-size: cover !important;
+  background-position: center 22% !important;
+}
+
+.trend-card.sport .trend-card-body {
+  gap: 8px;
+  padding: 16px;
+}
+
+.trend-card.sport .trend-card-body h3 {
+  font-size: 1.18rem;
+}
+
+.trend-card.sport .card-meta {
+  font-size: 0.95rem;
+  line-height: 1.45;
 }
 
 .trend-card-label {
@@ -572,6 +840,18 @@ a {
   cursor: grab;
 }
 
+.leaflet-map,
+.leaflet-map .leaflet-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-map .leaflet-control-attribution {
+  display: none;
+}
+
 .map-viewport.is-mini {
   min-height: 340px;
 }
@@ -709,8 +989,7 @@ body[data-page="partnership"] .topbar {
 }
 
 body[data-page="partnership"] .logo-mark {
-  background: linear-gradient(180deg, #ffffff, #8ad7ff);
-  box-shadow: 0 0 24px rgba(127, 212, 255, 0.34);
+  display: none;
 }
 
 body[data-page="partnership"] .nav a {
@@ -1427,6 +1706,21 @@ body[data-page="partnership"] .partner-faq-grid .faq-item p {
   }
 }
 
+@keyframes homeAuraFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(0, -16px, 0) scale(1.04);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.72;
+  }
+}
+
 @keyframes somaliAuraSpin {
   0% {
     transform: rotate(0deg) scale(1);
@@ -1459,8 +1753,6 @@ body[data-page="partnership"] .partner-faq-grid .faq-item p {
   .hero-panels,
   .program-grid,
   .workflow-grid,
-  .card-grid,
-  .sport-grid,
   .faq-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1502,14 +1794,38 @@ body[data-page="partnership"] .partner-faq-grid .faq-item p {
   .hero-panels,
   .program-grid,
   .workflow-grid,
-  .card-grid,
-  .sport-grid,
   .faq-list {
     grid-template-columns: 1fr;
   }
 
   .section-head {
     align-items: start;
+  }
+
+  .section-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .trend-row {
+    padding-bottom: 10px;
+  }
+
+  .trend-card {
+    flex-basis: min(82vw, 320px);
+  }
+
+  .trend-card.game .trend-card-media {
+    min-height: 220px;
+  }
+
+  .trend-card.sport {
+    flex-basis: min(64vw, 250px);
+    min-height: 460px;
+  }
+
+  .trend-card.sport .trend-card-media {
+    min-height: 330px;
   }
 
   .partnership-atmosphere {
@@ -1540,6 +1856,15 @@ body[data-page="partnership"] .partner-faq-grid .faq-item p {
 
   .feature-art {
     min-height: 220px;
+  }
+
+  .scroll-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .scroll-btn {
+    flex: 1;
   }
 
   .map-toolbar,
