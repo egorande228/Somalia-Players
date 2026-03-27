@@ -28,10 +28,10 @@ BASE_URL = "https://melbet-583603.pro"
 WAIT_PAGE_MAX = 30
 WAIT_POLL = 1
 IP_CHECK_DELAY = 4
-PAGE_LOAD_DELAY = 10
-FIRST_PAGE_LOAD_DELAY = 15
-SCROLL_DELAY = 2
-SCROLL_STEPS = 10
+PAGE_LOAD_DELAY = 20
+FIRST_PAGE_LOAD_DELAY = 25
+SCROLL_DELAY = 3
+SCROLL_STEPS = 12
 
 # API для получения бесплатных прокси по стране
 # Сомали + соседние страны (Джибути, Эфиопия, Кения, Йемен, Эритрея, Судан, Уганда, Танзания)
@@ -349,6 +349,7 @@ def parse_casino(page: ChromiumPage, top_n: int = 3) -> list[dict]:
     """Парсит /en/slots — блок 'Best In Somalia', берёт первые N игр."""
     page.get(f"{BASE_URL}/en/slots")
     time.sleep(PAGE_LOAD_DELAY)
+    time.sleep(10)  # доп. задержка перед скроллом
 
     # Скроллим чтобы подгрузить все секции
     for _ in range(SCROLL_STEPS):
