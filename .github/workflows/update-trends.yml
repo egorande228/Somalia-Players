@@ -1,20 +1,15 @@
-name: Update trending data from Melbet(SO)
+name: Update trending data from Stake
 
 on:
   schedule:
     - cron: "0 */18 * * *"   # каждые 18 часов
   workflow_dispatch:          # ручной запуск
 
-permissions:
-  contents: write
-
 jobs:
   scrape-and-update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: true
 
       - uses: actions/setup-python@v5
         with:
@@ -41,7 +36,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git diff --quiet js/site-data.js && echo "No changes" && exit 0
-          git add js/site-data.js
-          git commit -m "Update trending games & sports from Stake"
+          git add js/site-data.js images/ result.json
+          git diff --quiet --cached && echo "No changes" && exit 0
+          git commit -m "Update trending games & sports from Melbet"
           git push
