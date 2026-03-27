@@ -1,4 +1,4 @@
-name: Update trending data from Stake
+name: Update trending data from MelBet(SO)
 
 on:
   schedule:
