@@ -247,11 +247,11 @@ window.SITE_DATA = {
     sports: [
       {
         key: "football",
-        title: { en: "Football", so: "Kubadda cagta" },
+        title: { en: "Football", so: "Football" },
         meta: { en: "Live top sport on Melbet", so: "Sport-ka sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/live",
-        image: "./images/sport-football-melbet.png"
+        image: ""
       },
       {
         key: "tennis",
@@ -259,7 +259,7 @@ window.SITE_DATA = {
         meta: { en: "Live top sport on Melbet", so: "Sport-ka sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/live",
-        image: "./images/sport-tennis-melbet.png"
+        image: ""
       },
       {
         key: "basketball",
@@ -267,7 +267,7 @@ window.SITE_DATA = {
         meta: { en: "Live top sport on Melbet", so: "Sport-ka sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/live",
-        image: "./images/sport-basketball-melbet.png"
+        image: ""
       },
       {
         key: "volleyball",
