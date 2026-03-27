@@ -2,7 +2,7 @@ name: Update trending data from Melbet(SO)
 
 on:
   schedule:
-    - cron: "0 */18 * * *"   # каждые 6 часов
+    - cron: "0 */18 * * *"   # каждые 18 часов
   workflow_dispatch:          # ручной запуск
 
 permissions:
