@@ -6,8 +6,8 @@
     pip install DrissionPage
 
 Запуск:
-    python parse_stake.py
-    python parse_stake.py --xvfb   # для серверов без дисплея (GitHub Actions)
+    python parse_melbet.py
+    python parse_melbet.py --xvfb   # для серверов без дисплея (GitHub Actions)
 """
 
 import json
@@ -33,11 +33,7 @@ FIRST_PAGE_LOAD_DELAY = 15
 SCROLL_DELAY = 2
 SCROLL_STEPS = 10
 
-# API для получения бесплатных прокси по стране
-# Сомали + соседние страны (Джибути, Эфиопия, Кения, Йемен, Эритрея, Судан, Уганда, Танзания)
-PROXY_COUNTRIES = ["so", "dj", "et", "ye", "er", "sd", "ug", "tz"]
-PROXY_API_TPL = "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&country={country}&protocol=http&proxy_format=protocolipport&format=text&timeout=5000"
-PROXY_API = "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&country=so&protocol=http&proxy_format=protocolipport&format=text&timeout=5000"
+PROXY_API ="https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&country=so&protocol=http&proxy_format=protocolipport&format=text&timeout=5000"
 
 
 class ThreadingTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
@@ -103,9 +99,6 @@ class UpstreamProxyHandler(socketserver.StreamRequestHandler):
             self._tunnel(self.connection, upstream)
         finally:
             upstream.close()
-    def parse_gh_quantites(self):
-        pass
-
     def _handle_http(self, method: str, target: str, headers: dict) -> None:
         upstream = self._connect_upstream()
         try:
@@ -441,6 +434,7 @@ def main() -> None:
             print("ERROR: no Somali proxy found", file=sys.stderr)
             sys.exit(1)
 
+    vdisplay = None
     if args.xvfb:
         try:
             from xvfbwrapper import Xvfb
@@ -481,7 +475,7 @@ def main() -> None:
         if proxy_bridge:
             proxy_bridge.shutdown()
             proxy_bridge.server_close()
-        if args.xvfb:
+        if vdisplay:
             vdisplay.stop()
 
 

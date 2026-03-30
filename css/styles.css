@@ -902,7 +902,6 @@ body[data-page="home"] .home-atmosphere .somali-crest {
 }
 
 .somalia-shape {
-  fill: url(#somaliaFill);
   stroke: rgba(255, 255, 255, 0.42);
   stroke-width: 0.045;
   filter: drop-shadow(0 0 26px rgba(0, 166, 255, 0.24));
@@ -1855,6 +1854,13 @@ body[data-page="partnership"] .partner-faq-grid .faq-item p {
 }
 
 @media (max-width: 860px) {
+  .partner-split-grid,
+  .partner-pillars-grid,
+  .difference-grid,
+  .partner-mini-grid {
+    grid-template-columns: 1fr;
+  }
+
   .topbar {
     grid-template-columns: auto auto;
   }

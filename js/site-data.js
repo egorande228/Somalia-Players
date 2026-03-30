@@ -170,8 +170,8 @@ window.SITE_DATA = {
         faqTitle: "Su'aalaha ku saabsan barnaamijyada",
         faqCopy:
           "Tani waa aragti degdeg ah oo ku saabsan sida agent iyo affiliate loogu sharaxo partners cusub ka hor bilaabista.",
-        bottomHome: "About us",
-        bottomPartner: "Become our partner"
+        bottomHome: "Nagu saabsan",
+        bottomPartner: "Noqo lamaanayaheena"
       }
     }
   },
@@ -261,7 +261,7 @@ window.SITE_DATA = {
     sports: [
       {
         key: "football",
-        title: { en: "Football", so: "Football" },
+        title: { en: "Football", so: "Kubadda cagta" },
         meta: { en: "Live top sport on Melbet", so: "Sport-ka sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/live",

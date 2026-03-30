@@ -29,7 +29,7 @@ jobs:
         env:
           PROXY: ${{ secrets.PROXY }}
         run: |
-          xvfb-run --auto-servernum python parse_melbet.py --xvfb --proxy "$PROXY" -o result.json
+          xvfb-run --auto-servernum python parse_melbet.py --proxy "$PROXY" -o result.json
 
       - name: Update site-data.js
         run: python update_site_data.py

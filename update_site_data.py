@@ -18,6 +18,7 @@ RESULT_PATH = Path(__file__).parent / "result.json"
 
 # Английский → Сомалийский для спортов
 SPORT_SO: dict[str, str] = {
+    "Football": "Kubadda cagta",
     "Soccer": "Kubadda cagta",
     "Tennis": "Tennis",
     "Basketball": "Kubadda koleyga",
@@ -78,7 +79,12 @@ def download_image(url: str, filename: str) -> str:
     url = re.sub(r"[?&]w=\d+", lambda m: m.group(0)[0] + "w=600", url)
     url = re.sub(r"[?&]h=\d+", lambda m: m.group(0)[0] + "h=800", url)
 
-    ext = ".png" if ".png" in url else ".jpg"
+    if ".png" in url:
+        ext = ".png"
+    elif ".webp" in url:
+        ext = ".webp"
+    else:
+        ext = ".jpg"
     filepath = IMAGES_DIR / f"{filename}{ext}"
     rel_path = f"./images/{filename}{ext}"
 
