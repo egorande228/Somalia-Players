@@ -157,36 +157,14 @@ a {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  flex-shrink: 0;
   text-decoration: none;
 }
 
-.logo-mark {
-  display: none;
-}
-
-.logo-word {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: inherit;
-  text-shadow: 0 0 1px rgba(255, 255, 255, 0.24);
-}
-
-.logo-word::after {
-  content: none;
-}
-
-.logo-word-primary {
-  color: #ffffff;
-}
-
-.logo-word-accent {
-  color: #ffd95c;
-  text-shadow:
-    0 0 1px rgba(255, 255, 255, 0.18),
-    0 0 16px rgba(255, 217, 92, 0.12);
+.logo-image {
+  display: block;
+  width: min(148px, 22vw);
+  height: auto;
 }
 
 .nav {
@@ -397,8 +375,9 @@ body[data-page="home"] .home-atmosphere .somali-crest {
 
 .hero-copy h1 {
   margin: 14px 0 16px;
-  font-size: clamp(2.5rem, 5vw, 4.4rem);
-  line-height: 1.05;
+  font-size: clamp(2.3rem, 4.2vw, 3.9rem);
+  line-height: 1.02;
+  max-width: 11ch;
 }
 
 .hero-text,
@@ -410,6 +389,47 @@ body[data-page="home"] .home-atmosphere .somali-crest {
   color: var(--muted);
   line-height: 1.7;
   font-size: 1.02rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(215, 241, 255, 0.18);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-1px);
+}
+
+.hero-btn-primary {
+  color: #041523;
+  background: linear-gradient(180deg, #9ae7ff 0%, #5ebdff 52%, #00a6ff 100%);
+  box-shadow: 0 16px 30px rgba(0, 104, 173, 0.24);
+}
+
+.hero-btn-secondary {
+  color: #ecf8ff;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .hero-badges {
@@ -986,10 +1006,6 @@ body[data-page="partnership"] .topbar {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 22px 40px rgba(0, 25, 43, 0.18);
-}
-
-body[data-page="partnership"] .logo-mark {
-  display: none;
 }
 
 body[data-page="partnership"] .nav a {
@@ -1846,12 +1862,21 @@ body[data-page="partnership"] .partner-faq-grid .faq-item p {
     padding-inline: 10px;
   }
 
-  .logo-word {
-    font-size: 1.6rem;
+  .logo-image {
+    width: min(118px, 30vw);
+    height: auto;
   }
 
   .hero-copy h1 {
     font-size: 2.2rem;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+
+  .hero-btn {
+    width: 100%;
   }
 
   .feature-art {
