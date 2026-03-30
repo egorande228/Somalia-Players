@@ -403,6 +403,36 @@ function createStaticSomaliaMap(nodeId) {
   };
 }
 
+function createAgentMarker(agent) {
+  const isElite = agent.tier === "elite";
+  const icon = window.L.divIcon({
+    className: "",
+    html: `<div class="agent-marker agent-marker--${agent.tier}"></div>`,
+    iconSize: isElite ? [20, 24] : [18, 18],
+    iconAnchor: isElite ? [10, 24] : [9, 9],
+    popupAnchor: [0, -4]
+  });
+
+  const svgWa = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.553 4.103 1.522 5.829L.057 23.196a.75.75 0 0 0 .92.92l5.429-1.456A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.717 9.717 0 0 1-4.964-1.361l-.355-.212-3.685.988.997-3.598-.232-.371A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>`;
+  const svgTg = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>`;
+
+  const links = [];
+  if (agent.whatsapp) {
+    links.push(`<a class="agent-contact-btn agent-contact-btn--wa" href="https://wa.me/${agent.whatsapp.replace(/\+/g, "")}" target="_blank" rel="noopener" title="WhatsApp">${svgWa}</a>`);
+  }
+  if (agent.telegram) {
+    links.push(`<a class="agent-contact-btn agent-contact-btn--tg" href="https://t.me/${agent.telegram}" target="_blank" rel="noopener" title="Telegram">${svgTg}</a>`);
+  }
+
+  const popup = `<div class="agent-popup">
+    <strong>${agent.name}</strong>
+    <span class="agent-popup-tier agent-popup-tier--${agent.tier}">${agent.tier}</span>
+    <div class="agent-popup-links">${links.join("")}</div>
+  </div>`;
+
+  return window.L.marker([agent.lat, agent.lng], { icon }).bindPopup(popup);
+}
+
 function createSomaliaMap(nodeId, zoom) {
   const container = document.getElementById(nodeId);
   if (!container) return null;
@@ -438,6 +468,10 @@ function createSomaliaMap(nodeId, zoom) {
     return div;
   };
   badge.addTo(map);
+
+  (window.SITE_DATA.agents || []).forEach((agent) => {
+    createAgentMarker(agent).addTo(map);
+  });
 
   return map;
 }

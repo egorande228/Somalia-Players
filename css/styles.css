@@ -920,6 +920,86 @@ body[data-page="home"] .home-atmosphere .somali-crest {
   font-weight: 700;
 }
 
+.agent-marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+.agent-marker--bronze { background: #cd7f32; }
+.agent-marker--silver { background: #c0c0c0; }
+.agent-marker--gold   { background: #ffd700; }
+.agent-marker--elite  {
+  background: #fff;
+  border-radius: 0;
+  border: none;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 42%, 50% 100%, 0% 42%);
+  box-shadow: none;
+  width: 20px;
+  height: 24px;
+  position: relative;
+  filter: drop-shadow(0 1px 3px rgba(14, 165, 233, 0.6));
+}
+.agent-marker--elite::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: linear-gradient(160deg, #e0f7ff 0%, #38bdf8 40%, #0284c7 100%);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 42%, 50% 100%, 0% 42%);
+}
+
+.agent-popup {
+  text-align: center;
+  font-family: inherit;
+  line-height: 1.45;
+  min-width: 130px;
+}
+.agent-popup strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.agent-popup-tier {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1px 8px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+.agent-popup-tier--bronze { background: #cd7f32; color: #fff; }
+.agent-popup-tier--silver { background: #c0c0c0; color: #222; }
+.agent-popup-tier--gold   { background: #ffd700; color: #222; }
+.agent-popup-tier--elite  { background: #0284c7; color: #fff; }
+.agent-popup-links {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.agent-contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.agent-contact-btn:hover {
+  opacity: 0.85;
+}
+.agent-contact-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+}
+.agent-contact-btn--wa { background: #25d366; }
+.agent-contact-btn--tg { background: #2aabee; }
+
 .map-modal {
   position: fixed;
   inset: 0;

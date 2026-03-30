@@ -1,5 +1,15 @@
 window.SITE_DATA = {
   assetVersion: "20260330",
+  agents: [
+    { name: "Ahmed Ali",     tier: "elite",  lat: 2.0469,   lng: 45.3182, whatsapp: "+252612345678", telegram: "ahmed_ali"     },
+    { name: "Fadumo Omar",   tier: "gold",   lat: 9.56,     lng: 44.064,  whatsapp: "+252634567890", telegram: "fadumo_omar"   },
+    { name: "Hassan Jama",   tier: "gold",   lat: -0.3563,  lng: 42.5428, whatsapp: "+252615678901", telegram: "hassan_jama"   },
+    { name: "Safia Abdi",    tier: "silver", lat: 8.4054,   lng: 48.4906, whatsapp: "+252628901234", telegram: "safia_abdi"    },
+    { name: "Mukhtar Yusuf", tier: "silver", lat: 11.2756,  lng: 49.1797, whatsapp: "+252611234567", telegram: "mukhtar_y"     },
+    { name: "Lul Ibrahim",   tier: "bronze", lat: 4.7358,   lng: 45.2036, whatsapp: "+252629012345", telegram: "lul_ibrahim"   },
+    { name: "Cabdi Warsame", tier: "bronze", lat: 3.1156,   lng: 43.6497, whatsapp: "+252618765432", telegram: "cabdi_w"       },
+    { name: "Nasteho Shire", tier: "gold",   lat: 10.4394,  lng: 45.0368, whatsapp: "+252622345678", telegram: "nasteho_shire" }
+  ],
   languages: ["en", "so"],
   meta: {
     home: {
