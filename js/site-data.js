@@ -67,20 +67,20 @@ window.SITE_DATA = {
         sportTag: "Sport",
         sportTitle: "Sport",
         sportCopy: "Live matches, top leagues, and trending sports markets with fast access.",
-        trendingGamesKicker: "Prepared section",
+        trendingGamesKicker: "Live trends",
         trendingGamesTitle: "Trending games",
-        trendingSportsKicker: "Prepared section",
+        trendingSportsKicker: "Live trends",
         trendingSportsTitle: "Trending sports",
         sectionNote: "Scroll to explore the full list.",
-        mapKicker: "Map block",
+        mapKicker: "Agent network",
         mapTitle: "Agent Cash Map",
         mapExpand: "Expand map",
         mapHint: "Drag the map in expanded mode.",
-        mapModalTitle: "Expanded Agent Cash Map",
-        mapCardTitle: "Mini Somalia map for agent coverage",
+        mapModalTitle: "Agent Cash Map",
+        mapCardTitle: "Find a cash agent near you",
         mapCardCopy:
-          "This block is ready for future agent zones, cash points, and city markers. The compact view is visible on the page, and the full view can be expanded.",
-        questionsKicker: "Trust block",
+          "Melbet cash agents are available across Somalia for direct deposits and withdrawals in person — no bank transfer required.",
+        questionsKicker: "FAQ",
         questionsTitle: "Questions about us"
       },
       partnership: {
@@ -137,20 +137,20 @@ window.SITE_DATA = {
         sportTag: "Sport",
         sportTitle: "Sport",
         sportCopy: "Live matches, top leagues, iyo suuqyada sports-ka socda oo leh gelitaan degdeg ah.",
-        trendingGamesKicker: "Qayb diyaarsan",
+        trendingGamesKicker: "Trending hadda",
         trendingGamesTitle: "Ciyaaraha socda",
-        trendingSportsKicker: "Qayb diyaarsan",
+        trendingSportsKicker: "Trending hadda",
         trendingSportsTitle: "Sports-ka socda",
         sectionNote: "Rog liiska si aad u aragto dhammaan kaararka.",
-        mapKicker: "Qayb khariidad",
+        mapKicker: "Shabakadda agent-ka",
         mapTitle: "Agent Cash Map",
         mapExpand: "Weynay khariidadda",
         mapHint: "Jiido khariidadda marka la weyneeyo.",
-        mapModalTitle: "Agent Cash Map oo weyn",
-        mapCardTitle: "Khariidad yar oo Somalia ah oo loogu talagalay aagga agent-ka",
+        mapModalTitle: "Agent Cash Map",
+        mapCardTitle: "Hel agent lacag kuu dhow",
         mapCardCopy:
-          "Qaybtan waxay diyaar u tahay aagagga agent-ka, cash points, iyo calaamadaha magaalooyinka. Muuqaal yar ayaa bogga saaran, muuqaalka buuxana waa la weynayn karaa.",
-        questionsKicker: "Qayb kalsooni",
+          "Agents-ka lacagta Melbet waxay ku yaalliin gudaha Somalia oo dhan si aad u geli ama u qaadato lacagta si toos ah — iyada oo aan u baahnayn wareejinta bangiga.",
+        questionsKicker: "Su'aalaha",
         questionsTitle: "Su'aalaha nagu saabsan"
       },
       partnership: {
@@ -331,42 +331,42 @@ window.SITE_DATA = {
     faqs: [
       {
         q: {
-          en: "Is this page ready for real casino and sport links?",
-          so: "Boggan ma u diyaar yahay links-ka dhabta ah ee casino iyo sport?"
+          en: "How do I register on Melbet?",
+          so: "Sidee ayaan isu diiwaan galin Melbet?"
         },
         a: {
-          en: "Yes. The top Casino and Sport cards already use clickable anchors, so you only need to replace the placeholder href values later.",
-          so: "Haa. Kaadhadhka kore ee Casino iyo Sport waa clickable hadda, sidaas darteed waxaad kaliya beddelaysaa href-yada ku meel gaarka ah dambe."
+          en: "Click the Register button, fill in your details, and your account is ready in a few minutes. You can start playing immediately after registration.",
+          so: "Guji badhanka Register-ka, buuxi xogta aad baahan tahay, oo akoonkaagu diyaar ayuu noqonayaa dhowr daqiiqo gudahood. Waxaad bilaabin kartaa ciyaarta isla markiiba kadib diiwaan gelinta."
         }
       },
       {
         q: {
-          en: "Can trending games and sports be changed every day?",
-          so: "Trending games iyo sports ma la beddeli karaa maalin kasta?"
+          en: "How do I deposit money?",
+          so: "Sidee ayaan lacag ku gelin karaa?"
         },
         a: {
-          en: "Yes. The card data is separated from the layout, which makes automated daily updates straightforward.",
-          so: "Haa. Xogta kaadhadhka waa laga soocay layout-ka, taas oo fududaynaysa cusboonaysiinta maalinlaha ah ee otomaatiga ah."
+          en: "You can deposit through a local Melbet cash agent near you or directly via the payment methods available on the platform.",
+          so: "Waxaad ku gelin kartaa lacagta agent lacagta Melbet ee kuu dhow, ama si toos ah adigoo adeegsanaya hababka lacag bixinta ee balaatafoomka."
         }
       },
       {
         q: {
-          en: "Is the page already bilingual?",
-          so: "Boggu ma yahay laba luqadood hadda?"
+          en: "How do I withdraw my winnings?",
+          so: "Sidee ayaan lacagtayda ka soo qaadan karaa?"
         },
         a: {
-          en: "Yes. English and Somali are both wired into the language switcher and persistent in the browser.",
-          so: "Haa. English iyo Somali labaduba waxay ku xiran yihiin language switcher-ka waxaana lagu xafidaa browser-ka."
+          en: "Withdrawals are processed through your nearest cash agent or via the same payment method you used to deposit.",
+          so: "Lacagta soo qaadashada waxaa lagu xidaa agent lacagta kugu dhow ama iyadoo la adeegsanayo habka lacag bixinta ee aad ku gelisay."
         }
       },
       {
         q: {
-          en: "Can we add real images later without redesigning the page?",
-          so: "Ma ku dari karnaa sawirrada dhabta ah dambe anagoo aan dib u naqshadayn bogga?"
+          en: "Is Melbet available in Somali?",
+          so: "Ma ku heli karaa Melbet af Soomaali?"
         },
         a: {
-          en: "Yes. Each card already includes a dedicated media area, so later you can attach images without restructuring the sections.",
-          so: "Haa. Kaadh kasta wuxuu leeyahay meel sawir u gaar ah, sidaas darteed sawirrada dambe waa lagu dari karaa adoon qaabka qaybaha beddelin."
+          en: "Yes. This site fully supports both Somali and English. Use the language switcher at the top of the page to choose your preferred language.",
+          so: "Haa. Boggan si buuxda ayuu u taageeraa Soomaali iyo English labadaba. Isticmaal badhanka luqadda ee xagga sare bogga si aad u doorato luqadda aad doonayso."
         }
       }
     ]
