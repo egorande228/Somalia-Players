@@ -8,6 +8,7 @@ import json
 import re
 import subprocess
 import sys
+from datetime import date
 from pathlib import Path
 
 SITE_DIR = Path(__file__).parent
@@ -49,6 +50,18 @@ SPORT_SO: dict[str, str] = {
 }
 
 MELBET_BASE_URL = "https://melbet-583603.pro"
+
+SPORT_IMAGE_FALLBACK: dict[str, str] = {
+    "football":    "./images/sport-football-melbet.png",
+    "soccer":      "./images/sport-football-melbet.png",
+    "tennis":      "./images/sport-tennis-melbet.png",
+    "basketball":  "./images/sport-basketball-melbet.png",
+    "volleyball":  "./images/sport-volleyball-melbet.png",
+    "cricket":     "./images/sport-cricket-melbet.png",
+    "hockey":      "./images/sport-hockey-melbet.png",
+    "table-tennis": "./images/sport-table-tennis-melbet.png",
+    "e-sport":     "./images/sport-esport-melbet.png",
+}
 
 
 def sport_to_somali(name: str) -> str:
@@ -107,6 +120,8 @@ def make_sport_entry(item: dict) -> str:
     slug = item["slug"]
     so_name = sport_to_somali(name)
     img_path = download_image(item.get("image", ""), f"sport-{slug}")
+    if not img_path:
+        img_path = SPORT_IMAGE_FALLBACK.get(slug, "")
     return (
         "      {\n"
         f'        key: "{slug}",\n'
@@ -186,6 +201,9 @@ def main() -> None:
 
     js = replace_first_n(js, "games", game_entries, len(game_entries))
     js = replace_first_n(js, "sports", sport_entries, len(sport_entries))
+
+    today = date.today().strftime("%Y%m%d")
+    js = re.sub(r'assetVersion:\s*"[^"]*"', f'assetVersion: "{today}"', js)
 
     SITE_DATA_PATH.write_text(js, encoding="utf-8")
     print(f"Updated {SITE_DATA_PATH}", file=sys.stderr)

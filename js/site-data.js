@@ -1,5 +1,5 @@
 window.SITE_DATA = {
-  assetVersion: "20260326-home-somalia",
+  assetVersion: "20260330",
   languages: ["en", "so"],
   meta: {
     home: {
@@ -255,7 +255,7 @@ window.SITE_DATA = {
         meta: { en: "Live top sport on Melbet", so: "Sport-ka sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/live",
-        image: ""
+        image: "./images/sport-football-melbet.png"
       },
       {
         key: "tennis",
@@ -263,7 +263,7 @@ window.SITE_DATA = {
         meta: { en: "Live top sport on Melbet", so: "Sport-ka sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/live",
-        image: ""
+        image: "./images/sport-tennis-melbet.png"
       },
       {
         key: "basketball",
@@ -271,7 +271,7 @@ window.SITE_DATA = {
         meta: { en: "Live top sport on Melbet", so: "Sport-ka sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/live",
-        image: ""
+        image: "./images/sport-basketball-melbet.png"
       },
       {
         key: "volleyball",

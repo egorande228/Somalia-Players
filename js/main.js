@@ -88,7 +88,6 @@ function renderTrendCards(lang, targetId, items, type) {
             <p class="card-meta">${item.meta[lang]}</p>
             <div class="card-footer">
               <span><span class="status-dot"></span> ${item.players}</span>
-              <span>${lang === "so" ? "Link dambe" : "Link later"}</span>
             </div>
           </div>
         </a>
