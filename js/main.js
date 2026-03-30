@@ -8,14 +8,24 @@ const modalMapNode = document.getElementById("somaliaMapModal");
 const miniMapNode = document.getElementById("somaliaMapMini");
 
 if (menuBtn && siteNav) {
+  menuBtn.setAttribute("aria-expanded", "false");
   menuBtn.addEventListener("click", () => {
-    siteNav.classList.toggle("is-open");
+    const isOpen = siteNav.classList.toggle("is-open");
+    menuBtn.setAttribute("aria-expanded", String(isOpen));
   });
 }
 
 function getLang() {
   const saved = localStorage.getItem(storageKey);
   return window.SITE_DATA.languages.includes(saved) ? saved : "en";
+}
+
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 
@@ -25,6 +35,12 @@ function applyStaticText(lang) {
     const [group, key] = node.dataset.i18n.split(".");
     if (dict[group] && dict[group][key] != null) {
       node.textContent = dict[group][key];
+    }
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach((node) => {
+    const [group, key] = node.dataset.i18nAria.split(".");
+    if (dict[group] && dict[group][key] != null) {
+      node.setAttribute("aria-label", dict[group][key]);
     }
   });
 }
@@ -70,15 +86,15 @@ function renderTrendCards(lang, targetId, items, type) {
         : "";
 
       return `
-        <a class="trend-card ${type}" href="${item.href}">
+        <a class="trend-card ${type}" href="${escHtml(item.href)}">
           <div class="trend-card-media"${mediaStyle}>
             <span class="trend-card-label">${type === "sport" ? "SPORT" : "GAME"}</span>
           </div>
           <div class="trend-card-body">
-            <h3>${item.title[lang]}</h3>
-            <p class="card-meta">${item.meta[lang]}</p>
+            <h3>${escHtml(item.title[lang])}</h3>
+            <p class="card-meta">${escHtml(item.meta[lang])}</p>
             <div class="card-footer">
-              <span><span class="status-dot"></span> ${item.players}</span>
+              <span><span class="status-dot"></span> ${escHtml(item.players)}</span>
             </div>
           </div>
         </a>
@@ -113,8 +129,8 @@ function renderFaqs(lang, targetId, items) {
     .map((item) => {
       return `
         <article class="faq-item">
-          <h3>${item.q[lang]}</h3>
-          <p>${item.a[lang]}</p>
+          <h3>${escHtml(item.q[lang])}</h3>
+          <p>${escHtml(item.a[lang])}</p>
         </article>
       `;
     })

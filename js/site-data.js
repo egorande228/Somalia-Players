@@ -47,7 +47,9 @@ window.SITE_DATA = {
         next: "Next",
         login: "Login",
         register: "Register",
-        close: "Close"
+        close: "Close",
+        menuLabel: "Open menu",
+        langLabel: "Language selector"
       },
       home: {
         kicker: "Melbet Somalia",
@@ -115,7 +117,9 @@ window.SITE_DATA = {
         next: "Xiga",
         login: "Gal",
         register: "Isdiiwaangeli",
-        close: "Xir"
+        close: "Xir",
+        menuLabel: "Fur menu-ga",
+        langLabel: "Dooro luqadda"
       },
       home: {
         kicker: "Melbet Somalia",

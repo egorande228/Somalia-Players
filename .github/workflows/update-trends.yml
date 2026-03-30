@@ -3,7 +3,7 @@ name: Update trending data from MelBet(SO)
 on:
   schedule:
     - cron: "0 */18 * * *"   # каждые 18 часов
-  workflow_dispatch:          # ручной запуск
+  workflow_dispatch:        
 
 jobs:
   scrape-and-update:
@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add js/site-data.js images/ result.json
+          git add js/site-data.js images/ result.json index.html partnership.html
           git diff --quiet --cached && echo "No changes" && exit 0
           git commit -m "Update trending games & sports from Melbet"
           git push

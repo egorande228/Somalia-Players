@@ -330,7 +330,7 @@ def parse_sports(page: ChromiumPage, top_n: int = 3) -> list[dict]:
         if not img_url:
             svgs = el.eles("css:svg")
             if svgs:
-                img_url = ""  # SVG иконки — не скачиваем
+                img_url = ""
 
         seen.add(slug)
         sports.append({"name": name, "slug": slug, "image": img_url})

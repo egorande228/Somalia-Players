@@ -69,6 +69,11 @@ def sport_to_somali(name: str) -> str:
     return SPORT_SO.get(name, name)
 
 
+def js_str(s: str) -> str:
+    """Экранирует строку для безопасной вставки в JS double-quoted литерал."""
+    return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n").replace("\r", "")
+
+
 def download_image(url: str, filename: str) -> str:
     """Скачивает картинку в IMAGES_DIR через curl, возвращает относительный путь."""
     if not url:
@@ -106,9 +111,9 @@ def download_image(url: str, filename: str) -> str:
 
 
 def make_game_entry(item: dict) -> str:
-    name = item["name"]
-    slug = item["slug"]
-    img_path = download_image(item.get("image", ""), f"game-{slug}")
+    name = js_str(item["name"])
+    slug = js_str(item["slug"])
+    img_path = js_str(download_image(item.get("image", ""), f"game-{slug}"))
     return (
         "      {\n"
         f'        key: "{slug}",\n'
@@ -122,12 +127,13 @@ def make_game_entry(item: dict) -> str:
 
 
 def make_sport_entry(item: dict) -> str:
-    name = item["name"]
-    slug = item["slug"]
-    so_name = sport_to_somali(name)
+    name = js_str(item["name"])
+    slug = js_str(item["slug"])
+    so_name = js_str(sport_to_somali(item["name"]))
     img_path = download_image(item.get("image", ""), f"sport-{slug}")
     if not img_path:
         img_path = SPORT_IMAGE_FALLBACK.get(slug, "")
+    img_path = js_str(img_path)
     return (
         "      {\n"
         f'        key: "{slug}",\n'
@@ -213,6 +219,14 @@ def main() -> None:
 
     SITE_DATA_PATH.write_text(js, encoding="utf-8")
     print(f"Updated {SITE_DATA_PATH}", file=sys.stderr)
+
+    for html_path in [SITE_DIR / "index.html", SITE_DIR / "partnership.html"]:
+        html = html_path.read_text(encoding="utf-8")
+        html = re.sub(r'(site-data\.js\?v=)[^\'"]+', rf'\g<1>{today}', html)
+        html = re.sub(r'(main\.js\?v=)[^\'"]+', rf'\g<1>{today}', html)
+        html = re.sub(r'(styles\.css\?v=)[^\'"]+', rf'\g<1>{today}', html)
+        html_path.write_text(html, encoding="utf-8")
+    print(f"Updated cache-bust ?v= to {today} in HTML files", file=sys.stderr)
 
 
 if __name__ == "__main__":
