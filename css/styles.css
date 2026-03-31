@@ -391,8 +391,7 @@ body[data-page="home"] .home-atmosphere .somali-crest {
 .partnership-highlight p,
 .program-card p,
 .card-meta,
-.faq-item p,
-.workflow-card p {
+.faq-item p {
   color: var(--muted);
   line-height: 1.7;
   font-size: 1.02rem;
@@ -466,7 +465,6 @@ body[data-page="home"] .home-atmosphere .somali-crest {
 
 .feature-panel,
 .program-card,
-.workflow-card,
 .faq-item {
   border-radius: var(--radius-xl);
   background: linear-gradient(180deg, rgba(20, 45, 68, 0.96), rgba(10, 24, 39, 0.98));
@@ -742,14 +740,12 @@ body[data-page="home"] .home-atmosphere .somali-crest {
 }
 
 .faq-item,
-.workflow-card,
 .program-card {
   padding: 24px;
 }
 
 .faq-item h3,
-.program-card h3,
-.workflow-card h3 {
+.program-card h3 {
   margin: 0 0 10px;
   font-size: 1.5rem;
 }
@@ -955,57 +951,6 @@ body[data-page="home"] .home-atmosphere .somali-crest {
   clip-path: polygon(20% 0%, 80% 0%, 100% 42%, 50% 100%, 0% 42%);
 }
 
-.agent-popup {
-  text-align: center;
-  font-family: inherit;
-  line-height: 1.45;
-  min-width: 130px;
-}
-.agent-popup strong {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-.agent-popup-tier {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 1px 8px;
-  border-radius: 8px;
-  margin-bottom: 6px;
-}
-.agent-popup-tier--bronze { background: #cd7f32; color: #fff; }
-.agent-popup-tier--silver { background: #c0c0c0; color: #222; }
-.agent-popup-tier--gold   { background: #ffd700; color: #222; }
-.agent-popup-tier--elite  { background: #0284c7; color: #fff; }
-.agent-popup-links {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-.agent-contact-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  text-decoration: none;
-  transition: opacity 0.15s;
-}
-.agent-contact-btn:hover {
-  opacity: 0.85;
-}
-.agent-contact-btn svg {
-  width: 18px;
-  height: 18px;
-  fill: #fff;
-}
-.agent-contact-btn--wa { background: #25d366; }
-.agent-contact-btn--tg { background: #2aabee; }
-
 .map-modal {
   position: fixed;
   inset: 0;
@@ -1025,19 +970,6 @@ body[data-page="home"] .home-atmosphere .somali-crest {
   width: min(1100px, calc(100vw - 28px));
   margin: 24px auto;
   padding: 24px;
-}
-
-.workflow-step {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  margin-bottom: 14px;
-  background: linear-gradient(180deg, rgba(0, 166, 255, 0.24), rgba(19, 217, 122, 0.22));
-  color: var(--text);
-  font-weight: 900;
 }
 
 body[data-page="partnership"] {
@@ -1278,12 +1210,6 @@ body[data-page="partnership"] .lang-switch {
   overflow: hidden;
 }
 
-.program-visual-graph {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .program-visual-flow {
   min-height: 266px;
   height: 266px;
@@ -1431,74 +1357,11 @@ body[data-page="partnership"] .lang-switch {
   animation-delay: 1.6s;
 }
 
-.graph-top {
-  display: grid;
-  grid-template-columns: auto minmax(104px, 1fr) auto;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.graph-dollar {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  font-weight: 900;
-  color: #062136;
-  background: linear-gradient(180deg, #9ae7ff 0%, #5ebdff 52%, #00a6ff 100%);
-}
-
-.graph-value {
-  color: #f3fbff;
-  font-size: 1.05rem;
-  font-weight: 800;
-}
-
-.graph-percent {
-  min-width: 56px;
-  padding: 4px 9px;
-  border-radius: 999px;
-  border: 1px solid rgba(137, 219, 255, 0.3);
-  background: rgba(0, 166, 255, 0.12);
-  color: #cfeeff;
-  font-size: 0.8rem;
-  font-weight: 900;
-  text-align: center;
-}
-
-.graph-svg,
 .flow-diagram {
   width: 100%;
   height: auto;
   display: block;
   overflow: visible;
-}
-
-.graph-area {
-  fill: rgba(94, 189, 255, 0.14);
-}
-
-.graph-line {
-  fill: none;
-  stroke: #89dbff;
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 360;
-  stroke-dashoffset: 360;
-}
-
-.graph-dot {
-  fill: #13d97a;
-  animation: pulse-dot 1.6s ease-in-out infinite;
-}
-
-.program-visual-graph.is-animating .graph-line {
-  animation: grow-line 1.9s ease-out forwards;
 }
 
 .flow-node-shape {
@@ -1813,7 +1676,6 @@ body[data-page="partnership"] .partnership-hero {
 body[data-page="partnership"] .hero-copy,
 body[data-page="partnership"] .partnership-highlight,
 body[data-page="partnership"] .program-card,
-body[data-page="partnership"] .workflow-card,
 body[data-page="partnership"] .faq-item {
   position: relative;
   overflow: hidden;
@@ -1833,7 +1695,6 @@ body[data-page="partnership"] .partnership-highlight {
 body[data-page="partnership"] .hero-copy::before,
 body[data-page="partnership"] .partnership-highlight::before,
 body[data-page="partnership"] .program-card::before,
-body[data-page="partnership"] .workflow-card::before,
 body[data-page="partnership"] .faq-item::before {
   content: "";
   position: absolute;
@@ -1846,7 +1707,6 @@ body[data-page="partnership"] .faq-item::before {
 body[data-page="partnership"] .hero-copy h1,
 body[data-page="partnership"] .section-head h2,
 body[data-page="partnership"] .program-card h3,
-body[data-page="partnership"] .workflow-card h3,
 body[data-page="partnership"] .faq-item h3,
 body[data-page="partnership"] .partnership-highlight p {
   color: #f5fbff;
@@ -1854,7 +1714,6 @@ body[data-page="partnership"] .partnership-highlight p {
 
 body[data-page="partnership"] .hero-text,
 body[data-page="partnership"] .program-card p,
-body[data-page="partnership"] .workflow-card p,
 body[data-page="partnership"] .faq-item p {
   color: rgba(233, 247, 255, 0.76);
 }
@@ -1869,10 +1728,6 @@ body[data-page="partnership"] .program-label {
   color: #eef9ff;
 }
 
-body[data-page="partnership"] .workflow-step {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(131, 214, 255, 0.22));
-  box-shadow: 0 0 24px rgba(125, 208, 255, 0.18);
-}
 
 .partnership-page {
   display: grid;
@@ -2027,12 +1882,10 @@ body[data-page="partnership"] .workflow-step {
   animation: somaliStarPulse 4.5s ease-in-out infinite;
 }
 
-.partner-split-section,
 .partner-frame-section {
   position: relative;
 }
 
-.partner-split-section::before,
 .partner-frame-section::before {
   content: "";
   position: absolute;
@@ -2042,49 +1895,7 @@ body[data-page="partnership"] .workflow-step {
   pointer-events: none;
 }
 
-.partner-split-section {
-  padding: 34px 30px 28px;
-}
 
-.partner-divider {
-  position: absolute;
-  top: 22px;
-  bottom: 22px;
-  left: 50%;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-
-.divider-line {
-  flex: 1;
-  width: 1px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(150, 223, 255, 0.6), rgba(255, 255, 255, 0));
-}
-
-.divider-node {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, rgba(255, 255, 255, 0.54) 0%, rgba(146, 220, 255, 0.34) 32%, rgba(146, 220, 255, 0.08) 68%, transparent 72%);
-  border: 1px solid rgba(220, 244, 255, 0.24);
-  box-shadow: 0 0 32px rgba(141, 216, 255, 0.18);
-}
-
-.partner-split-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 30px;
-}
-
-.partner-card,
 .partner-frame-shell {
   position: relative;
   overflow: hidden;
@@ -2096,11 +1907,6 @@ body[data-page="partnership"] .workflow-step {
   box-shadow: 0 28px 70px rgba(0, 14, 25, 0.34);
 }
 
-.partner-card {
-  display: flex;
-}
-
-.partner-card::before,
 .partner-frame-shell::before {
   content: "";
   position: absolute;
@@ -2110,18 +1916,10 @@ body[data-page="partnership"] .workflow-step {
   pointer-events: none;
 }
 
-.partner-card-shell,
 .partner-frame-shell {
   padding: 30px 34px 34px;
 }
 
-.partner-card-shell {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  width: 100%;
-}
-
-.partner-card-badge,
 .partner-badge {
   position: relative;
   z-index: 2;
@@ -2138,41 +1936,6 @@ body[data-page="partnership"] .workflow-step {
   text-transform: uppercase;
 }
 
-.partner-card-glow,
-.partner-frame-glow {
-  position: absolute;
-  top: 74px;
-  bottom: 26px;
-  left: 50%;
-  width: min(92%, 720px);
-  height: auto;
-  border-radius: 42px 42px 24px 24px;
-  transform: translateX(-50%);
-  border: 3px solid rgba(145, 219, 255, 0.52);
-  box-shadow:
-    0 0 12px rgba(145, 219, 255, 0.34),
-    0 0 28px rgba(145, 219, 255, 0.22),
-    inset 0 0 18px rgba(145, 219, 255, 0.12);
-  opacity: 0.96;
-  pointer-events: none;
-}
-
-.partner-card-partner .partner-card-glow {
-  border-color: rgba(236, 201, 139, 0.44);
-  box-shadow:
-    0 0 12px rgba(236, 201, 139, 0.26),
-    0 0 28px rgba(236, 201, 139, 0.18),
-    inset 0 0 18px rgba(236, 201, 139, 0.1);
-}
-
-.partner-frame-glow {
-  left: 28px;
-  right: 28px;
-  width: auto;
-  transform: none;
-}
-
-.partner-card-main,
 .partner-frame-head {
   position: relative;
   z-index: 1;
@@ -2181,16 +1944,6 @@ body[data-page="partnership"] .workflow-step {
   text-align: center;
 }
 
-.partner-card-main {
-  display: grid;
-  grid-template-rows: 320px 170px 78px;
-  align-items: start;
-  justify-items: center;
-  padding: 76px 38px 28px;
-  min-height: 520px;
-}
-
-.partner-card-main h2,
 .partner-frame-head h2 {
   margin: 0;
   color: #f5fbff;
@@ -2198,114 +1951,18 @@ body[data-page="partnership"] .workflow-step {
   line-height: 1.12;
 }
 
-.partner-card-main h2 {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  align-self: stretch;
-  text-align: center;
-  height: 320px;
-  max-height: 320px;
-  overflow: hidden;
-}
-
-.partner-card-main h2,
-.partner-frame-head h2,
-.partner-mini-card h3,
-.partner-pillar-card h3,
-.difference-card h3 {
+.partner-frame-head h2 {
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
 }
 
-.partner-card-main p,
-.partner-frame-head p,
-.partner-mini-card p,
-.partner-pillar-card p,
-.difference-card p {
+.partner-frame-head p {
   color: rgba(233, 247, 255, 0.76);
   line-height: 1.72;
 }
 
-.partner-card-main p,
 .partner-frame-head p {
   max-width: 760px;
   margin: 14px auto 0;
-  font-size: 1rem;
-}
-
-.partner-card-main p {
-  align-self: stretch;
-  height: 170px;
-  max-height: 170px;
-  overflow: hidden;
-}
-
-.partner-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0;
-  width: 360px;
-  min-width: 360px;
-  height: 78px;
-  min-height: 78px;
-  padding: 16px 28px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #ffffff, #9fe3ff);
-  color: #032946;
-  font-size: 1rem;
-  font-weight: 900;
-  text-decoration: none;
-  box-shadow: 0 12px 24px rgba(125, 208, 255, 0.22);
-}
-
-.partner-mini-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-rows: 1fr;
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.partner-mini-card,
-.partner-pillar-card,
-.difference-card {
-  border-radius: 22px;
-  background:
-    linear-gradient(180deg, rgba(8, 56, 89, 0.74), rgba(4, 31, 49, 0.88)),
-    linear-gradient(140deg, rgba(255, 255, 255, 0.04), transparent 60%);
-  border: 1px solid rgba(214, 241, 255, 0.1);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    0 10px 24px rgba(0, 13, 24, 0.16);
-  width: 100%;
-}
-
-.partner-mini-card,
-.partner-pillar-card,
-.difference-card {
-  padding: 30px 24px;
-  text-align: center;
-}
-
-.partner-mini-card h3,
-.partner-pillar-card h3,
-.difference-card h3,
-.difference-column-head {
-  margin: 0 0 14px;
-  color: #ffffff;
-  font-size: 0.92rem;
-  font-weight: 900;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.partner-mini-card p,
-.partner-pillar-card p,
-.difference-card p {
-  margin: 0;
   font-size: 1rem;
 }
 
@@ -2333,35 +1990,6 @@ body[data-page="partnership"] .workflow-step {
   gap: 18px;
   margin-top: 8px;
   padding: 0 22px 8px;
-}
-
-.difference-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 26px;
-  margin-top: 8px;
-  padding: 0 22px 8px;
-}
-
-.difference-column {
-  display: grid;
-  gap: 18px;
-  align-content: start;
-  min-width: 0;
-}
-
-.difference-column-head {
-  margin: 0;
-  text-align: center;
-}
-
-.difference-card-stack {
-  display: grid;
-  gap: 16px;
-  align-content: start;
-  min-width: 0;
 }
 
 .partner-faq-grid {
@@ -2511,7 +2139,6 @@ body[data-page="partnership"] .lang-btn.is-active {
 .hero-btn-primary,
 .map-link,
 .expand-map-btn,
-.partner-cta,
 .contact-submit-btn {
   color: #1E1510;
   background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
@@ -2548,14 +2175,7 @@ body[data-page="partnership"] .lang-btn.is-active {
 .map-copy-card,
 .map-card,
 .map-modal-panel,
-.partner-card,
 .partner-frame-shell,
-.partner-mini-card,
-.partner-pillar-card,
-.difference-card,
-.journey-card,
-.partner-metric-card,
-.partner-usecase-card,
 .contact-modal-panel {
   background: linear-gradient(180deg, rgba(249, 251, 252, 0.97), rgba(238, 243, 246, 0.98));
   border: 1px solid rgba(65, 143, 222, 0.12);
@@ -2572,9 +2192,7 @@ body[data-page="home"] .home-faq-item,
 body[data-page="partnership"] .hero-copy,
 body[data-page="partnership"] .partnership-highlight,
 body[data-page="partnership"] .program-card,
-body[data-page="partnership"] .workflow-card,
 body[data-page="partnership"] .faq-item,
-.partner-card,
 .partner-frame-shell {
   background:
     linear-gradient(180deg, rgba(228, 238, 247, 0.96), rgba(214, 227, 239, 0.98)),
@@ -2592,9 +2210,7 @@ body[data-page="home"] .faq-item::before,
 body[data-page="partnership"] .hero-copy::before,
 body[data-page="partnership"] .partnership-highlight::before,
 body[data-page="partnership"] .program-card::before,
-body[data-page="partnership"] .workflow-card::before,
 body[data-page="partnership"] .faq-item::before,
-.partner-card::before,
 .partner-frame-shell::before {
   border-color: rgba(65, 143, 222, 0.1);
 }
@@ -2607,17 +2223,9 @@ body[data-page="home"] .map-copy-card h3,
 body[data-page="partnership"] .hero-copy h1,
 body[data-page="partnership"] .section-head h2,
 body[data-page="partnership"] .program-card h3,
-body[data-page="partnership"] .workflow-card h3,
 body[data-page="partnership"] .faq-item h3,
 body[data-page="partnership"] .partnership-highlight p,
-.partner-card-main h2,
 .partner-frame-head h2,
-.partner-mini-card h3,
-.partner-pillar-card h3,
-.difference-card h3,
-.journey-card h3,
-.partner-metric-card h3,
-.partner-usecase-card h3,
 .map-modal-head h2,
 .contact-modal-head h2 {
   color: var(--text);
@@ -2630,16 +2238,8 @@ body[data-page="home"] .faq-item p,
 body[data-page="home"] .map-copy-card p,
 body[data-page="partnership"] .hero-text,
 body[data-page="partnership"] .program-card p,
-body[data-page="partnership"] .workflow-card p,
 body[data-page="partnership"] .faq-item p,
-.partner-card-main p,
 .partner-frame-head p,
-.partner-mini-card p,
-.partner-pillar-card p,
-.difference-card p,
-.journey-card p,
-.partner-metric-card p,
-.partner-usecase-card p,
 .map-toolbar span,
 .contact-modal-copy {
   color: var(--muted);
@@ -2650,7 +2250,6 @@ body[data-page="partnership"] .faq-item p,
 .scroll-btn,
 .feature-pill,
 .contact-pill,
-.partner-card-badge,
 .partner-badge {
   background: rgba(65, 143, 222, 0.1);
   border: 1px solid rgba(65, 143, 222, 0.14);
@@ -2667,7 +2266,6 @@ body[data-page="partnership"] .faq-item p,
 }
 
 .partnership-atmosphere::before,
-.partner-split-section::before,
 .partner-frame-section::before {
   border-color: rgba(255, 255, 255, 0.46);
 }
@@ -2679,143 +2277,6 @@ body[data-page="partnership"] .faq-item p,
 
 .somali-crest-line {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
-}
-
-.partner-card-glow,
-.partner-frame-glow {
-  border-color: rgba(65, 143, 222, 0.24);
-  box-shadow:
-    0 0 12px rgba(65, 143, 222, 0.16),
-    0 0 28px rgba(124, 182, 238, 0.12),
-    inset 0 0 18px rgba(65, 143, 222, 0.08);
-}
-
-.partner-card-partner .partner-card-glow {
-  border-color: rgba(37, 99, 235, 0.22);
-  box-shadow:
-    0 0 12px rgba(37, 99, 235, 0.14),
-    0 0 28px rgba(37, 99, 235, 0.08),
-    inset 0 0 18px rgba(37, 99, 235, 0.06);
-}
-
-.partner-card-main {
-  grid-template-rows: auto auto auto;
-  gap: 16px;
-  min-height: auto;
-  padding-top: 112px;
-}
-
-.partner-card-main h2,
-.partner-card-main p {
-  height: auto;
-  max-height: none;
-}
-
-.partner-card-hero-icon,
-.partner-card-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary-dark);
-}
-
-.partner-card-hero-icon {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 4px;
-  border-radius: 24px;
-  background: linear-gradient(180deg, rgba(65, 143, 222, 0.14), rgba(37, 99, 235, 0.12));
-}
-
-.partner-card-icon {
-  width: 44px;
-  height: 44px;
-  margin: 0 auto 16px;
-  border-radius: 14px;
-  background: rgba(65, 143, 222, 0.1);
-}
-
-.partner-card-hero-icon svg,
-.partner-card-icon svg {
-  width: 24px;
-  height: 24px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.partner-card-hero-icon svg path:only-child,
-.partner-card-icon svg path:only-child {
-  fill: currentColor;
-  stroke: none;
-}
-
-.partner-metrics-section .partner-frame-shell,
-.partner-journey-section .partner-frame-shell,
-.partner-usecase-section .partner-frame-shell {
-  padding-bottom: 26px;
-}
-
-.partner-metrics-grid,
-.partner-usecase-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-  padding: 0 22px 8px;
-}
-
-.partner-metric-card,
-.partner-usecase-card {
-  padding: 28px 22px;
-  border-radius: 22px;
-  text-align: center;
-}
-
-.partner-metric-value {
-  margin-bottom: 12px;
-  color: var(--primary-dark);
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  font-weight: 900;
-  line-height: 1;
-}
-
-.journey-stack {
-  display: grid;
-  gap: 16px;
-}
-
-.journey-card {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 16px;
-  padding: 22px;
-  border-radius: 22px;
-  align-items: start;
-}
-
-.journey-step {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
-  color: #fff;
-  font-weight: 900;
-}
-
-.journey-card-body {
-  min-width: 0;
-}
-
-.journey-card-body .partner-card-icon {
-  margin-left: 0;
-  margin-right: 0;
 }
 
 .map-copy-card,
@@ -3089,52 +2550,6 @@ body[data-page="partnership"] .faq-item p,
   border-left-color: rgba(65, 143, 222, 0.12);
 }
 
-.partner-visual-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  padding: 8px 22px 12px;
-}
-
-.partner-visual-card {
-  margin: 0;
-  overflow: hidden;
-  border-radius: 24px;
-  background: linear-gradient(180deg, rgba(249, 251, 252, 0.98), rgba(233, 239, 244, 0.98));
-  border: 1px solid rgba(65, 143, 222, 0.1);
-  box-shadow: 0 18px 42px rgba(27, 42, 74, 0.08);
-}
-
-.partner-visual-card img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1200 / 800;
-  object-fit: contain;
-  background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 32%),
-    linear-gradient(180deg, #eef5fb, #dfeaf4);
-  padding: 14px;
-}
-
-.partner-visual-card figcaption {
-  display: grid;
-  gap: 8px;
-  padding: 18px 20px 20px;
-}
-
-.partner-visual-card strong {
-  color: var(--text);
-  font-size: 1.05rem;
-}
-
-.partner-visual-card span {
-  color: var(--muted);
-  line-height: 1.6;
-}
-
 /* Home-only color tuning: richer navy text + saturated blue accents to match bright game/sport covers. */
 body[data-page="home"] {
   --home-ink: #122b4f;
@@ -3281,143 +2696,12 @@ body[data-page="partnership"] .somali-crest-star {
     sandStarDrift 11s ease-in-out infinite;
 }
 
-/* Partnership hero card alignment: same rhythm for headings, copy, CTA and mini-cards. */
-body[data-page="partnership"] .partner-split-grid {
-  align-items: stretch;
-}
-
-body[data-page="partnership"] .partner-card {
-  height: 100%;
-}
-
-body[data-page="partnership"] .partner-card-shell {
-  height: 100%;
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-}
-
-body[data-page="partnership"] .partner-card-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 14px;
-  min-height: 360px;
-  padding: 112px 34px 12px;
-}
-
-body[data-page="partnership"] .partner-card-main h2 {
-  min-height: 2.6em;
-  width: 100%;
-  text-wrap: balance;
-}
-
-body[data-page="partnership"] .partner-card-main p {
-  min-height: 6.2em;
-  max-width: 42ch;
-}
-
-body[data-page="partnership"] .partner-cta {
-  margin-top: auto;
-  width: min(100%, 360px);
-  min-width: 0;
-}
-
-body[data-page="partnership"] .partner-mini-grid {
-  margin-top: 18px;
-}
-
-body[data-page="partnership"] .partner-mini-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 10px;
-  height: 100%;
-}
-
-body[data-page="partnership"] .partner-mini-card h3 {
-  min-height: 2.8em;
-}
-
-body[data-page="partnership"] .partner-mini-card p {
-  flex: 1;
-}
 
 /* Partnership FAQ redesign: clean accordion cards instead of heavy text blocks. */
 body[data-page="partnership"] .partner-faq-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
-}
-
-.partner-faq-item {
-  border-radius: 18px;
-  border: 1px solid rgba(53, 110, 174, 0.22);
-  background: linear-gradient(180deg, rgba(225, 237, 248, 0.94), rgba(212, 226, 239, 0.97));
-  box-shadow: 0 14px 26px rgba(20, 39, 66, 0.08);
-  overflow: hidden;
-}
-
-.partner-faq-summary {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 14px;
-  list-style: none;
-  padding: 18px 20px;
-  cursor: pointer;
-}
-
-.partner-faq-summary::-webkit-details-marker {
-  display: none;
-}
-
-.partner-faq-index {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  height: 34px;
-  border-radius: 10px;
-  background: rgba(37, 99, 235, 0.16);
-  color: #1e4f84;
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-}
-
-.partner-faq-summary h3 {
-  margin: 0;
-  color: #142742;
-  font-size: 1.05rem;
-  line-height: 1.4;
-}
-
-.partner-faq-toggle {
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(37, 99, 235, 0.16);
-  color: #1f4f83;
-  font-weight: 900;
-  transition: transform 180ms ease;
-}
-
-.partner-faq-item[open] .partner-faq-toggle {
-  transform: rotate(45deg);
-}
-
-.partner-faq-content {
-  padding: 0 20px 18px 78px;
-}
-
-.partner-faq-content p {
-  margin: 0;
-  color: #3e5776;
-  line-height: 1.72;
 }
 
 /* Home restore: bring back stable hero media + visible mini map after experimental palette layers. */
@@ -3728,33 +3012,11 @@ body[data-page="home"] .map-viewport {
     top: 300px;
   }
 
-  .partner-metrics-grid,
-  .partner-usecase-grid,
-  .partner-visual-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 860px) {
-  .partner-split-grid,
-  .partner-pillars-grid,
-  .difference-grid,
-  .partner-mini-grid,
-  .partner-metrics-grid,
-  .partner-usecase-grid,
-  .partner-visual-grid {
+  .partner-pillars-grid {
     grid-template-columns: 1fr;
-  }
-
-  body[data-page="partnership"] .partner-card-main {
-    min-height: 0;
-    padding-inline: 22px;
-  }
-
-  body[data-page="partnership"] .partner-card-main h2,
-  body[data-page="partnership"] .partner-card-main p,
-  body[data-page="partnership"] .partner-mini-card h3 {
-    min-height: 0;
   }
 
   .topbar {
@@ -3890,10 +3152,6 @@ body[data-page="home"] .map-viewport {
   .contact-modal-panel {
     margin: 20px auto;
     padding: 22px;
-  }
-
-  .journey-card {
-    grid-template-columns: 1fr;
   }
 
   .partnership-atmosphere {
@@ -4106,15 +3364,8 @@ body[data-page="home"] .home-faq-item,
 body[data-page="partnership"] .hero-copy,
 body[data-page="partnership"] .partnership-highlight,
 body[data-page="partnership"] .program-card,
-body[data-page="partnership"] .workflow-card,
 body[data-page="partnership"] .faq-item,
 body[data-page="partnership"] .partner-frame-shell,
-body[data-page="partnership"] .partner-card-main,
-body[data-page="partnership"] .partner-mini-card,
-body[data-page="partnership"] .difference-card,
-body[data-page="partnership"] .journey-card,
-body[data-page="partnership"] .partner-visual-card,
-body[data-page="partnership"] .partner-faq-item,
 .contact-modal-panel,
 .map-modal-panel {
   background:
@@ -4130,9 +3381,7 @@ body[data-page="home"] h3,
 body[data-page="partnership"] h1,
 body[data-page="partnership"] h2,
 body[data-page="partnership"] h3,
-body[data-page="partnership"] .difference-column-head,
-body[data-page="home"] .map-copy-card h3,
-body[data-page="partnership"] .partner-visual-card strong {
+body[data-page="home"] .map-copy-card h3 {
   color: var(--text);
 }
 
@@ -4142,16 +3391,13 @@ body[data-page="home"] .section-note,
 body[data-page="home"] .map-toolbar span,
 body[data-page="home"] .home-faq-content p,
 body[data-page="partnership"] p,
-body[data-page="partnership"] li,
-body[data-page="partnership"] .partner-faq-content p,
-body[data-page="partnership"] .partner-visual-card span {
+body[data-page="partnership"] li {
   color: var(--sand);
 }
 
 body[data-page="home"] .feature-pill,
 body[data-page="home"] .contact-pill,
-body[data-page="partnership"] .partner-badge,
-body[data-page="partnership"] .difference-column-head {
+body[data-page="partnership"] .partner-badge {
   background: rgba(199, 91, 57, 0.14);
   border: 1px solid rgba(199, 91, 57, 0.28);
   color: #f4dfcf;
@@ -4165,7 +3411,6 @@ body[data-page="home"] .trend-card-label {
 
 body[data-page="home"] .hero-btn-primary,
 body[data-page="partnership"] .hero-btn-primary,
-body[data-page="partnership"] .partner-cta,
 .contact-submit-btn,
 .map-link.contact-submit-btn {
   color: #1E1510;
@@ -4191,7 +3436,6 @@ body[data-page="partnership"] .partner-bottom-link,
 body[data-page="home"] .hero-btn-secondary:hover,
 body[data-page="home"] .map-secondary-link:hover,
 body[data-page="home"] .scroll-btn:hover,
-body[data-page="partnership"] .partner-cta:hover,
 body[data-page="home"] .hero-btn-primary:hover,
 .contact-submit-btn:hover {
   background:
@@ -4200,8 +3444,7 @@ body[data-page="home"] .hero-btn-primary:hover,
 }
 
 body[data-page="home"] .map-viewport,
-body[data-page="home"] .map-copy-card,
-body[data-page="partnership"] .partner-visual-card img {
+body[data-page="home"] .map-copy-card {
   background:
     radial-gradient(circle at 18% 18%, rgba(212, 168, 67, 0.12), transparent 24%),
     linear-gradient(180deg, #33261d, #241a13);
@@ -4213,8 +3456,7 @@ body[data-page="home"] .map-legend-item,
   border: 1px solid rgba(212, 168, 67, 0.18);
 }
 
-body[data-page="home"] .home-faq-toggle,
-.partner-faq-toggle {
+body[data-page="home"] .home-faq-toggle {
   background: rgba(212, 168, 67, 0.16);
   color: var(--primary);
 }
@@ -4239,24 +3481,8 @@ body[data-page="home"] .home-faq-toggle,
   z-index: 1;
 }
 
-.agent-popup-tier--gold {
-  background: #D4A843;
-  color: #1E1510;
-}
-
-.agent-popup-tier--elite {
-  background: #2563eb;
-  color: #ffffff;
-}
-
 /* Readability pass: catch remaining generated cards, labels, and form surfaces that old light styles still affect. */
 body[data-page="home"] .faq-item,
-body[data-page="partnership"] .partner-metric-card,
-body[data-page="partnership"] .partner-usecase-card,
-body[data-page="partnership"] .partner-pillar-card,
-body[data-page="partnership"] .partner-card,
-body[data-page="partnership"] .partner-card-shell,
-body[data-page="partnership"] .difference-column,
 body[data-page="partnership"] .partner-bottom-bar {
   background:
     linear-gradient(180deg, rgba(44, 33, 24, 0.96), rgba(30, 21, 16, 0.98)),
@@ -4268,20 +3494,14 @@ body[data-page="partnership"] .partner-bottom-bar {
 body[data-page="home"] .section-kicker,
 body[data-page="home"] .eyebrow,
 body[data-page="partnership"] .section-kicker,
-body[data-page="partnership"] .partner-badge,
-body[data-page="partnership"] .partner-card-badge,
-body[data-page="partnership"] .partner-metric-value,
-body[data-page="partnership"] .journey-step,
-body[data-page="partnership"] .partner-faq-index {
+body[data-page="partnership"] .partner-badge {
   color: var(--primary);
 }
 
 body[data-page="home"] .hero-badges span,
 body[data-page="home"] .feature-pill,
 body[data-page="home"] .contact-pill,
-body[data-page="partnership"] .program-label,
-body[data-page="partnership"] .difference-column-head,
-body[data-page="partnership"] .partner-card-badge {
+body[data-page="partnership"] .program-label {
   background: rgba(58, 46, 36, 0.9);
   border: 1px solid rgba(212, 168, 67, 0.22);
   color: var(--text);
@@ -4290,36 +3510,20 @@ body[data-page="partnership"] .partner-card-badge {
 body[data-page="home"] .feature-body h2,
 body[data-page="home"] .trend-card-body h3,
 body[data-page="home"] .home-faq-summary h3,
-body[data-page="home"] .map-legend-item strong,
-body[data-page="partnership"] .partner-card-main h2,
-body[data-page="partnership"] .partner-mini-card h3,
-body[data-page="partnership"] .difference-card h3,
-body[data-page="partnership"] .journey-card h3,
-body[data-page="partnership"] .partner-pillar-card h3,
-body[data-page="partnership"] .partner-usecase-card h3,
-body[data-page="partnership"] .partner-metric-card h3,
-body[data-page="partnership"] .partner-faq-summary h3 {
+body[data-page="home"] .map-legend-item strong {
   color: var(--text);
 }
 
 body[data-page="home"] .feature-body p,
 body[data-page="home"] .map-legend-item p,
 body[data-page="home"] .hero-text,
-body[data-page="partnership"] .partner-card-main p,
-body[data-page="partnership"] .partner-mini-card p,
-body[data-page="partnership"] .difference-card p,
-body[data-page="partnership"] .journey-card p,
-body[data-page="partnership"] .partner-pillar-card p,
-body[data-page="partnership"] .partner-usecase-card p,
-body[data-page="partnership"] .partner-metric-card p,
 body[data-page="partnership"] .partner-frame-head p {
   color: var(--sand);
 }
 
 body[data-page="home"] .map-toolbar,
 body[data-page="home"] .map-copy-head,
-body[data-page="partnership"] .partner-frame-head,
-body[data-page="partnership"] .partner-visual-card figcaption {
+body[data-page="partnership"] .partner-frame-head {
   background: transparent;
 }
 
@@ -4359,15 +3563,6 @@ body[data-page="home"] .map-legend-item p,
 body[data-page="home"] .home-faq-content p,
 body[data-page="partnership"] .hero-text,
 body[data-page="partnership"] .partner-frame-head p,
-body[data-page="partnership"] .partner-card-main p,
-body[data-page="partnership"] .partner-mini-card p,
-body[data-page="partnership"] .difference-card p,
-body[data-page="partnership"] .journey-card p,
-body[data-page="partnership"] .partner-pillar-card p,
-body[data-page="partnership"] .partner-usecase-card p,
-body[data-page="partnership"] .partner-metric-card p,
-body[data-page="partnership"] .partner-faq-content p,
-body[data-page="partnership"] .partner-visual-card span,
 body[data-page="partnership"] li,
 .contact-modal-copy,
 .form-hint,
@@ -4377,8 +3572,6 @@ body[data-page="partnership"] li,
 }
 
 body[data-page="home"] .map-legend-item strong,
-body[data-page="partnership"] .partner-visual-card strong,
-body[data-page="partnership"] .difference-column-head,
 body[data-page="partnership"] .partner-bottom-link,
 .form-field span {
   color: var(--text);
@@ -4393,10 +3586,6 @@ body[data-page="home"] .map-secondary-link,
 body[data-page="home"] .scroll-btn,
 body[data-page="home"] .home-faq-toggle,
 body[data-page="partnership"] .partner-badge,
-body[data-page="partnership"] .difference-column-head,
-body[data-page="partnership"] .partner-faq-index,
-body[data-page="partnership"] .partner-faq-summary h3,
-body[data-page="partnership"] .partner-faq-toggle,
 body[data-page="partnership"] .partner-bottom-link {
   color: var(--text);
 }
@@ -4404,9 +3593,7 @@ body[data-page="partnership"] .partner-bottom-link {
 body[data-page="home"] .contact-pill,
 body[data-page="home"] .feature-pill,
 body[data-page="home"] .trend-card-label,
-body[data-page="partnership"] .partner-badge,
-body[data-page="partnership"] .difference-column-head,
-body[data-page="partnership"] .partner-faq-index {
+body[data-page="partnership"] .partner-badge {
   background: rgba(58, 46, 36, 0.92);
   border: 1px solid rgba(212, 168, 67, 0.24);
 }
@@ -4420,8 +3607,7 @@ body[data-page="partnership"] .partner-bottom-link {
   border: 1px solid rgba(212, 168, 67, 0.28);
 }
 
-body[data-page="home"] .home-faq-toggle,
-body[data-page="partnership"] .partner-faq-toggle {
+body[data-page="home"] .home-faq-toggle {
   background: rgba(58, 46, 36, 0.92);
   border: 1px solid rgba(212, 168, 67, 0.24);
   color: var(--primary);
@@ -4461,9 +3647,6 @@ body[data-page="home"] .section-kicker,
 body[data-page="home"] .eyebrow,
 body[data-page="partnership"] .section-kicker,
 body[data-page="partnership"] .partner-badge,
-body[data-page="partnership"] .partner-card-badge,
-body[data-page="partnership"] .partner-faq-index,
-body[data-page="partnership"] .journey-step,
 body[data-page="home"] .contact-pill,
 body[data-page="home"] .feature-pill,
 body[data-page="home"] .trend-card-label {
@@ -4482,8 +3665,7 @@ body[data-page="partnership"] .hero-btn-secondary,
   color: var(--primary);
 }
 
-body[data-page="home"] .home-faq-toggle,
-body[data-page="partnership"] .partner-faq-toggle {
+body[data-page="home"] .home-faq-toggle {
   color: var(--primary);
 }
 

@@ -255,12 +255,6 @@ function renderPartnershipShowcase(lang) {
     .join("");
 }
 
-function setupProgramAnimations() {
-  const prefersReducedMotion =
-    typeof window.matchMedia === "function" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReducedMotion) return;
-}
 
 function setupIncomeCalculator(lang) {
   if (page !== "partnership") return;
@@ -314,7 +308,6 @@ function renderPageData(lang) {
 
   if (page === "partnership") {
     renderPartnershipShowcase(lang);
-    setupProgramAnimations();
     setupIncomeCalculator(lang);
     renderFaqs(lang, "partnershipFaqList", window.SITE_DATA.partnership.faqs);
   }
