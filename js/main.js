@@ -6,6 +6,10 @@ const mapModal = document.getElementById("mapModal");
 const mapSection = document.getElementById("agentCashMap");
 const modalMapNode = document.getElementById("somaliaMapModal");
 const miniMapNode = document.getElementById("somaliaMapMini");
+const contactModal = document.getElementById("contactModal");
+const contactForm = document.getElementById("contactForm");
+const contactSelectedPoint = document.getElementById("contactSelectedPoint");
+const contactFormStatus = document.getElementById("contactFormStatus");
 
 if (menuBtn && siteNav) {
   menuBtn.setAttribute("aria-expanded", "false");
@@ -41,6 +45,13 @@ function applyStaticText(lang) {
     const [group, key] = node.dataset.i18nAria.split(".");
     if (dict[group] && dict[group][key] != null) {
       node.setAttribute("aria-label", dict[group][key]);
+    }
+  });
+  // Keep placeholders localized too, because the contact form is rendered once and reused for both languages.
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+    const [group, key] = node.dataset.i18nPlaceholder.split(".");
+    if (dict[group] && dict[group][key] != null) {
+      node.setAttribute("placeholder", dict[group][key]);
     }
   });
 }
@@ -125,13 +136,32 @@ function renderFaqs(lang, targetId, items) {
   const root = document.getElementById(targetId);
   if (!root) return;
 
+  if (targetId === "partnershipFaqList") {
+    root.innerHTML = items
+      .map((item) => {
+        return `
+          <article class="faq-item">
+            <h3>${escHtml(item.q[lang])}</h3>
+            <p>${escHtml(item.a[lang])}</p>
+          </article>
+        `;
+      })
+      .join("");
+    return;
+  }
+
   root.innerHTML = items
-    .map((item) => {
+    .map((item, index) => {
       return `
-        <article class="faq-item">
-          <h3>${escHtml(item.q[lang])}</h3>
-          <p>${escHtml(item.a[lang])}</p>
-        </article>
+        <details class="home-faq-item"${index === 0 ? " open" : ""}>
+          <summary class="home-faq-summary">
+            <h3>${escHtml(item.q[lang])}</h3>
+            <span class="home-faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="home-faq-content">
+            <p>${escHtml(item.a[lang])}</p>
+          </div>
+        </details>
       `;
     })
     .join("");
@@ -295,7 +325,124 @@ function applyLanguage(lang) {
   applyStaticText(lang);
   renderPageData(lang);
   setActiveLangButtons(lang);
+  updateSelectedPointLabel(lang);
   localStorage.setItem(storageKey, lang);
+}
+
+function updateSelectedPointLabel(lang) {
+  if (!contactSelectedPoint) return;
+  const agent = window.__selectedAgent;
+  if (!agent) {
+    contactSelectedPoint.innerHTML = "";
+    return;
+  }
+
+  const label = window.SITE_DATA.text[lang].home.formSelectedPoint;
+  const tier = agent.tier ? `${agent.tier.charAt(0).toUpperCase()}${agent.tier.slice(1)}` : "";
+  contactSelectedPoint.innerHTML = `
+    <span class="contact-selected-label">${escHtml(label)}</span>
+    <strong>${escHtml(agent.city || agent.name)}</strong>
+    <span>${escHtml(tier)}</span>
+  `;
+}
+
+function setupContactForm() {
+  if (!contactModal || !contactForm) return;
+  const name = document.getElementById("contactName");
+  const telegram = document.getElementById("contactTelegram");
+  const whatsapp = document.getElementById("contactWhatsapp");
+
+  const closeButtons = [document.getElementById("closeContactModal"), document.getElementById("closeContactModalBtn")].filter(Boolean);
+
+  const closeContactModal = () => {
+    contactModal.hidden = true;
+    contactModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("contact-modal-open");
+    document.body.style.overflow = "";
+    if (contactFormStatus) {
+      contactFormStatus.textContent = "";
+      contactFormStatus.classList.remove("is-error", "is-success");
+    }
+  };
+
+  // The modal is opened from a map marker, so we keep the selected point visible inside the form.
+  window.openContactModal = (agent) => {
+    window.__selectedAgent = agent;
+    updateSelectedPointLabel(getLang());
+    contactModal.hidden = false;
+    contactModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("contact-modal-open");
+    document.body.style.overflow = "hidden";
+  };
+
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", closeContactModal);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && contactModal && !contactModal.hidden) {
+      closeContactModal();
+    }
+  });
+
+  // Require at least one messenger contact: Telegram or WhatsApp.
+  const validateContactChannels = () => {
+    const lang = getLang();
+    const dict = window.SITE_DATA.text[lang].home;
+    const hasTelegram = telegram && telegram.value.trim();
+    const hasWhatsapp = whatsapp && whatsapp.value.trim();
+    const valid = Boolean(hasTelegram || hasWhatsapp);
+    const message = valid ? "" : dict.formValidationContact;
+    if (telegram) telegram.setCustomValidity(message);
+    if (whatsapp) whatsapp.setCustomValidity(message);
+    return valid;
+  };
+
+  if (telegram) {
+    telegram.addEventListener("input", validateContactChannels);
+  }
+
+  if (whatsapp) {
+    whatsapp.addEventListener("input", validateContactChannels);
+  }
+
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const lang = getLang();
+    const dict = window.SITE_DATA.text[lang].home;
+    const hasName = name && name.value.trim();
+
+    if (contactFormStatus) {
+      contactFormStatus.classList.remove("is-error", "is-success");
+    }
+
+    if (!hasName) {
+      if (contactFormStatus) {
+        contactFormStatus.textContent = dict.formValidationName;
+        contactFormStatus.classList.add("is-error");
+      }
+      if (name) name.focus();
+      return;
+    }
+
+    if (!validateContactChannels()) {
+      if (contactFormStatus) {
+        contactFormStatus.textContent = dict.formValidationContact;
+        contactFormStatus.classList.add("is-error");
+      }
+      if (telegram) telegram.focus();
+      return;
+    }
+
+    if (contactFormStatus) {
+      contactFormStatus.textContent = dict.formSuccess;
+      contactFormStatus.classList.add("is-success");
+    }
+
+    contactForm.reset();
+    updateSelectedPointLabel(lang);
+  });
 }
 
 function setupMapModal() {
@@ -452,24 +599,15 @@ function createAgentMarker(agent) {
     popupAnchor: [0, -4]
   });
 
-  const svgWa = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.553 4.103 1.522 5.829L.057 23.196a.75.75 0 0 0 .92.92l5.429-1.456A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.717 9.717 0 0 1-4.964-1.361l-.355-.212-3.685.988.997-3.598-.232-.371A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>`;
-  const svgTg = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>`;
-
-  const links = [];
-  if (agent.whatsapp) {
-    links.push(`<a class="agent-contact-btn agent-contact-btn--wa" href="https://wa.me/${agent.whatsapp.replace(/\+/g, "")}" target="_blank" rel="noopener" title="WhatsApp">${svgWa}</a>`);
-  }
-  if (agent.telegram) {
-    links.push(`<a class="agent-contact-btn agent-contact-btn--tg" href="https://t.me/${agent.telegram}" target="_blank" rel="noopener" title="Telegram">${svgTg}</a>`);
-  }
-
-  const popup = `<div class="agent-popup">
-    <strong>${agent.name}</strong>
-    <span class="agent-popup-tier agent-popup-tier--${agent.tier}">${agent.tier}</span>
-    <div class="agent-popup-links">${links.join("")}</div>
-  </div>`;
-
-  return window.L.marker([agent.lat, agent.lng], { icon }).bindPopup(popup);
+  // Clicking a marker opens the unified contact form instead of exposing direct messenger links.
+  const marker = window.L.marker([agent.lat, agent.lng], { icon });
+  marker.on("click", () => {
+    if (typeof window.openContactModal === "function") {
+      window.openContactModal(agent);
+    }
+  });
+  marker.bindTooltip(`${agent.city || agent.name}`, { direction: "top", offset: [0, -12] });
+  return marker;
 }
 
 function createSomaliaMap(nodeId, zoom) {
@@ -521,6 +659,45 @@ function setupLeafletMaps() {
   window.__somaliaMiniMap = createSomaliaMap("somaliaMapMini", 5);
 }
 
+function ensureHomeVisualIntegrity() {
+  if (page !== "home") return;
+
+  const lang = getLang();
+  const gamesRoot = document.getElementById("gamesGrid");
+  const sportsRoot = document.getElementById("sportsGrid");
+
+  if (gamesRoot && !gamesRoot.querySelector(".trend-card")) {
+    renderTrendCards(lang, "gamesGrid", window.SITE_DATA.home.games, "game");
+  }
+
+  if (sportsRoot && !sportsRoot.querySelector(".trend-card")) {
+    renderTrendCards(lang, "sportsGrid", window.SITE_DATA.home.sports, "sport");
+  }
+
+  if (miniMapNode) {
+    miniMapNode.style.visibility = "";
+    miniMapNode.style.opacity = "";
+    miniMapNode.style.pointerEvents = "";
+
+    const viewport = miniMapNode.closest(".map-viewport");
+    if (viewport) {
+      viewport.style.visibility = "";
+      viewport.style.opacity = "";
+    }
+
+    const card = miniMapNode.closest(".map-card");
+    if (card) {
+      card.style.visibility = "";
+    }
+
+    if (!window.__somaliaMiniMap) {
+      window.__somaliaMiniMap = createSomaliaMap("somaliaMapMini", 5);
+    } else if (typeof window.__somaliaMiniMap.invalidateSize === "function") {
+      window.__somaliaMiniMap.invalidateSize();
+    }
+  }
+}
+
 document.querySelectorAll(".lang-btn").forEach((button) => {
   button.addEventListener("click", () => {
     applyLanguage(button.dataset.lang);
@@ -531,4 +708,7 @@ markActiveNav();
 applyLanguage(getLang());
 setupTrendScrollControls();
 setupMapModal();
+setupContactForm();
 setupLeafletMaps();
+setTimeout(ensureHomeVisualIntegrity, 180);
+setTimeout(ensureHomeVisualIntegrity, 900);

@@ -8,7 +8,7 @@
       name="description"
       content="Melbet Somalia landing template with Casino, Sport, trending games, trending sports, and a bilingual English and Somali interface."
     />
-    <meta name="theme-color" content="#081a2c" />
+    <meta name="theme-color" content="#1E1510" />
     <link rel="stylesheet" href="./css/styles.css?v=20260331-programs-visual-wide" />
     <link
       rel="stylesheet"
@@ -143,11 +143,31 @@
           </div>
           <div class="map-layout">
             <div class="map-copy-card">
-              <h3 data-i18n="home.mapCardTitle">Mini Somalia map for agent coverage</h3>
-              <p data-i18n="home.mapCardCopy">
-                This block is ready for future agent zones, cash points, and city markers. The compact view is visible on the page, and the full view can be expanded.
-              </p>
-              <a class="map-link" href="#agentCashMap" data-i18n="common.navMap">Agent Cash Map</a>
+              <div class="map-copy-head">
+                <span class="contact-pill" data-i18n="home.formBadge">Contact request</span>
+                <h3 data-i18n="home.mapCardTitle">Find a cash agent near you</h3>
+                <p data-i18n="home.formCopy">
+                  Click any marker on the map to open the contact form for that location and leave your Telegram or WhatsApp.
+                </p>
+              </div>
+              <!-- The left column now explains the marker-driven flow instead of showing permanent messenger links or a visible form. -->
+              <div class="map-contact-legend">
+                <div class="map-legend-item">
+                  <span class="map-legend-dot map-legend-dot-agent"></span>
+                  <div>
+                    <strong data-i18n="home.mapLegendTitle">Tap a marker</strong>
+                    <p data-i18n="home.mapLegendCopy">Choose a city marker to open the feedback form for that point.</p>
+                  </div>
+                </div>
+                <div class="map-legend-item">
+                  <span class="map-legend-dot map-legend-dot-form"></span>
+                  <div>
+                    <strong data-i18n="home.mapLegendFormTitle">Send one request</strong>
+                    <p data-i18n="home.formHint">Fill in your full name and at least one contact field: Telegram or WhatsApp.</p>
+                  </div>
+                </div>
+              </div>
+              <a class="map-secondary-link" href="#agentCashMap" data-i18n="common.navMap">Agent Cash Map</a>
             </div>
             <div class="map-card">
               <div class="map-toolbar">
@@ -186,6 +206,67 @@
         <div class="map-viewport is-modal">
           <div class="leaflet-map is-modal-map" id="somaliaMapModal"></div>
         </div>
+      </div>
+    </div>
+
+    <div class="contact-modal" id="contactModal" hidden aria-hidden="true">
+      <!-- The contact form opens only after a marker click, matching the requested map interaction. -->
+      <div class="contact-modal-backdrop" id="closeContactModal"></div>
+      <div class="contact-modal-panel">
+        <div class="contact-modal-head">
+          <div>
+            <p class="section-kicker" data-i18n="home.formBadge">Contact request</p>
+            <h2 data-i18n="home.formTitle">Request a manager callback</h2>
+            <p class="contact-modal-copy" data-i18n="home.formModalCopy">
+              The selected map point will be attached to your request automatically.
+            </p>
+          </div>
+          <button class="map-close-btn" id="closeContactModalBtn" type="button" aria-label="Close form" data-i18n="common.close">Close</button>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="contact-selected-point" id="contactSelectedPoint"></div>
+          <label class="form-field">
+            <span data-i18n="home.formNameLabel">Full name</span>
+            <input
+              id="contactName"
+              name="fullName"
+              type="text"
+              required
+              autocomplete="name"
+              data-i18n-placeholder="home.formNamePlaceholder"
+              placeholder="Your full name"
+            />
+          </label>
+          <label class="form-field">
+            <span data-i18n="home.formTelegramLabel">Telegram</span>
+            <input
+              id="contactTelegram"
+              name="telegram"
+              type="text"
+              autocomplete="off"
+              data-i18n-placeholder="home.formTelegramPlaceholder"
+              placeholder="@username"
+            />
+          </label>
+          <label class="form-field">
+            <span data-i18n="home.formWhatsappLabel">WhatsApp</span>
+            <input
+              id="contactWhatsapp"
+              name="whatsapp"
+              type="text"
+              autocomplete="tel"
+              data-i18n-placeholder="home.formWhatsappPlaceholder"
+              placeholder="+7 999 123-45-67"
+            />
+          </label>
+          <p class="form-hint" data-i18n="home.formHint">
+            Fill in your full name and at least one contact field: Telegram or WhatsApp.
+          </p>
+          <p class="form-status" id="contactFormStatus" aria-live="polite"></p>
+          <div class="contact-form-actions">
+            <button class="map-link contact-submit-btn" type="submit" data-i18n="home.formSubmit">Send</button>
+          </div>
+        </form>
       </div>
     </div>
 
