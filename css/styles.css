@@ -1959,9 +1959,9 @@ body[data-page="partnership"] .workflow-step {
 .skyline-star {
   width: 24px;
   aspect-ratio: 1;
-  background: #ffffff;
+  background: #f2e8dc;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 92%, 50% 69%, 21% 92%, 32% 57%, 2% 35%, 39% 35%);
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 24px rgba(212, 168, 67, 0.28);
   animation: somaliStarPulse 5s ease-in-out infinite;
 }
 
@@ -2019,11 +2019,11 @@ body[data-page="partnership"] .workflow-step {
 .somali-crest-star {
   width: 56px;
   aspect-ratio: 1;
-  background: #ffffff;
+  background: #f2e8dc;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 92%, 50% 69%, 21% 92%, 32% 57%, 2% 35%, 39% 35%);
   box-shadow:
-    0 0 20px rgba(255, 255, 255, 0.36),
-    0 0 48px rgba(133, 214, 255, 0.3);
+    0 0 20px rgba(242, 232, 220, 0.28),
+    0 0 48px rgba(212, 168, 67, 0.24);
   animation: somaliStarPulse 4.5s ease-in-out infinite;
 }
 
@@ -3264,19 +3264,21 @@ body[data-page="home"] .map-secondary-link {
   border: 1px solid rgba(37, 99, 235, 0.24);
 }
 
-/* Star color split by page: Home and Partnership get different animated palettes. */
+/* Star animation: both pages use a warm sand shimmer instead of the old blue tint. */
 body[data-page="home"] .skyline-star,
 body[data-page="home"] .somali-crest-star {
   animation:
     somaliStarPulse 4.8s ease-in-out infinite,
-    homeStarColorShift 7s ease-in-out infinite;
+    homeStarColorShift 7s ease-in-out infinite,
+    sandStarDrift 10s ease-in-out infinite;
 }
 
 body[data-page="partnership"] .skyline-star,
 body[data-page="partnership"] .somali-crest-star {
   animation:
     somaliStarPulse 4.8s ease-in-out infinite,
-    partnershipStarColorShift 8s ease-in-out infinite;
+    partnershipStarColorShift 8s ease-in-out infinite,
+    sandStarDrift 11s ease-in-out infinite;
 }
 
 /* Partnership hero card alignment: same rhythm for headings, copy, CTA and mini-cards. */
@@ -3560,32 +3562,42 @@ body[data-page="home"] .map-viewport {
 @keyframes homeStarColorShift {
   0%,
   100% {
-    background: #ffffff;
+    background: #f2e8dc;
     box-shadow:
-      0 0 20px rgba(255, 255, 255, 0.46),
-      0 0 44px rgba(178, 224, 255, 0.4);
+      0 0 20px rgba(242, 232, 220, 0.28),
+      0 0 44px rgba(212, 168, 67, 0.2);
   }
   50% {
-    background: #c5e8ff;
+    background: #e8c97b;
     box-shadow:
-      0 0 20px rgba(197, 232, 255, 0.52),
-      0 0 50px rgba(120, 191, 244, 0.44);
+      0 0 20px rgba(232, 201, 123, 0.38),
+      0 0 50px rgba(199, 91, 57, 0.22);
   }
 }
 
 @keyframes partnershipStarColorShift {
   0%,
   100% {
-    background: #c6dcff;
+    background: #f0dfbf;
     box-shadow:
-      0 0 20px rgba(198, 220, 255, 0.46),
-      0 0 44px rgba(99, 152, 228, 0.4);
+      0 0 20px rgba(240, 223, 191, 0.32),
+      0 0 44px rgba(212, 168, 67, 0.2);
   }
   50% {
-    background: #89b7ff;
+    background: #d4a843;
     box-shadow:
-      0 0 20px rgba(137, 183, 255, 0.54),
-      0 0 50px rgba(63, 115, 212, 0.46);
+      0 0 20px rgba(212, 168, 67, 0.4),
+      0 0 50px rgba(199, 91, 57, 0.24);
+  }
+}
+
+@keyframes sandStarDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -4px, 0) scale(1.04) rotate(4deg);
   }
 }
 
@@ -4209,11 +4221,22 @@ body[data-page="home"] .home-faq-toggle,
 
 .agent-marker--gold { background: #D4A843; }
 .agent-marker--elite {
-  background: linear-gradient(180deg, #D27A56, #C75B39);
-  box-shadow: 0 0 0 3px rgba(199, 91, 57, 0.2);
+  background: transparent;
+  box-shadow: none;
+  filter: drop-shadow(0 3px 10px rgba(37, 99, 235, 0.34));
+}
+.agent-marker--elite::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: rgba(255, 255, 255, 0.96);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 42%, 50% 100%, 0% 42%);
+  z-index: 0;
 }
 .agent-marker--elite::after {
-  background: rgba(242, 232, 220, 0.72);
+  inset: 2px;
+  background: linear-gradient(160deg, #e8f4ff 0%, #5ebdff 42%, #2563eb 100%);
+  z-index: 1;
 }
 
 .agent-popup-tier--gold {
@@ -4222,8 +4245,8 @@ body[data-page="home"] .home-faq-toggle,
 }
 
 .agent-popup-tier--elite {
-  background: #C75B39;
-  color: #F2E8DC;
+  background: #2563eb;
+  color: #ffffff;
 }
 
 /* Readability pass: catch remaining generated cards, labels, and form surfaces that old light styles still affect. */
@@ -4482,4 +4505,319 @@ body[data-page="home"] .section-note,
 body[data-page="home"] .card-meta,
 body[data-page="home"] .map-legend-item p {
   color: rgba(242, 232, 220, 0.84) !important;
+}
+
+/* Partnership structure from main, restyled into the current warm Somalia theme used on Home. */
+body[data-page="partnership"] .programs-shell,
+body[data-page="partnership"] .income-shell,
+body[data-page="partnership"] .partner-bottom-bar {
+  position: relative;
+  overflow: hidden;
+  border-radius: 34px;
+  background:
+    linear-gradient(180deg, rgba(44, 33, 24, 0.94), rgba(30, 21, 16, 0.98)),
+    linear-gradient(135deg, rgba(212, 168, 67, 0.08), transparent 60%);
+  border: 1px solid rgba(212, 168, 67, 0.18);
+  box-shadow: 0 26px 62px rgba(18, 11, 8, 0.34);
+}
+
+body[data-page="partnership"] .programs-shell::before,
+body[data-page="partnership"] .income-shell::before {
+  background:
+    radial-gradient(circle at 14% 0%, rgba(212, 168, 67, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(199, 91, 57, 0.1), transparent 30%);
+}
+
+body[data-page="partnership"] .programs-shell,
+body[data-page="partnership"] .income-shell {
+  padding: 32px 28px 24px;
+}
+
+body[data-page="partnership"] .programs-header,
+body[data-page="partnership"] .income-head {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-page="partnership"] .programs-header h1,
+body[data-page="partnership"] .income-head h2 {
+  color: var(--text);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+body[data-page="partnership"] .programs-intro,
+body[data-page="partnership"] .income-head p {
+  color: rgba(242, 232, 220, 0.82);
+}
+
+body[data-page="partnership"] .program-card-compact,
+body[data-page="partnership"] .income-controls,
+body[data-page="partnership"] .income-result-card,
+body[data-page="partnership"] .partner-faq-grid .faq-item {
+  background:
+    linear-gradient(180deg, rgba(58, 46, 36, 0.96), rgba(35, 26, 20, 0.98)),
+    linear-gradient(135deg, rgba(212, 168, 67, 0.08), transparent 56%);
+  border: 1px solid rgba(212, 168, 67, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(242, 232, 220, 0.04),
+    0 24px 54px rgba(18, 11, 8, 0.28);
+}
+
+body[data-page="partnership"] .program-card-compact::before,
+body[data-page="partnership"] .income-controls::before,
+body[data-page="partnership"] .income-result-card::before,
+body[data-page="partnership"] .partner-faq-grid .faq-item::before {
+  border-color: rgba(212, 168, 67, 0.12);
+}
+
+body[data-page="partnership"] .program-card-copy h3,
+body[data-page="partnership"] .partner-faq-grid .faq-item h3 {
+  color: var(--text);
+}
+
+body[data-page="partnership"] .program-card-copy p,
+body[data-page="partnership"] .program-card-copy li,
+body[data-page="partnership"] .partner-faq-grid .faq-item p {
+  color: rgba(242, 232, 220, 0.8);
+}
+
+body[data-page="partnership"] .program-card-copy li::before {
+  background: linear-gradient(180deg, #D4A843, #C75B39);
+  box-shadow: 0 0 12px rgba(212, 168, 67, 0.28);
+}
+
+body[data-page="partnership"] .program-cta-link {
+  color: var(--primary);
+}
+
+body[data-page="partnership"] .program-cta-link:hover {
+  color: #f3d592;
+}
+
+body[data-page="partnership"] .program-visual {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(212, 168, 67, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(36, 27, 20, 0.98), rgba(24, 18, 14, 1));
+  border: 1px solid rgba(212, 168, 67, 0.16);
+  box-shadow: inset 0 1px 0 rgba(242, 232, 220, 0.04);
+}
+
+body[data-page="partnership"] .affiliate-node {
+  background:
+    linear-gradient(180deg, rgba(66, 51, 40, 0.96), rgba(44, 33, 24, 0.98)),
+    linear-gradient(135deg, rgba(212, 168, 67, 0.06), transparent 60%);
+  border: 1px solid rgba(212, 168, 67, 0.16);
+}
+
+body[data-page="partnership"] .affiliate-node-label {
+  color: rgba(191, 169, 138, 0.88);
+}
+
+body[data-page="partnership"] .affiliate-node-value {
+  color: var(--text);
+}
+
+body[data-page="partnership"] .affiliate-node-commission .affiliate-node-value {
+  color: #f3d592;
+}
+
+body[data-page="partnership"] .affiliate-flow-arrow {
+  background: linear-gradient(90deg, rgba(212, 168, 67, 0.08), rgba(212, 168, 67, 0.9));
+  box-shadow: 0 0 16px rgba(212, 168, 67, 0.16);
+}
+
+body[data-page="partnership"] .affiliate-flow-arrow::after {
+  border-top-color: #D4A843;
+  border-right-color: #D4A843;
+}
+
+body[data-page="partnership"] .affiliate-flow-arrow-bottom {
+  background: linear-gradient(180deg, rgba(212, 168, 67, 0.08), rgba(212, 168, 67, 0.9));
+}
+
+body[data-page="partnership"] .flow-node-shape {
+  fill: rgba(53, 40, 31, 0.98);
+  stroke: rgba(212, 168, 67, 0.24);
+}
+
+body[data-page="partnership"] .flow-node-shape-center {
+  stroke: rgba(199, 91, 57, 0.36);
+}
+
+body[data-page="partnership"] .flow-node-shape-agent {
+  fill: rgba(45, 33, 24, 0.98);
+}
+
+body[data-page="partnership"] .flow-node-text {
+  fill: #F2E8DC;
+}
+
+body[data-page="partnership"] .flow-line {
+  stroke: #D4A843;
+}
+
+body[data-page="partnership"] .flow-line-label {
+  fill: #d9c19f;
+}
+
+body[data-page="partnership"] .income-row-head {
+  color: var(--text);
+}
+
+body[data-page="partnership"] .income-row-head strong,
+body[data-page="partnership"] .income-result-value {
+  color: var(--primary);
+  text-shadow: 0 0 24px rgba(212, 168, 67, 0.16);
+}
+
+body[data-page="partnership"] .income-result-kicker,
+body[data-page="partnership"] .income-result-note {
+  color: var(--text);
+}
+
+body[data-page="partnership"] .income-range {
+  background: linear-gradient(90deg, rgba(199, 91, 57, 0.78), rgba(212, 168, 67, 0.96));
+}
+
+body[data-page="partnership"] .income-range::-webkit-slider-thumb {
+  border-color: rgba(212, 168, 67, 0.28);
+  background: linear-gradient(180deg, #f7ead5, #e4c57c);
+  box-shadow:
+    0 0 0 6px rgba(212, 168, 67, 0.12),
+    0 8px 20px rgba(18, 11, 8, 0.24);
+}
+
+body[data-page="partnership"] .income-range::-moz-range-thumb {
+  border-color: rgba(212, 168, 67, 0.28);
+  background: linear-gradient(180deg, #f7ead5, #e4c57c);
+  box-shadow:
+    0 0 0 6px rgba(212, 168, 67, 0.12),
+    0 8px 20px rgba(18, 11, 8, 0.24);
+}
+
+body[data-page="partnership"] .partner-faq-grid .faq-item {
+  padding: 24px;
+}
+
+body[data-page="partnership"] .partner-bottom-link {
+  color: var(--text);
+  background: rgba(58, 46, 36, 0.56);
+}
+
+body[data-page="partnership"] .partner-bottom-link:hover {
+  background: rgba(212, 168, 67, 0.08);
+  color: var(--primary);
+}
+
+/* Warm star backdrop: replace the remaining cold glow behind decorative stars with sand tones. */
+body[data-page="home"] .skyline-orb-large,
+body[data-page="partnership"] .skyline-orb-large {
+  background: radial-gradient(circle, rgba(242, 232, 220, 0.28) 0%, rgba(212, 168, 67, 0.18) 38%, transparent 74%);
+}
+
+body[data-page="home"] .skyline-orb-small,
+body[data-page="partnership"] .skyline-orb-small {
+  background: radial-gradient(circle, rgba(242, 232, 220, 0.2) 0%, rgba(199, 91, 57, 0.14) 42%, transparent 74%);
+}
+
+body[data-page="home"] .skyline-wave,
+body[data-page="partnership"] .skyline-wave {
+  background: linear-gradient(90deg, rgba(212, 168, 67, 0.06), rgba(242, 232, 220, 0.16), rgba(212, 168, 67, 0.06));
+}
+
+body[data-page="home"] .skyline-wave-bottom,
+body[data-page="partnership"] .skyline-wave-bottom {
+  background: linear-gradient(90deg, rgba(199, 91, 57, 0.06), rgba(242, 232, 220, 0.14), rgba(199, 91, 57, 0.06));
+}
+
+body[data-page="home"] .somali-crest-line,
+body[data-page="partnership"] .somali-crest-line {
+  background: linear-gradient(90deg, transparent, rgba(232, 201, 123, 0.78), transparent);
+}
+
+body[data-page="home"] .home-atmosphere::after,
+body[data-page="partnership"] .partnership-atmosphere::after {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212, 168, 67, 0.08), transparent 24%),
+    radial-gradient(circle at 78% 18%, rgba(199, 91, 57, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(242, 232, 220, 0.04), transparent 28%, rgba(212, 168, 67, 0.06));
+}
+
+/* Blend the decorative star block into the next section instead of ending as a hard separate slab. */
+body[data-page="home"] .home-atmosphere,
+body[data-page="partnership"] .partnership-atmosphere {
+  margin-bottom: -28px;
+  padding-bottom: 28px;
+}
+
+body[data-page="home"] .home-atmosphere::after,
+body[data-page="partnership"] .partnership-atmosphere::after {
+  inset: -16% -8% -28%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212, 168, 67, 0.08), transparent 24%),
+    radial-gradient(circle at 78% 18%, rgba(199, 91, 57, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(242, 232, 220, 0.03) 0%, transparent 24%, rgba(212, 168, 67, 0.05) 54%, rgba(44, 33, 24, 0.5) 78%, rgba(44, 33, 24, 0.96) 100%);
+}
+
+body[data-page="home"] .home-atmosphere + .content-section,
+body[data-page="partnership"] .partnership-atmosphere + .programs-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep the decorative star section identical on Home and Partnership. */
+body[data-page="home"] .home-atmosphere,
+body[data-page="partnership"] .partnership-atmosphere {
+  min-height: 170px;
+  margin-top: 10px;
+  margin-bottom: -28px;
+  padding-bottom: 28px;
+  border-radius: 40px;
+  border: 1px solid rgba(212, 168, 67, 0.18);
+  background:
+    linear-gradient(180deg, rgba(58, 46, 36, 0.88), rgba(30, 21, 16, 0.94)),
+    radial-gradient(circle at 20% 16%, rgba(212, 168, 67, 0.12), transparent 26%),
+    radial-gradient(circle at 80% 18%, rgba(199, 91, 57, 0.08), transparent 28%);
+  box-shadow:
+    inset 0 1px 0 rgba(242, 232, 220, 0.05),
+    0 24px 60px rgba(18, 11, 8, 0.28);
+}
+
+body[data-page="home"] .home-atmosphere::before,
+body[data-page="partnership"] .partnership-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(242, 232, 220, 0.08);
+  pointer-events: none;
+}
+
+body[data-page="home"] .home-atmosphere::after,
+body[data-page="partnership"] .partnership-atmosphere::after {
+  inset: -16% -8% -28%;
+  opacity: 1;
+  animation:
+    somaliAuraSpin 12s linear infinite;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212, 168, 67, 0.08), transparent 24%),
+    radial-gradient(circle at 78% 18%, rgba(199, 91, 57, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(242, 232, 220, 0.03) 0%, transparent 24%, rgba(212, 168, 67, 0.05) 54%, rgba(44, 33, 24, 0.5) 78%, rgba(44, 33, 24, 0.96) 100%);
+}
+
+body[data-page="home"] .home-atmosphere .skyline-wave-top,
+body[data-page="partnership"] .partnership-atmosphere .skyline-wave-top {
+  top: 76px;
+}
+
+body[data-page="home"] .home-atmosphere .skyline-wave-bottom,
+body[data-page="partnership"] .partnership-atmosphere .skyline-wave-bottom {
+  bottom: 20px;
+}
+
+body[data-page="home"] .home-atmosphere .somali-crest,
+body[data-page="partnership"] .partnership-atmosphere .somali-crest {
+  min-height: 170px;
 }
