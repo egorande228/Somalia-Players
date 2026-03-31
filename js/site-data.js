@@ -84,22 +84,32 @@ window.SITE_DATA = {
         questionsTitle: "Questions about us"
       },
       partnership: {
-        sharedBadge: "Shared foundation",
-        sharedTitle: "What both paths share",
-        sharedCopy:
-          "Whether someone joins as an agent or grows as an affiliate, both paths are built on the same core operating model: trusted structure, practical support, and room to build steadily over time.",
-        detailBadge: "Program breakdown",
-        detailTitle: "How each path works in practice",
-        detailCopy:
-          "One model is built around local transaction handling and direct support for players. The other is built around referral traffic, long-term player value, and recurring commission logic.",
-        differenceBadge: "Key differences",
-        differenceTitle: "Where the two paths differ",
-        differenceCopy:
-          "The foundation is shared, but the role pace and growth direction are not the same. One path is closer to direct daily execution, while the other is built more around media growth, referral reach, and wider expansion.",
-        agentColumn: "Agent path",
-        partnerColumn: "Affiliate path",
-        agentDetailColumn: "Agent program",
-        partnerDetailColumn: "Affiliate program",
+        programsKicker: "Programs",
+        programsTitle: "Our Partnership Programs",
+        programsIntro:
+          "Choose the path that fits your strengths and start building revenue with Melbet.",
+        affiliatePromoCode: "Promo code",
+        affiliateReferral: "Referral link",
+        affiliatePlayerJoins: "Player joins",
+        affiliateCommission: "% commission",
+        incomeTitle: "Estimate Your Income",
+        incomeIntro: "Based on daily transaction volume with a 5% + 2% commission structure.",
+        volumeLabel: "Daily Volume ($)",
+        daysLabel: "Operational Days",
+        incomeResultLabel: "Your Estimated Commission",
+        incomeResultNote: "USD monthly",
+        dayUnit: "days",
+        flowAccount: "Account",
+        flowCash: "TeamCash",
+        flowAgent: "App",
+        flowPlayer: "Player",
+        flowLocal: "Agent",
+        flowDeposits: "Deposits",
+        flowWithdrawals: "Withdrawals",
+        flowCashOut: "Withdrawal",
+        flowCashIn: "Deposits",
+        flowCommission: "Commission %",
+        flowSupport: "Prepayment",
         faqBadge: "Common questions",
         faqTitle: "Questions about the programs",
         faqCopy:
@@ -154,22 +164,32 @@ window.SITE_DATA = {
         questionsTitle: "Su'aalaha nagu saabsan"
       },
       partnership: {
-        sharedBadge: "Saldhig wadaag ah",
-        sharedTitle: "Waxa ay labada waddo wadaagaan",
-        sharedCopy:
-          "Haddii qofku ku biiro agent ahaan ama affiliate ahaan u koro, labada waddo waxay ku dhisan yihiin qaab hawlgal oo isku mid ah: qaab la aamini karo, taageero wax ku ool ah, iyo meel lagu koro si tartiib ah waqti ka dib.",
-        detailBadge: "Faahfaahinta barnaamijka",
-        detailTitle: "Sida waddo kasta u shaqeyso dhab ahaan",
-        detailCopy:
-          "Hal nooc wuxuu ku dhisan yahay maaraynta lacagaha iyo taageerada tooska ah ee ciyaartoyda. Kan kale wuxuu ku dhisan yahay referral traffic, qiimaha ciyaartoyga ee muddada dheer, iyo guddiyo soo noqnoqda.",
-        differenceBadge: "Farqiyada muhiimka ah",
-        differenceTitle: "Meesha ay labada waddo ku kala duwan yihiin",
-        differenceCopy:
-          "Saldhiggu waa wadaag, laakiin xawaaraha doorka iyo jihada koboca isku mid ma aha. Mid baa u dhow fulin maalinle ah, halka kan kale uu ku dhisan yahay korriin traffic, referral reach, iyo ballaarin weyn.",
-        agentColumn: "Waddada agent-ka",
-        partnerColumn: "Waddada affiliate-ka",
-        agentDetailColumn: "Barnaamijka agent-ka",
-        partnerDetailColumn: "Barnaamijka affiliate-ka",
+        programsKicker: "Barnaamijyada",
+        programsTitle: "Barnaamijyada Partnership-ka",
+        programsIntro:
+          "Dooro waddada ku habboon awoodahaaga oo ka bilow inaad dakhli la dhisto Melbet.",
+        affiliatePromoCode: "Promo code",
+        affiliateReferral: "Referral link",
+        affiliatePlayerJoins: "Player joins",
+        affiliateCommission: "% commission",
+        incomeTitle: "Qiyaas Dakhligaaga",
+        incomeIntro: "Waxay ku salaysan tahay mugga macaamilka maalinlaha ah oo leh qaab guddi ah 5% + 2%.",
+        volumeLabel: "Mugga Maalinlaha ah ($)",
+        daysLabel: "Maalmaha Shaqada",
+        incomeResultLabel: "Guddigaaga La Qiyaasay",
+        incomeResultNote: "USD bishii",
+        dayUnit: "maalmood",
+        flowAccount: "Akoon",
+        flowCash: "TeamCash",
+        flowAgent: "App",
+        flowPlayer: "Player",
+        flowLocal: "Agent",
+        flowDeposits: "Dhigasho",
+        flowWithdrawals: "Bixid",
+        flowCashOut: "Bixid",
+        flowCashIn: "Dhigasho",
+        flowCommission: "Boqolkiiba guddi",
+        flowSupport: "Hore u bixin",
         faqBadge: "Su'aalaha caadiga ah",
         faqTitle: "Su'aalaha ku saabsan barnaamijyada",
         faqCopy:
@@ -372,248 +392,72 @@ window.SITE_DATA = {
     ]
   },
   partnership: {
-    heroCards: [
+    programs: [
       {
-        label: { en: "Agent program", so: "Agent program" },
+        media: "affiliate",
+        statValue: { en: "$50,000", so: "$50,000" },
+        statPercent: { en: "50%", so: "50%" },
         title: {
-          en: "Run local deposits and withdrawals with a direct agent setup",
-          so: "Maamul deposits iyo withdrawals local ah adigoo leh qaab agent oo toos ah"
+          en: "Affiliate Partner Program",
+          so: "Affiliate Partner Program"
         },
         copy: {
-          en: "Join an existing structure, start quickly, and work with a model built for daily player operations, cash handling, and practical local support.",
-          so: "Ku biir qaab hore u jira, si dhakhso ah u bilow, oo la shaqee hannaan loogu dhisay hawlgal maalinle ah, maaraynta lacagta, iyo taageero local ah."
+          en: "Grow partner revenue through promo codes, repeat traffic, and long-term player value.",
+          so: "Ku kobci dakhliga partner-ka promo codes, traffic soo noqnoqda, iyo qiimaha ciyaartoyga muddada dheer."
         },
-        cta: { en: "Become an Agent", so: "Noqo Agent" },
-        stats: [
+        bullets: [
           {
-            title: { en: "Fast setup", so: "Bilow degdeg ah" },
-            copy: {
-              en: "Simple onboarding, clear rules, and a direct launch path with manager guidance.",
-              so: "Onboarding fudud, sharciyo cad, iyo waddo bilaabid toos ah oo leh hagid manager."
-            }
+            en: "25% to 50% commission on referred player revenue",
+            so: "25% ilaa 50% guddi ah oo ka yimaada dakhliga ciyaartoyda aad soo gudbiso"
           },
           {
-            title: { en: "Daily flow", so: "Socod maalinle ah" },
-            copy: {
-              en: "Built for practical, active day-to-day work with real player requests and local handling.",
-              so: "Loogu dhisay shaqo firfircoon oo maalinle ah oo leh codsiyada ciyaartoyda iyo maarayn local ah."
-            }
+            en: "Built for media traffic, communities, and promo reach",
+            so: "Loogu dhisay media traffic, communities, iyo gaarsiinta promo-ga"
           },
           {
-            title: { en: "Cash operations", so: "Hawlaha lacagta" },
-            copy: {
-              en: "Process deposits and withdrawals for players in your area and stay close to real transaction flow.",
-              so: "U maamul deposits iyo withdrawals ciyaartoyda deegaankaaga oo la joog socodka macaamilka dhabta ah."
-            }
+            en: "Weekly-style recurring earning logic from active players",
+            so: "Qaab dakhli soo noqnoqda oo usbuucle u eg kana yimaada ciyaartoy firfircoon"
           },
           {
-            title: { en: "Direct support", so: "Taageero toos ah" },
-            copy: {
-              en: "Stay in direct contact with local demand, player needs, and manager support from the first day.",
-              so: "La joog baahida local-ka, baahida ciyaartoyda, iyo taageerada manager-ka laga bilaabo maalinta koowaad."
-            }
+            en: "A strong fit for scale, retention, and repeat value",
+            so: "Ku habboon scale, retention, iyo qiime soo noqnoqda"
           }
         ],
-        tone: "agent"
-      },
-      {
-        label: { en: "Affiliate program", so: "Affiliate program" },
-        title: {
-          en: "Build recurring income through referral traffic and long-term player value",
-          so: "Dhis dakhli soo noqnoqda adigoo maraya referral traffic iyo qiimaha ciyaartoyga muddada dheer"
-        },
-        copy: {
-          en: "Grow with a model designed for media traffic, promo codes, referral links, and long-term recurring commissions from active players.",
-          so: "Ku koro hannaan loogu talagalay media traffic, promo codes, referral links, iyo guddiyo soo noqnoqda oo ka yimaada ciyaartoy firfircoon."
-        },
-        cta: { en: "Become an Affiliate", so: "Noqo Affiliate" },
-        stats: [
-          {
-            title: { en: "Long-term growth", so: "Koboc muddo dheer ah" },
-            copy: {
-              en: "Designed for long-term scale where your audience can keep generating value over time.",
-              so: "Loogu talagalay koboc muddo dheer ah halka audience-kaagu uu qiime sii dhalin karo waqti ka dib."
-            }
-          },
-          {
-            title: { en: "Referral system", so: "Nidaamka referral-ka" },
-            copy: {
-              en: "Work with links, codes, and a structure built to track player acquisition and retention.",
-              so: "La shaqee links, codes, iyo qaab loogu talagalay la socodka keenista iyo joogteynta ciyaartoyda."
-            }
-          },
-          {
-            title: { en: "Recurring commissions", so: "Guddiyo soo noqnoqda" },
-            copy: {
-              en: "Earn recurring income from active referred players instead of relying on one-time returns only.",
-              so: "Ka hel dakhli soo noqnoqda ciyaartoyda firfircoon ee aad soo gudbiso halkii aad ku xaddidnaan lahayd hal mar oo keliya."
-            }
-          },
-          {
-            title: { en: "Weekly payout logic", so: "Qaabka payout-ka usbuucle ah" },
-            copy: {
-              en: "Affiliate structure is built for repeat payouts, performance tracking, and scalable traffic work.",
-              so: "Qaabka affiliate-ku wuxuu u dhisan yahay payouts soo noqnoqda, la socod waxqabad, iyo shaqo traffic oo la balaadhin karo."
-            }
-          }
-        ],
+        cta: { en: "Join Affiliate Program", so: "Ku biir Affiliate Program" },
         tone: "partner"
+      },
+      {
+        media: "agent",
+        title: {
+          en: "Agent Cash Program",
+          so: "Agent Cash Program"
+        },
+        copy: {
+          en: "Handle local deposits and withdrawals for players in your area and earn from real transaction flow.",
+          so: "Maamul deposits iyo withdrawals local ah oo loogu talagalay ciyaartoyda deegaankaaga kuna earn garee socodka macaamilka dhabta ah."
+        },
+        bullets: [
+          {
+            en: "Provide cash deposit and withdrawal support in your region",
+            so: "Bixi taageerada cash deposit iyo withdrawal gudaha deegaankaaga"
+          },
+          {
+            en: "Work directly with the Melbet cash handling structure",
+            so: "Si toos ah ula shaqee qaabka cash handling-ka Melbet"
+          },
+          {
+            en: "Fast startup path with practical day-to-day operations",
+            so: "Waddo bilaabid degdeg ah oo leh hawlgal maalinle ah oo wax ku ool ah"
+          },
+          {
+            en: "Stay close to real player demand and direct local support",
+            so: "U dhowow baahida dhabta ah ee ciyaartoyda iyo taageerada local-ka tooska ah"
+          }
+        ],
+        cta: { en: "Join Agent Program", so: "Ku biir Agent Program" },
+        tone: "agent"
       }
     ],
-    sharedCards: [
-      {
-        title: { en: "Clear structure", so: "Qaab cad" },
-        copy: {
-          en: "Both sides work inside an organized model with defined roles, stable flow, and clearer execution.",
-          so: "Labada dhinacba waxay ku shaqeeyaan qaab abaabulan oo leh doorar cad, socod deggan, iyo fulin ka sii cad."
-        }
-      },
-      {
-        title: { en: "Local support", so: "Taageero local ah" },
-        copy: {
-          en: "Both paths depend on guidance, coordination, and direct manager support that helps operations stay active.",
-          so: "Labada waddoba waxay ku tiirsan yihiin hanuunin, isku xidhnaan, iyo taageero toos ah oo manager ah si hawlgalladu u sii socdaan."
-        }
-      },
-      {
-        title: { en: "Steady growth", so: "Koboc deggan" },
-        copy: {
-          en: "Both are designed to create continuity, long-term value, and a stronger network over time.",
-          so: "Labadaba waxaa loo sameeyey inay dhisaan joogteyn, qiime muddo dheer ah, iyo shabakad sii xoogaysata."
-        }
-      },
-      {
-        title: { en: "Manager guidance", so: "Hagid manager" },
-        copy: {
-          en: "New partners in both models usually launch with direct guidance, practical instructions, and a clearer working rhythm.",
-          so: "Partners cusub ee labada noocba badanaa waxay ku bilaabaan hagid toos ah, tilmaamo wax ku ool ah, iyo socod shaqo oo ka sii cad."
-        }
-      }
-    ],
-    details: {
-      agent: [
-        {
-          title: { en: "What an agent does", so: "Waxa agent-ku qabto" },
-          copy: {
-            en: "The agent program is built for local cash activity. You help players complete deposits and withdrawals in your area and stay close to real transaction demand.",
-            so: "Barnaamijka agent-ku wuxuu ku dhisan yahay dhaqdhaqaaq lacag local ah. Waxaad ka caawisaa ciyaartoyda deposits iyo withdrawals deegaankaaga adigoo la jooga baahida macaamilka dhabta ah."
-          }
-        },
-        {
-          title: { en: "Operational focus", so: "Diiradda hawlgalka" },
-          copy: {
-            en: "This path is more hands-on. It is about handling requests, moving faster in day-to-day operations, and supporting a practical local flow.",
-            so: "Waddadani waa mid gacanta badan. Waxay ku saabsan tahay maaraynta codsiyada, dhaqdhaqaaq degdeg ah oo maalinle ah, iyo taageeridda socod local oo wax ku ool ah."
-          }
-        },
-        {
-          title: { en: "How earnings work", so: "Sida dakhligu u shaqeeyo" },
-          copy: {
-            en: "Agent earnings are tied more closely to transaction handling and local player activity. The stronger the cash flow, the stronger the direct earning rhythm.",
-            so: "Dakhliga agent-ku wuxuu si dhow ugu xiran yahay maaraynta macaamilka iyo dhaqdhaqaaqa ciyaartoyda local-ka ah. Inta cash flow-ku xoog badnaado, ayaa dakhliga tooska ahi sii xooggaystaa."
-          }
-        },
-        {
-          title: { en: "Who it fits best", so: "Cidda ugu habboon" },
-          copy: {
-            en: "Best for people who want practical work, daily movement, closer player contact, and a faster entry into the operating side of the business.",
-            so: "Waxay ku habboon tahay dadka doonaya shaqo wax ku ool ah, dhaqdhaqaaq maalinle ah, xiriir ciyaartoy oo dhow, iyo gelid degdeg ah oo dhinaca hawlgalka ah."
-          }
-        }
-      ],
-      partner: [
-        {
-          title: { en: "What an affiliate does", so: "Waxa affiliate-ku qabto" },
-          copy: {
-            en: "The affiliate program is built around referral links, promo codes, audience reach, and long-term player value rather than direct cash handling.",
-            so: "Barnaamijka affiliate-ku wuxuu ku dhisan yahay referral links, promo codes, gaarsiinta audience, iyo qiimaha ciyaartoyga muddo dheer ah halkii uu ka ahaan lahaa maarayn lacag toos ah."
-          }
-        },
-        {
-          title: { en: "Traffic and retention", so: "Traffic iyo retention" },
-          copy: {
-            en: "You bring players through content, communities, media buying, or direct promotion and then earn as that player base stays active over time.",
-            so: "Waxaad keentaa ciyaartoy adigoo adeegsanaya content, communities, media buying, ama xayeysiin toos ah kadibna waxaad heshaa dakhli inta player base-kaasi uu firfircoonaado."
-          }
-        },
-        {
-          title: { en: "How earnings work", so: "Sida dakhligu u shaqeeyo" },
-          copy: {
-            en: "Affiliate income is tied more to recurring value and active referred players. It is usually the better fit for scale, repeat revenue, and broader growth.",
-            so: "Dakhliga affiliate-ku wuxuu ku xiran yahay qiime soo noqnoqda iyo ciyaartoy firfircoon oo la soo gudbiyey. Badanaa wuxuu ku habboon yahay scale, dakhli soo noqnoqda, iyo korriin ballaaran."
-          }
-        },
-        {
-          title: { en: "Who it fits best", so: "Cidda ugu habboon" },
-          copy: {
-            en: "Best for traffic owners, media buyers, community leaders, and partners who want to build a portfolio of players instead of only managing transactions.",
-            so: "Waxay ku habboon tahay traffic owners, media buyers, community leaders, iyo partners doonaya inay dhisaan portfolio ciyaartoy halkii ay ka xaddidnaan lahaayeen maaraynta macaamilka oo keliya."
-          }
-        }
-      ]
-    },
-    differences: {
-      agent: [
-        {
-          title: { en: "Agent path", so: "Waddada agent-ka" },
-          copy: {
-            en: "The agent side is closer to active local operation and fast practical movement.",
-            so: "Dhinaca agent-ku wuxuu u dhow yahay hawlgal local oo firfircoon iyo dhaqdhaqaaq degdeg ah."
-          }
-        },
-        {
-          title: { en: "Closer to daily work", so: "U dhow shaqada maalinlaha" },
-          copy: {
-            en: "The role stays near direct activity, local handling, and immediate operational rhythm.",
-            so: "Doorku wuxuu ku dhow yahay hawl toos ah, maarayn local ah, iyo xawaare hawlgal oo degdeg ah."
-          }
-        },
-        {
-          title: { en: "Faster entry", so: "Gelid degdeg ah" },
-          copy: {
-            en: "It is built for getting started quickly with a more direct and accessible setup.",
-            so: "Waxaa loo dhisay in si dhaqso ah loo bilaabo iyadoo qaabku ka toosan yahay oo la heli karo."
-          }
-        },
-        {
-          title: { en: "Execution first", so: "Fulinta ayaa mudnaan leh" },
-          copy: {
-            en: "The emphasis is on movement, handling, and practical response on the ground.",
-            so: "Diiraddu waxay saaranyahay dhaqaaq, maarayn, iyo jawaab wax ku ool ah oo dhulka ah."
-          }
-        }
-      ],
-      partner: [
-        {
-          title: { en: "Affiliate path", so: "Waddada affiliate-ka" },
-          copy: {
-            en: "The affiliate side is more focused on referral value, audience reach, retention, and long-term scale.",
-            so: "Dhinaca affiliate-ku wuxuu aad diiradda u saaraa qiimaha referral-ka, gaarsiinta audience-ka, retention, iyo koboc muddo dheer ah."
-          }
-        },
-        {
-          title: { en: "Broader scope", so: "Baaxad weyn" },
-          copy: {
-            en: "The role looks more at traffic channels, growth systems, media reach, and building stronger player acquisition.",
-            so: "Doorku wuxuu aad u eegaa channels-ka traffic-ka, growth systems, media reach, iyo dhisidda keenista ciyaartoy xooggan."
-          }
-        },
-        {
-          title: { en: "Expansion driven", so: "Ballaarin lagu wado" },
-          copy: {
-            en: "It is designed for growth over time with a wider structural perspective.",
-            so: "Waxaa loo qaabeeyey koboc waqti ka dib leh aragti qaab ballaaran."
-          }
-        },
-        {
-          title: { en: "Referral first", so: "Referral-ka ayaa mudnaan leh" },
-          copy: {
-            en: "The emphasis is more on larger positioning, support systems, and scalable recurring value from referred players.",
-            so: "Diiraddu waxay saaranyahay boos weyn, nidaamyada taageerada, iyo qiime soo noqnoqda oo laga helo ciyaartoyda la soo gudbiyey."
-          }
-        }
-      ]
-    },
     faqs: [
       {
         q: {

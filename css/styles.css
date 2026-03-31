@@ -1101,6 +1101,693 @@ body[data-page="partnership"] .lang-switch {
   border-color: rgba(193, 234, 255, 0.18);
 }
 
+.programs-section {
+  position: relative;
+  margin-top: 10px;
+}
+
+.programs-shell {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 0 8px;
+}
+
+.programs-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(117, 214, 255, 0.16), transparent 34%),
+    radial-gradient(circle at 100% 20%, rgba(19, 217, 122, 0.1), transparent 32%);
+  pointer-events: none;
+}
+
+.programs-header {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.8fr);
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 28px;
+}
+
+.programs-header h1 {
+  margin: 12px 0 0;
+  color: #f5fbff;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 1.04;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.programs-intro {
+  margin: 10px 0 0;
+  color: rgba(223, 241, 255, 0.82);
+  font-size: 1.06rem;
+  line-height: 1.55;
+  max-width: 34rem;
+}
+
+.programs-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 28px;
+}
+
+.program-card-compact {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 268px 1fr;
+  height: 100%;
+  border-radius: 34px;
+  padding: 18px;
+  background:
+    linear-gradient(180deg, rgba(4, 39, 65, 0.92), rgba(2, 26, 44, 0.98)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 48%);
+  border: 1px solid rgba(186, 232, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 28px 70px rgba(0, 14, 25, 0.34);
+}
+
+.program-card-compact::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border-radius: 26px;
+  border: 1px solid rgba(215, 241, 255, 0.12);
+  pointer-events: none;
+}
+
+.program-card-copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  align-content: start;
+  gap: 14px;
+  padding: 6px 10px 12px;
+}
+
+.program-card-copy h3 {
+  margin: 0;
+  color: #f5fbff;
+  font-size: clamp(1.5rem, 2vw, 1.95rem);
+  line-height: 1.12;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  max-width: 100%;
+}
+
+.program-card-copy p {
+  margin: 0;
+  color: rgba(223, 241, 255, 0.8);
+  line-height: 1.5;
+  font-size: 0.96rem;
+}
+
+.program-card-copy ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  color: rgba(244, 251, 255, 0.95);
+}
+
+.program-card-copy li {
+  position: relative;
+  padding-left: 24px;
+  line-height: 1.48;
+}
+
+.program-card-copy li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.58rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #13d97a, #00a6ff);
+  box-shadow: 0 0 12px rgba(94, 189, 255, 0.42);
+}
+
+.program-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #89dbff;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+.program-cta-link::after {
+  content: "->";
+}
+
+.program-cta-link:hover {
+  color: #dff5ff;
+}
+
+.program-visual {
+  position: relative;
+  z-index: 1;
+  min-height: 248px;
+  height: 248px;
+  align-self: stretch;
+  width: 100%;
+  margin-bottom: 16px;
+  margin-left: 0;
+  padding: 12px;
+  border-radius: 22px;
+  border: 1px solid rgba(186, 232, 255, 0.16);
+  background: linear-gradient(165deg, rgba(10, 39, 62, 0.9), rgba(4, 18, 31, 0.96));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+.program-visual-graph {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.program-visual-flow {
+  min-height: 266px;
+  height: 266px;
+  padding-bottom: 18px;
+}
+
+.program-visual-affiliate {
+  min-height: 266px;
+  height: 266px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.affiliate-flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(76px, 1fr));
+  gap: 14px 16px;
+  width: 100%;
+  min-height: 176px;
+  align-items: stretch;
+}
+
+.affiliate-node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  min-height: 76px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(184, 233, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(8, 44, 82, 0.9), rgba(6, 28, 50, 0.96)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 44%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  opacity: 0;
+}
+
+.affiliate-node-label {
+  color: rgba(207, 234, 255, 0.74);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.affiliate-node-value {
+  color: #f4fbff;
+  font-size: 0.92rem;
+  font-weight: 900;
+  line-height: 1.1;
+  word-break: break-word;
+}
+
+.affiliate-node-commission .affiliate-node-value {
+  color: #7fe7ff;
+}
+
+.affiliate-flow-arrow {
+  position: absolute;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(127, 231, 255, 0.1), rgba(127, 231, 255, 0.92));
+  box-shadow: 0 0 16px rgba(127, 231, 255, 0.18);
+  transform-origin: left center;
+  opacity: 0;
+}
+
+.affiliate-flow-arrow::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid #7fe7ff;
+  border-right: 3px solid #7fe7ff;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.affiliate-flow-arrow-top {
+  left: calc(50% - 10px);
+  top: 40px;
+  width: 54px;
+}
+
+.affiliate-flow-arrow-middle {
+  left: calc(50% - 10px);
+  top: 130px;
+  width: 54px;
+}
+
+.affiliate-flow-arrow-bottom {
+  left: calc(50% - 1px);
+  top: 82px;
+  width: 3px;
+  height: 36px;
+  background: linear-gradient(180deg, rgba(127, 231, 255, 0.1), rgba(127, 231, 255, 0.92));
+  transform-origin: center top;
+}
+
+.affiliate-flow-arrow-bottom::after {
+  right: auto;
+  left: 50%;
+  top: auto;
+  bottom: -2px;
+  transform: translateX(-50%) rotate(135deg);
+}
+
+.program-visual-affiliate.is-animating .affiliate-node-code {
+  animation: affiliate-node-cycle 4.2s ease-in-out infinite;
+}
+
+.program-visual-affiliate.is-animating .affiliate-flow-arrow-top {
+  animation: affiliate-arrow-cycle 4.2s ease-in-out infinite;
+  animation-delay: 0.28s;
+}
+
+.program-visual-affiliate.is-animating .affiliate-node-link {
+  animation: affiliate-node-cycle 4.2s ease-in-out infinite;
+  animation-delay: 0.52s;
+}
+
+.program-visual-affiliate.is-animating .affiliate-flow-arrow-bottom {
+  animation: affiliate-arrow-cycle 4.2s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.program-visual-affiliate.is-animating .affiliate-flow-arrow-middle {
+  animation: affiliate-arrow-cycle 4.2s ease-in-out infinite;
+  animation-delay: 1.08s;
+}
+
+.program-visual-affiliate.is-animating .affiliate-node-player {
+  animation: affiliate-node-cycle 4.2s ease-in-out infinite;
+  animation-delay: 1.32s;
+}
+
+.program-visual-affiliate.is-animating .affiliate-node-commission {
+  animation: affiliate-node-cycle 4.2s ease-in-out infinite;
+  animation-delay: 1.6s;
+}
+
+.graph-top {
+  display: grid;
+  grid-template-columns: auto minmax(104px, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.graph-dollar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: #062136;
+  background: linear-gradient(180deg, #9ae7ff 0%, #5ebdff 52%, #00a6ff 100%);
+}
+
+.graph-value {
+  color: #f3fbff;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.graph-percent {
+  min-width: 56px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(137, 219, 255, 0.3);
+  background: rgba(0, 166, 255, 0.12);
+  color: #cfeeff;
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.graph-svg,
+.flow-diagram {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.graph-area {
+  fill: rgba(94, 189, 255, 0.14);
+}
+
+.graph-line {
+  fill: none;
+  stroke: #89dbff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+}
+
+.graph-dot {
+  fill: #13d97a;
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+.program-visual-graph.is-animating .graph-line {
+  animation: grow-line 1.9s ease-out forwards;
+}
+
+.flow-node-shape {
+  fill: rgba(8, 33, 53, 0.96);
+  stroke: rgba(137, 219, 255, 0.28);
+  stroke-width: 2;
+}
+
+.flow-node-shape-center {
+  stroke: rgba(19, 217, 122, 0.34);
+}
+
+.flow-node-shape-agent {
+  fill: rgba(6, 28, 46, 0.96);
+}
+
+.flow-node-text {
+  fill: #ebf8ff;
+  font-size: 11px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.flow-node-text-center {
+  font-size: 12px;
+}
+
+.flow-line {
+  stroke: #89dbff;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 10 8;
+}
+
+.flow-line-label {
+  fill: #cfeeff;
+  font-size: 9px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.flow-line-label-bottom {
+  text-anchor: start;
+  font-size: 9px;
+}
+
+.flow-line-label-bottom-left {
+  text-anchor: end;
+}
+
+.flow-line-label-bottom-right {
+  text-anchor: start;
+}
+
+.program-visual-flow.is-animating .flow-line {
+  animation: flow-stream 1.2s linear infinite;
+}
+
+.income-section {
+  margin-top: 22px;
+}
+
+.income-shell {
+  position: relative;
+  overflow: hidden;
+  padding: 30px 0 10px;
+}
+
+.income-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 36px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 40%),
+    radial-gradient(circle at 70% 50%, rgba(128, 214, 255, 0.16), transparent 30%),
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.08), transparent 24%);
+  pointer-events: none;
+}
+
+.income-head {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.income-head h2 {
+  margin: 0;
+  color: #f5fbff;
+  font-size: clamp(2.1rem, 4.6vw, 4.3rem);
+  line-height: 0.96;
+  text-transform: uppercase;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.income-head p {
+  margin: 14px auto 0;
+  max-width: 46rem;
+  color: rgba(223, 241, 255, 0.82);
+  font-size: 1.04rem;
+  line-height: 1.55;
+}
+
+.income-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.88fr);
+  gap: 28px;
+}
+
+.income-controls,
+.income-result-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  background:
+    linear-gradient(180deg, rgba(8, 44, 82, 0.96), rgba(5, 26, 50, 0.98)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 44%);
+  border: 1px solid rgba(184, 233, 255, 0.24);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 28px 70px rgba(0, 14, 25, 0.28);
+}
+
+.income-controls::before,
+.income-result-card::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border-radius: 24px;
+  border: 1px solid rgba(233, 247, 255, 0.16);
+  pointer-events: none;
+}
+
+.income-controls {
+  padding: 30px 36px;
+  display: grid;
+  gap: 34px;
+}
+
+.income-row {
+  display: grid;
+  gap: 22px;
+}
+
+.income-row-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: #f3fbff;
+  font-size: 1.04rem;
+  font-weight: 800;
+}
+
+.income-row-head strong {
+  color: #8ee6ff;
+  font-size: clamp(1.45rem, 3vw, 2.15rem);
+  line-height: 1;
+}
+
+.income-range {
+  width: 100%;
+  appearance: none;
+  height: 16px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(117, 177, 230, 0.92), rgba(225, 241, 255, 0.96));
+  outline: none;
+}
+
+.income-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 4px solid rgba(198, 238, 255, 0.42);
+  background: linear-gradient(180deg, #ffffff, #eef9ff);
+  box-shadow:
+    0 0 0 6px rgba(142, 230, 255, 0.16),
+    0 8px 20px rgba(58, 153, 204, 0.28);
+  cursor: pointer;
+}
+
+.income-range::-moz-range-thumb {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 4px solid rgba(198, 238, 255, 0.42);
+  background: linear-gradient(180deg, #ffffff, #eef9ff);
+  box-shadow:
+    0 0 0 6px rgba(142, 230, 255, 0.16),
+    0 8px 20px rgba(58, 153, 204, 0.28);
+  cursor: pointer;
+}
+
+.income-result-card {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 34px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 54%, rgba(156, 229, 255, 0.24), transparent 34%),
+    linear-gradient(180deg, rgba(11, 71, 126, 0.96), rgba(7, 42, 78, 0.98)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 44%);
+}
+
+.income-result-kicker {
+  color: #f4fbff;
+  font-size: clamp(1.35rem, 2.4vw, 2.35rem);
+  font-weight: 900;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.income-result-value {
+  margin-top: 18px;
+  color: #7fe7ff;
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  text-shadow: 0 0 30px rgba(127, 231, 255, 0.22);
+}
+
+.income-result-note {
+  margin-top: 18px;
+  color: rgba(207, 234, 255, 0.74);
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@keyframes grow-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.82;
+  }
+}
+
+@keyframes flow-stream {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+
+@keyframes affiliate-node-cycle {
+  0%,
+  12% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  20%,
+  76% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-3px) scale(0.98);
+  }
+}
+
+@keyframes affiliate-arrow-cycle {
+  0%,
+  10% {
+    opacity: 0;
+    transform: scaleX(0.2);
+  }
+  18%,
+  72% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(0.6);
+  }
+}
+
 body[data-page="partnership"] .lang-btn.is-active {
   background: linear-gradient(180deg, rgba(131, 214, 255, 0.24), rgba(255, 255, 255, 0.18));
 }
@@ -1851,6 +2538,59 @@ body[data-page="partnership"] .partner-faq-grid .faq-item p {
   .faq-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .programs-header {
+    grid-template-columns: 1fr;
+  }
+
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .income-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .affiliate-flow {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .affiliate-flow-arrow {
+    left: 50%;
+    width: 3px;
+    height: 34px;
+    background: linear-gradient(180deg, rgba(127, 231, 255, 0.1), rgba(127, 231, 255, 0.92));
+    transform-origin: center top;
+  }
+
+  .affiliate-flow-arrow::after {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -2px;
+    transform: translateX(-50%) rotate(135deg);
+  }
+
+  .affiliate-flow-arrow-top,
+  .affiliate-flow-arrow-middle,
+  .affiliate-flow-arrow-bottom {
+    left: calc(50% - 1px);
+    width: 3px;
+  }
+
+  .affiliate-flow-arrow-top {
+    top: 84px;
+  }
+
+  .affiliate-flow-arrow-middle {
+    top: 192px;
+  }
+
+  .affiliate-flow-arrow-bottom {
+    top: 300px;
+  }
+
 }
 
 @media (max-width: 860px) {
@@ -2022,5 +2762,56 @@ body[data-page="partnership"] .partner-faq-grid .faq-item p {
   .skyline-star-right {
     right: 18%;
     top: 44px;
+  }
+
+  .programs-shell {
+    padding-top: 18px;
+  }
+
+  .program-card-compact {
+    padding: 14px;
+    grid-template-rows: 244px 1fr;
+  }
+
+  .program-card-copy {
+    gap: 14px;
+    padding: 4px 6px 10px;
+    grid-template-rows: auto auto 1fr auto;
+  }
+
+  .program-card-copy h3 {
+    font-size: 1.45rem;
+  }
+
+  .program-visual {
+    min-height: 224px;
+    height: 224px;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+
+  .program-visual-flow {
+    min-height: 238px;
+    height: 238px;
+    padding-bottom: 16px;
+  }
+
+  .program-visual-affiliate {
+    min-height: 238px;
+    height: 238px;
+  }
+
+  .income-controls,
+  .income-result-card {
+    padding: 22px 18px;
+  }
+
+  .income-row-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .income-head h2 {
+    font-size: 2.3rem;
   }
 }

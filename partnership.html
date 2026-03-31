@@ -9,7 +9,7 @@
       content="Melbet Somalia partnership page with Agent program and Affiliate program content in English and Somali."
     />
     <meta name="theme-color" content="#081a2c" />
-    <link rel="stylesheet" href="./css/styles.css?v=20260331" />
+    <link rel="stylesheet" href="./css/styles.css?v=20260331-programs-visual-wide" />
   </head>
   <body data-page="partnership">
     <div class="page-shell">
@@ -55,70 +55,52 @@
           </div>
         </section>
 
-        <section class="partner-split-section">
-          <div class="partner-divider" aria-hidden="true">
-            <span class="divider-line"></span>
-            <span class="divider-node"></span>
-            <span class="divider-line"></span>
-          </div>
-          <div class="partner-split-grid" id="partnershipHeroCards"></div>
-        </section>
-
-        <section class="partner-frame-section">
-          <div class="partner-frame-shell">
-            <div class="partner-badge" data-i18n="partnership.sharedBadge">Shared foundation</div>
-            <div class="partner-frame-glow"></div>
-            <div class="partner-frame-head">
-              <h2 data-i18n="partnership.sharedTitle">What both paths share</h2>
-              <p data-i18n="partnership.sharedCopy">
-                Whether someone joins as an agent or builds as an affiliate, both paths are built on the same core operating model: trusted structure, practical support, and room to grow steadily over time.
+        <section class="programs-section">
+          <div class="programs-shell">
+            <div class="programs-header">
+              <div>
+                <p class="section-kicker" data-i18n="partnership.programsKicker">Programs</p>
+                <h1 data-i18n="partnership.programsTitle">Our Partnership Programs</h1>
+              </div>
+              <p class="programs-intro" data-i18n="partnership.programsIntro">
+                Choose the path that fits your strengths and start building revenue with Melbet.
               </p>
             </div>
-            <div class="partner-pillars-grid" id="sharedPillarsGrid"></div>
+            <div class="programs-grid" id="partnershipPrograms"></div>
           </div>
         </section>
 
-        <section class="partner-frame-section partner-detail-section">
-          <div class="partner-frame-shell">
-            <div class="partner-badge" data-i18n="partnership.detailBadge">Program breakdown</div>
-            <div class="partner-frame-glow"></div>
-            <div class="partner-frame-head">
-              <h2 data-i18n="partnership.detailTitle">How each path works in practice</h2>
-              <p data-i18n="partnership.detailCopy">
-                One model is built around local transaction handling and direct support for players. The other is built around referral traffic, long-term player value, and recurring commission logic.
+        <section class="income-section">
+          <div class="income-shell">
+            <div class="income-head">
+              <h2 data-i18n="partnership.incomeTitle">Estimate Your Income</h2>
+              <p data-i18n="partnership.incomeIntro">
+                Based on daily transaction volume with a 5% + 2% commission structure.
               </p>
             </div>
-            <div class="difference-grid">
-              <div class="difference-column">
-                <div class="difference-column-head" data-i18n="partnership.agentDetailColumn">Agent program</div>
-                <div class="difference-card-stack" id="agentDetailGrid"></div>
+            <div class="income-grid">
+              <div class="income-controls">
+                <div class="income-row">
+                  <div class="income-row-head">
+                    <span data-i18n="partnership.volumeLabel">Daily Volume ($)</span>
+                    <strong id="volumeValue">$6,950</strong>
+                  </div>
+                  <input id="volumeRange" class="income-range" type="range" min="100" max="15000" step="50" value="6950" />
+                </div>
+                <div class="income-row">
+                  <div class="income-row-head">
+                    <span data-i18n="partnership.daysLabel">Operational Days</span>
+                    <strong id="daysValue">13 days</strong>
+                  </div>
+                  <input id="daysRange" class="income-range" type="range" min="1" max="30" step="1" value="13" />
+                </div>
               </div>
-              <div class="difference-column">
-                <div class="difference-column-head" data-i18n="partnership.partnerDetailColumn">Affiliate program</div>
-                <div class="difference-card-stack" id="partnerDetailGrid"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="partner-frame-section partner-difference-section">
-          <div class="partner-frame-shell">
-            <div class="partner-badge" data-i18n="partnership.differenceBadge">Key differences</div>
-            <div class="partner-frame-glow"></div>
-            <div class="partner-frame-head">
-              <h2 data-i18n="partnership.differenceTitle">Where the two paths differ</h2>
-              <p data-i18n="partnership.differenceCopy">
-                The foundation is shared, but the role pace and growth direction are not the same. One path is closer to direct daily execution, while the other is built more around media growth, referral reach, and wider expansion.
-              </p>
-            </div>
-            <div class="difference-grid">
-              <div class="difference-column">
-                <div class="difference-column-head" data-i18n="partnership.agentColumn">Agent path</div>
-                <div class="difference-card-stack" id="agentDifferenceGrid"></div>
-              </div>
-              <div class="difference-column">
-                <div class="difference-column-head" data-i18n="partnership.partnerColumn">Affiliate path</div>
-                <div class="difference-card-stack" id="partnerDifferenceGrid"></div>
+              <div class="income-result">
+                <div class="income-result-card">
+                  <div class="income-result-kicker" data-i18n="partnership.incomeResultLabel">Your Estimated Commission</div>
+                  <div class="income-result-value" id="commissionValue">$6,324.50</div>
+                  <div class="income-result-note" data-i18n="partnership.incomeResultNote">USD monthly</div>
+                </div>
               </div>
             </div>
           </div>
@@ -144,7 +126,7 @@
       </main>
     </div>
 
-    <script src="./js/site-data.js?v=20260331"></script>
-    <script src="./js/main.js?v=20260331"></script>
+    <script src="./js/site-data.js?v=20260331-programs-visual-wide"></script>
+    <script src="./js/main.js?v=20260331-programs-visual-wide"></script>
   </body>
 </html>

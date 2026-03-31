@@ -139,76 +139,140 @@ function renderFaqs(lang, targetId, items) {
 
 function renderPartnershipShowcase(lang) {
   const data = window.SITE_DATA.partnership;
-  const heroRoot = document.getElementById("partnershipHeroCards");
-  const sharedRoot = document.getElementById("sharedPillarsGrid");
-  const agentRoot = document.getElementById("agentDifferenceGrid");
-  const partnerRoot = document.getElementById("partnerDifferenceGrid");
-  const agentDetailRoot = document.getElementById("agentDetailGrid");
-  const partnerDetailRoot = document.getElementById("partnerDetailGrid");
+  const copy = window.SITE_DATA.text[lang].partnership;
+  const programsRoot = document.getElementById("partnershipPrograms");
+  if (!programsRoot) return;
 
-  if (heroRoot) {
-    heroRoot.innerHTML = data.heroCards
-      .map((item) => {
-        const stats = item.stats
-          .map(
-            (stat) => `
-              <article class="partner-mini-card">
-                <h3>${stat.title[lang]}</h3>
-                <p>${stat.copy[lang]}</p>
-              </article>
-            `
-          )
-          .join("");
-
-        return `
-          <article class="partner-card partner-card-${item.tone}">
-            <div class="partner-card-shell">
-              <div class="partner-card-badge">${item.label[lang]}</div>
-              <div class="partner-card-glow"></div>
-              <div class="partner-card-main">
-                <h2>${item.title[lang]}</h2>
-                <p>${item.copy[lang]}</p>
-                <a class="partner-cta" href="#">${item.cta[lang]}</a>
-              </div>
-              <div class="partner-mini-grid">${stats}</div>
-            </div>
-          </article>
-        `;
-      })
-      .join("");
-  }
-
-  if (sharedRoot) {
-    sharedRoot.innerHTML = data.sharedCards
-      .map(
-        (item) => `
-          <article class="partner-pillar-card">
-            <h3>${item.title[lang]}</h3>
-            <p>${item.copy[lang]}</p>
-          </article>
-        `
-      )
-      .join("");
-  }
-
-  const renderDifferenceCards = (root, items) => {
-    if (!root) return;
-    root.innerHTML = items
-      .map(
-        (item) => `
-          <article class="difference-card">
-            <h3>${item.title[lang]}</h3>
-            <p>${item.copy[lang]}</p>
-          </article>
-        `
-      )
-      .join("");
+  const mediaMarkup = {
+    affiliate: `
+      <div class="program-visual program-visual-affiliate is-animating" aria-hidden="true">
+        <div class="affiliate-flow">
+          <div class="affiliate-node affiliate-node-code">
+            <span class="affiliate-node-label">${escHtml(copy.affiliatePromoCode)}</span>
+            <strong class="affiliate-node-value">MELBET7</strong>
+          </div>
+          <div class="affiliate-flow-arrow affiliate-flow-arrow-top"></div>
+          <div class="affiliate-node affiliate-node-link">
+            <span class="affiliate-node-label">${escHtml(copy.affiliateReferral)}</span>
+            <strong class="affiliate-node-value">melbet.link/7</strong>
+          </div>
+          <div class="affiliate-flow-arrow affiliate-flow-arrow-middle"></div>
+          <div class="affiliate-node affiliate-node-player">
+            <span class="affiliate-node-label">${escHtml(copy.affiliatePlayerJoins)}</span>
+            <strong class="affiliate-node-value">+128</strong>
+          </div>
+          <div class="affiliate-flow-arrow affiliate-flow-arrow-bottom"></div>
+          <div class="affiliate-node affiliate-node-commission">
+            <span class="affiliate-node-label">${escHtml(copy.affiliateCommission)}</span>
+            <strong class="affiliate-node-value">25%-50%</strong>
+          </div>
+        </div>
+      </div>
+    `,
+    agent: `
+      <div class="program-visual program-visual-flow is-animating" aria-hidden="true">
+        <svg class="flow-diagram" viewBox="0 0 420 228" role="presentation" aria-hidden="true">
+          <defs>
+            <marker id="flowArrowGold" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <polygon points="0,0 8,4 0,8" fill="#ffd33d"></polygon>
+            </marker>
+          </defs>
+          <circle cx="64" cy="56" r="42" class="flow-node-shape"></circle>
+          <circle cx="210" cy="56" r="48" class="flow-node-shape flow-node-shape-center"></circle>
+          <circle cx="356" cy="56" r="42" class="flow-node-shape"></circle>
+          <circle cx="210" cy="176" r="34" class="flow-node-shape flow-node-shape-agent"></circle>
+          <text x="64" y="50" class="flow-node-text">Melbet</text>
+          <text x="64" y="66" class="flow-node-text">${escHtml(copy.flowAccount)}</text>
+          <text x="210" y="50" class="flow-node-text flow-node-text-center">${escHtml(copy.flowCash)}</text>
+          <text x="210" y="67" class="flow-node-text flow-node-text-center">${escHtml(copy.flowAgent)}</text>
+          <text x="356" y="60" class="flow-node-text">${escHtml(copy.flowPlayer)}</text>
+          <text x="210" y="180" class="flow-node-text">${escHtml(copy.flowLocal)}</text>
+          <line x1="160" y1="40" x2="112" y2="40" class="flow-line" marker-end="url(#flowArrowGold)"></line>
+          <text x="136" y="31" class="flow-line-label">${escHtml(copy.flowDeposits)}</text>
+          <line x1="112" y1="72" x2="160" y2="72" class="flow-line" marker-end="url(#flowArrowGold)"></line>
+          <text x="136" y="87" class="flow-line-label">${escHtml(copy.flowWithdrawals)}</text>
+          <line x1="260" y1="40" x2="308" y2="40" class="flow-line" marker-end="url(#flowArrowGold)"></line>
+          <text x="284" y="31" class="flow-line-label">${escHtml(copy.flowCashOut)}</text>
+          <line x1="308" y1="72" x2="260" y2="72" class="flow-line" marker-end="url(#flowArrowGold)"></line>
+          <text x="284" y="87" class="flow-line-label">${escHtml(copy.flowCashIn)}</text>
+          <line x1="188" y1="104" x2="188" y2="160" class="flow-line" marker-end="url(#flowArrowGold)"></line>
+          <text x="150" y="136" class="flow-line-label flow-line-label-bottom flow-line-label-bottom-left">${escHtml(copy.flowCommission)}</text>
+          <line x1="232" y1="160" x2="232" y2="104" class="flow-line" marker-end="url(#flowArrowGold)"></line>
+          <text x="264" y="144" class="flow-line-label flow-line-label-bottom flow-line-label-bottom-right">${escHtml(copy.flowSupport)}</text>
+        </svg>
+      </div>
+    `
   };
 
-  renderDifferenceCards(agentRoot, data.differences.agent);
-  renderDifferenceCards(partnerRoot, data.differences.partner);
-  renderDifferenceCards(agentDetailRoot, data.details.agent);
-  renderDifferenceCards(partnerDetailRoot, data.details.partner);
+  programsRoot.innerHTML = data.programs
+    .map((item) => {
+      const bullets = item.bullets
+        .map((bullet) => `<li>${escHtml(bullet[lang])}</li>`)
+        .join("");
+
+      return `
+        <article class="program-card-compact program-tone-${item.tone}">
+          ${mediaMarkup[item.media] || ""}
+          <div class="program-card-copy">
+            <h3>${escHtml(item.title[lang])}</h3>
+            <p>${escHtml(item.copy[lang])}</p>
+            <ul>${bullets}</ul>
+            <a class="program-cta-link" href="./partnership.html">${escHtml(item.cta[lang])}</a>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function setupProgramAnimations() {
+  const prefersReducedMotion =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) return;
+}
+
+function setupIncomeCalculator(lang) {
+  if (page !== "partnership") return;
+
+  const volumeRange = document.getElementById("volumeRange");
+  const daysRange = document.getElementById("daysRange");
+  const volumeValue = document.getElementById("volumeValue");
+  const daysValue = document.getElementById("daysValue");
+  const commissionValue = document.getElementById("commissionValue");
+  const copy = window.SITE_DATA.text[lang].partnership;
+  const commissionRate = 0.07;
+
+  if (!volumeRange || !daysRange || !volumeValue || !daysValue || !commissionValue) return;
+
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 0
+  });
+
+  const render = () => {
+    const volume = Number(volumeRange.value);
+    const days = Number(daysRange.value);
+    const total = volume * days * commissionRate;
+
+    volumeValue.textContent = formatter.format(volume);
+    daysValue.textContent = `${days} ${copy.dayUnit}`;
+    commissionValue.textContent = formatter.format(total);
+  };
+
+  if (!volumeRange.dataset.bound) {
+    volumeRange.addEventListener("input", render);
+    volumeRange.dataset.bound = "true";
+  }
+
+  if (!daysRange.dataset.bound) {
+    daysRange.addEventListener("input", render);
+    daysRange.dataset.bound = "true";
+  }
+
+  render();
 }
 
 function renderPageData(lang) {
@@ -220,6 +284,8 @@ function renderPageData(lang) {
 
   if (page === "partnership") {
     renderPartnershipShowcase(lang);
+    setupProgramAnimations();
+    setupIncomeCalculator(lang);
     renderFaqs(lang, "partnershipFaqList", window.SITE_DATA.partnership.faqs);
   }
 }
