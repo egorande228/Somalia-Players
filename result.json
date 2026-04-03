@@ -1,21 +1,5 @@
 {
-  "sports": [
-    {
-      "name": "Football",
-      "slug": "football",
-      "image": ""
-    },
-    {
-      "name": "Tennis",
-      "slug": "tennis",
-      "image": ""
-    },
-    {
-      "name": "Basketball",
-      "slug": "basketball",
-      "image": ""
-    }
-  ],
+  "sports": [],
   "casino": [
     {
       "name": "Chicken Road",
