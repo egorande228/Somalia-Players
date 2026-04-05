@@ -1,20 +1,20 @@
 {
-  "sports": [],
-  "casino": [
+  "sports": [
     {
-      "name": "Chicken Road",
-      "slug": "chicken-road",
-      "image": "https://v3.traincdn.com/genfiles/third-party-files/08724d8b-de79-474b-b94f-52799c706bdb.jpg"
+      "name": "Football",
+      "slug": "football",
+      "image": ""
     },
     {
-      "name": "King Of Vikings",
-      "slug": "king-of-vikings",
-      "image": "https://v3.traincdn.com/genfiles/third-party-files/a3e19810-4f7d-41c1-95b1-e4df3572788e.jpeg"
+      "name": "Tennis",
+      "slug": "tennis",
+      "image": ""
     },
     {
-      "name": "Captain Sharky",
-      "slug": "captain-sharky",
-      "image": "https://v3.traincdn.com/genfiles/third-party-files/e1e52372-f20f-48a8-bdc7-f8164d83d0e6.jpeg"
+      "name": "Basketball",
+      "slug": "basketball",
+      "image": ""
     }
-  ]
+  ],
+  "casino": []
 }
