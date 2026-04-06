@@ -1,5 +1,5 @@
 window.SITE_DATA = {
-  assetVersion: "20260405",
+  assetVersion: "20260406",
   agents: [
     { name: "Ahmed Ali",     city: "Mogadishu", tier: "elite",  lat: 2.0469,   lng: 45.3182, whatsapp: "+252612345678", telegram: "ahmed_ali"     },
     { name: "Fadumo Omar",   city: "Hargeisa",  tier: "gold",   lat: 9.56,     lng: 44.064,  whatsapp: "+252634567890", telegram: "fadumo_omar"   },
