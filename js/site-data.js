@@ -251,7 +251,7 @@ window.SITE_DATA = {
         meta: { en: "Live top game on Melbet", so: "Ciyaarta sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/casino",
-        image: "./images/game-chicken-road.jpg"
+        image: "./images/game-chicken-road.webp"
       },
       {
         key: "king-of-vikings",
@@ -259,7 +259,7 @@ window.SITE_DATA = {
         meta: { en: "Live top game on Melbet", so: "Ciyaarta sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/casino",
-        image: "./images/game-king-of-vikings.jpg"
+        image: "./images/game-king-of-vikings.webp"
       },
       {
         key: "captain-sharky",
@@ -267,7 +267,7 @@ window.SITE_DATA = {
         meta: { en: "Live top game on Melbet", so: "Ciyaarta sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/casino",
-        image: "./images/game-captain-sharky.jpg"
+        image: "./images/game-captain-sharky.webp"
       },
       {
         key: "sugar-rush",

@@ -1,36 +1,20 @@
 {
-  "sports": [
-    {
-      "name": "Football",
-      "slug": "football",
-      "image": ""
-    },
-    {
-      "name": "Tennis",
-      "slug": "tennis",
-      "image": ""
-    },
-    {
-      "name": "Basketball",
-      "slug": "basketball",
-      "image": ""
-    }
-  ],
+  "sports": [],
   "casino": [
     {
       "name": "Chicken Road",
       "slug": "chicken-road",
-      "image": "https://v3.traincdn.com/genfiles/third-party-files/08724d8b-de79-474b-b94f-52799c706bdb.jpg"
+      "image": "https://melbet-583603.pro/genfiles/third-party-files/af1cf72c-f000-4f7e-a000-3e45b0af6aeb_auto.webp"
     },
     {
       "name": "King Of Vikings",
       "slug": "king-of-vikings",
-      "image": "https://v3.traincdn.com/genfiles/third-party-files/a3e19810-4f7d-41c1-95b1-e4df3572788e.jpeg"
+      "image": "https://melbet-583603.pro/genfiles/third-party-files/66b72174-7839-464e-bb88-5c961e5d1357_auto.webp"
     },
     {
       "name": "Captain Sharky",
       "slug": "captain-sharky",
-      "image": "https://v3.traincdn.com/genfiles/third-party-files/e1e52372-f20f-48a8-bdc7-f8164d83d0e6.jpeg"
+      "image": "https://melbet-583603.pro/genfiles/third-party-files/a34d592c-f080-4da5-bc97-8d9330679b78_auto.webp"
     }
   ]
 }
