@@ -1,4 +1,20 @@
 {
   "sports": [],
-  "casino": []
+  "casino": [
+    {
+      "name": "Queen Halloween",
+      "slug": "queen-halloween",
+      "image": "https://v3.traincdn.com/genfiles/third-party-files/bf8616b0-f5e4-4efe-bd9e-5510b20cad97_auto.webp"
+    },
+    {
+      "name": "King Of Vikings",
+      "slug": "king-of-vikings",
+      "image": "https://v3.traincdn.com/genfiles/third-party-files/66b72174-7839-464e-bb88-5c961e5d1357_auto.webp"
+    },
+    {
+      "name": "Queen Halloween Deluxe",
+      "slug": "queen-halloween-deluxe",
+      "image": "https://v3.traincdn.com/genfiles/third-party-files/dc505696-e43e-428f-8cc6-27a720d90310_auto.webp"
+    }
+  ]
 }

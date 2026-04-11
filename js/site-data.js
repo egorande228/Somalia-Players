@@ -246,12 +246,12 @@ window.SITE_DATA = {
   home: {
     games: [
       {
-        key: "chicken-road",
-        title: { en: "Chicken Road", so: "Chicken Road" },
+        key: "queen-halloween",
+        title: { en: "Queen Halloween", so: "Queen Halloween" },
         meta: { en: "Live top game on Melbet", so: "Ciyaarta sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/casino",
-        image: "./images/game-chicken-road.webp"
+        image: "./images/game-queen-halloween.webp"
       },
       {
         key: "king-of-vikings",
@@ -262,12 +262,12 @@ window.SITE_DATA = {
         image: "./images/game-king-of-vikings.webp"
       },
       {
-        key: "captain-sharky",
-        title: { en: "Captain Sharky", so: "Captain Sharky" },
+        key: "queen-halloween-deluxe",
+        title: { en: "Queen Halloween Deluxe", so: "Queen Halloween Deluxe" },
         meta: { en: "Live top game on Melbet", so: "Ciyaarta sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/casino",
-        image: "./images/game-captain-sharky.webp"
+        image: "./images/game-queen-halloween-deluxe.webp"
       },
       {
         key: "sugar-rush",
