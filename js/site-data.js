@@ -262,12 +262,12 @@ window.SITE_DATA = {
         image: "./images/game-king-of-vikings.webp"
       },
       {
-        key: "queen-halloween-deluxe",
-        title: { en: "Queen Halloween Deluxe", so: "Queen Halloween Deluxe" },
+        key: "fruits-and-stars-christmas",
+        title: { en: "Fruits and Stars Christmas", so: "Fruits and Stars Christmas" },
         meta: { en: "Live top game on Melbet", so: "Ciyaarta sare ee tooska ah ee Melbet" },
         players: "Trend",
         href: "https://melbet-583603.pro/en/casino",
-        image: "./images/game-queen-halloween-deluxe.webp"
+        image: "./images/game-fruits-and-stars-christmas.webp"
       },
       {
         key: "sugar-rush",
